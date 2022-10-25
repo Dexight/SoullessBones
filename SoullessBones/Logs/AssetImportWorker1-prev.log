@@ -362,3 +362,84 @@ Received Import Request.
   path: Assets/Sprites/Ground/web(16x16).png
   artifactKey: Guid(95a05f94a94a684479f1311ab48385e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Sprites/Ground/web(16x16).png using Guid(95a05f94a94a684479f1311ab48385e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad306ca00ca64fc1ea06803c02fa8aac') in 0.080617 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 530.060616 seconds.
+  path: Assets/Sprites/Player/SwordTrail2.png
+  artifactKey: Guid(215511760426bd24296344cbed616f09) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Player/SwordTrail2.png using Guid(215511760426bd24296344cbed616f09) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'd6bbd35c36b913427b0da2fa1bf7c46e') in 0.130217 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Sprites/Player/Run (32x32).png
+  artifactKey: Guid(191081d7050002e4a8b909528de35454) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Player/Run (32x32).png using Guid(191081d7050002e4a8b909528de35454) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '7e624c205ec83606f5573b9932e4dea8') in 0.047415 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Sprites/Player/Fall (32x32).png
+  artifactKey: Guid(350672a712ec17b47a67cf50d820efc2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Player/Fall (32x32).png using Guid(350672a712ec17b47a67cf50d820efc2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '2c4b29cd5b44084f41e09dafc083a298') in 0.023882 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/Player/SwordTrailUp.png
+  artifactKey: Guid(08fd4cc7bb499c04584fb4de679ddf93) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Player/SwordTrailUp.png using Guid(08fd4cc7bb499c04584fb4de679ddf93) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a542d6d63be2ebe2991dd64b6cf742ed') in 0.019268 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Sprites/Buttons
+  artifactKey: Guid(5eb7f79791cc9c046811c3946904bd7c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Buttons using Guid(5eb7f79791cc9c046811c3946904bd7c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'af237493e6adca45ddb17f02ed41138c') in 0.009447 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Ground
+  artifactKey: Guid(7da5c93a01ac28b468ef832a9d11cb47) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Ground using Guid(7da5c93a01ac28b468ef832a9d11cb47) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '33938da4fb9efff0174e37c26bed8d8f') in 0.009105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Sprites/HP/HeatPoint(16x16).png
+  artifactKey: Guid(eaa15e60dfc463240b5b8d6f6ae04a91) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/HP/HeatPoint(16x16).png using Guid(eaa15e60dfc463240b5b8d6f6ae04a91) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '4c1d52f62e0492ef7a08a03ab4996f42') in 0.026994 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/Player/Jump (32x32).png
+  artifactKey: Guid(24c8a47f58e18e549befa66395868274) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Player/Jump (32x32).png using Guid(24c8a47f58e18e549befa66395868274) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'a376f093c1ca1477762f0c2d3890e50b') in 0.021114 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Sprites/Ground/Terrain v2 (16x16).png
+  artifactKey: Guid(8de8c46518be9734aab113f7bffe7a9d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Ground/Terrain v2 (16x16).png using Guid(8de8c46518be9734aab113f7bffe7a9d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'fee172d791631106b2458ce5e80fdd35') in 0.077605 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Sprites/Crow/Crow_Fly1.png
+  artifactKey: Guid(8227fa3a082d08f48955d11b9a578c36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Crow/Crow_Fly1.png using Guid(8227fa3a082d08f48955d11b9a578c36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: '5e2828f234d9c451858cf5266e11362d') in 0.035904 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Sprites/Player
+  artifactKey: Guid(72cd5110167ca2d4998285a7e9e9da57) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sprites/Player using Guid(72cd5110167ca2d4998285a7e9e9da57) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
+ -> (artifact id: 'b415305cf6a0ad61ef74c6b495509867') in 0.009331 seconds 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
