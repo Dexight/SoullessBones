@@ -68,7 +68,7 @@ public class AttackSystem : MonoBehaviour
 
     public void PreDelete()
     {
-        if (!(LastObject == null  && (LastObject == SlashLeft || LastObject == SlashRight)))
+        if (!(LastObject == null && (LastObject == SlashLeft || LastObject == SlashRight)))
             Destroy(LastObject);
     }
 }

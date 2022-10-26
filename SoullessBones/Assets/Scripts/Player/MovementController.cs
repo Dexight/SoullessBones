@@ -7,7 +7,7 @@ public class MovementController : MonoBehaviour
     [Header("ObjectReferences")]
     private Animator anim;
     [HideInInspector] public Rigidbody2D rb;
-    //private WallJumping wallJumping;
+    private WallJumping wallJumping;
     #endregion
 
     #region Horizontal move Variables
@@ -44,7 +44,7 @@ public class MovementController : MonoBehaviour
 
     private void Start()
     {   
-        //wallJumping = GetComponent<WallJumping>();
+        wallJumping = GetComponent<WallJumping>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         JumpForce = 6.5f;
@@ -55,8 +55,8 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        //isWallSliding = wallJumping.isWallSliding;
-        //isTouchingWall = wallJumping.isTouchingWall;
+        isWallSliding = wallJumping.isWallSliding;
+        isTouchingWall = wallJumping.isTouchingWall;
 
         if(_CanMove)
             HorizontalMove();
@@ -89,7 +89,7 @@ public class MovementController : MonoBehaviour
         if (_moveInput != 0 && (_moveInput > 0) != facingRight && !isWallSliding)
         {
             FlipCur();
-            //GetComponent<AttackSystem>().PreDelete();
+            GetComponent<AttackSystem>().PreDelete();
         }
     }
 

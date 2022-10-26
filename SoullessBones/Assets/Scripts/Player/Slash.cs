@@ -50,6 +50,6 @@ public class Slash : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = isDamageDone ? Color.green : Color.red;
-        Gizmos.DrawWireSphere(attackPos.position + new Vector3(0, Upper, 0), attackRange);
+        Gizmos.DrawWireSphere(attackPos.position + new Vector3(0, Upper, 0), attackRange);  
     }
 }   
