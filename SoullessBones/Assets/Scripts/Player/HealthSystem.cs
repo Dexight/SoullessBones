@@ -32,13 +32,16 @@ public class HealthSystem : MonoBehaviour
         {
             hearts[i].sprite = i < Mathf.RoundToInt(health) ? fullHeart : emptyHeart; //определяем когда полное, а когда пустое
             hearts[i].enabled = i < numOfHearts;                                     //для изменения максимального количества сердец
-            if (health < 1) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (health < 1)
+            {
+                health = numOfHearts;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
     }
     bool CanTakeDamage = true;
     public void TakeDamage(float damage)
     {
-        //GetComponent<MovementController>().rb.WakeUp();//чтобы во время OnTriggerStay компонент Rigidbody не уходил в спящий режим
         if (godMod)
             damage = 0;
         if (CanTakeDamage)

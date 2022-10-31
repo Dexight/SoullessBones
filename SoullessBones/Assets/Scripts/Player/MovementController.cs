@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
     [Header("ObjectReferences")]
     private Animator anim;
     [HideInInspector] public Rigidbody2D rb;
+    public int DirectionX;
     private WallJumping wallJumping;
     #endregion
 
@@ -28,18 +29,10 @@ public class MovementController : MonoBehaviour
     public bool isTouchingWall;
     public static bool isWallSliding;
     #endregion
-
-    #region Vertical move
     #region Jump Variables
     [Header("Jump Variables")]
     [Range(0, 10f)] public float JumpForce;
     public int jumpCount;
-    #endregion
-    #region Wall Jumping Variables
-    [Header("WallJumping")]
-    public int DirectionX;
-    #endregion
-
     #endregion
 
     private void Start()
@@ -47,7 +40,7 @@ public class MovementController : MonoBehaviour
         wallJumping = GetComponent<WallJumping>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        JumpForce = 6.5f;
+        JumpForce = 6.6f;
         jumpCount = 1;
         checkSize = new Vector2(0.52f, -0.01f);
         _CanMove = true;
