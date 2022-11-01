@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
+
 public class SceneFader : MonoBehaviour
 {
     public Image blackImage;
@@ -37,8 +39,14 @@ public class SceneFader : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
         if (load)
-            SceneManager.LoadScene(sceneName);
+            StartCoroutine(Loading(sceneName));
         StartCoroutine(FadeIn());
+    }
+    private IEnumerator Loading(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+        yield return true;
+        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = GameManager.instance.Player.transform;
     }
 }
 

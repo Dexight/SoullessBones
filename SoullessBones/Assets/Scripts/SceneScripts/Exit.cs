@@ -16,7 +16,7 @@ public class Exit : MonoBehaviour
     {
         if(other.tag == "Player" && !gone)
         {
-            Singleton.instance.scenePassword = newScenePassword;
+            GameManager.instance.scenePassword = newScenePassword;
             FindObjectOfType<SceneFader>().FadeTo(sceneName, true);
             gone = true;
         }

@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     #region Singleton Variables
 
-    public static Singleton instance;
-    public GameObject CMcamera;
-    public GameObject playerCamera;
+    public static GameManager instance;
+    public GameObject Player;
     public GameObject Interface;
     public string scenePassword;//сохраняет строку, когда игрок переходит на другую сцену
 
@@ -27,8 +26,7 @@ public class Singleton : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(CMcamera);
-        DontDestroyOnLoad(playerCamera);
+        DontDestroyOnLoad(Player);
         DontDestroyOnLoad(Interface);
     }
 }
