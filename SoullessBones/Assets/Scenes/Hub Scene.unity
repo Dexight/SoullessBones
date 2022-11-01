@@ -559,7 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234787759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.047691, y: 9.90051, z: -9.76}
+  m_LocalPosition: {x: 20.048788, y: 9.8505, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -776,7 +776,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405516374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.6, y: 1.34, z: 0}
+  m_LocalPosition: {x: 22.31, y: 1.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 405516376}
   sceneName: level_01
-  newScenePassword: level_01
+  newScenePassword: level_01_00
 --- !u!1 &427874172
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 478331405}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -973,10 +973,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1265347557}
-  CMcamera: {fileID: 234787759}
-  playerCamera: {fileID: 2095284926}
+  rb: {fileID: 0}
   Interface: {fileID: 1332763463}
-  scenePassword: 
+  scenePassword: level_01_00
 --- !u!4 &478331406
 Transform:
   m_ObjectHideFlags: 0
@@ -2923,7 +2922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265347557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.96, y: 9.56, z: 0}
+  m_LocalPosition: {x: 19.86, y: 9.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3719,7 +3718,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095284926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.96, y: 9.900522, z: -9.76}
+  m_LocalPosition: {x: 19.86, y: 9.850522, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

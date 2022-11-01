@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class Entrance : MonoBehaviour
 {
-    public string entrancePassword;
+    public string entrancePassword; //ѕароль, по которому мы спавнимс€ у конкретного входа в локацию.
 
     void Start()
     {
         if(GameManager.instance.scenePassword == entrancePassword || GameManager.instance.scenePassword == "after_development")
         {
-            GameManager.instance.Player.transform.position = transform.position;//transform.position наша точка спавна
+            GameManager.instance.Player.transform.position = transform.position;//наша точка спавна
         }
-        else
-        {
-            Debug.Log("WrongPw(Something went wrong)");
-        }
-    }
-
-    void Update()
-    {
-        
     }
 }

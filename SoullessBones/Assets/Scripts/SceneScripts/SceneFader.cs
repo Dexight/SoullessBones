@@ -23,14 +23,17 @@ public class SceneFader : MonoBehaviour
         alpha = 1;
         while(alpha > 0)
         {
+            GameManager.instance.rb.velocity = new Vector2(0, GameManager.instance.rb.velocity.y);
             alpha -= Time.deltaTime;
             blackImage.color = new Color(0, 0, 0, alpha);
             yield return new WaitForSeconds(0);
         }
+        GameManager.instance.Player.GetComponent<MovementController>()._CanMove = true;
     }
 
     private IEnumerator FadeOut(string sceneName, bool load)
     {
+        GameManager.instance.Player.GetComponent<MovementController>()._CanMove = false;
         alpha = 0;
         while(alpha < 1)
         {

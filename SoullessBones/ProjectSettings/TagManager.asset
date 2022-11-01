@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Interface
   - PlayerCamera
+  - GameManager
   layers:
   - Default
   - TransparentFX
