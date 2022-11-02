@@ -4,6 +4,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     #region Other Variables
+    private static MovementController instance;
     [Header("ObjectReferences")]
     private Animator anim;
     [HideInInspector] public Rigidbody2D rb;
@@ -34,6 +35,19 @@ public class MovementController : MonoBehaviour
     [Range(0, 10f)] public float JumpForce;
     public int jumpCount;
     #endregion
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+                Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {   

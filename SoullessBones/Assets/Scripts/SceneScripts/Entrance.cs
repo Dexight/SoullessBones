@@ -8,9 +8,10 @@ public class Entrance : MonoBehaviour
 
     void Start()
     {
-        if(GameManager.instance.scenePassword == entrancePassword || GameManager.instance.scenePassword == "after_development")
-        {
-            GameManager.instance.Player.transform.position = transform.position;//наша точка спавна
-        }
+        if(GameManager.instance)
+            if(GameManager.instance.scenePassword == entrancePassword || GameManager.instance.scenePassword == "after_development")
+            {
+                GameManager.instance.Player.transform.position = transform.position;//наша точка спавна
+            }
     }
 }

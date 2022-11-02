@@ -4,13 +4,23 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Cinemachine;
 
-public class SceneFader : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
     public Image blackImage;
     [SerializeField]private float alpha;
+    private static SceneLoader instance;
 
-    private void Start()
+    private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if (instance != this)
+                Destroy(gameObject);
+        }
     }
     
     public void FadeTo(string sceneName, bool load)
@@ -24,6 +34,7 @@ public class SceneFader : MonoBehaviour
         while(alpha > 0)
         {
             GameManager.instance.rb.velocity = new Vector2(0, GameManager.instance.rb.velocity.y);
+            GameManager.instance.Player.GetComponent<Animator>().SetBool("isRunning", false);
             alpha -= Time.deltaTime;
             blackImage.color = new Color(0, 0, 0, alpha);
             yield return new WaitForSeconds(0);

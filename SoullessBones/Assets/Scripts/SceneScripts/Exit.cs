@@ -7,18 +7,20 @@ public class Exit : MonoBehaviour
     public BoxCollider2D trigger;
     [SerializeField] private string sceneName;
     [SerializeField] private string newScenePassword;
+    private SceneLoader loader;
     void Awake()
     {
         trigger = GetComponent<BoxCollider2D>();
+        loader = FindObjectOfType<SceneLoader>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player" && !gone)
         {
-            GameManager.instance.scenePassword = newScenePassword;
-            FindObjectOfType<SceneFader>().FadeTo(sceneName, true);
-            gone = true;
+                GameManager.instance.scenePassword = newScenePassword;
+                loader.FadeTo(sceneName, true);
+                gone = true;
         }
     }
 
