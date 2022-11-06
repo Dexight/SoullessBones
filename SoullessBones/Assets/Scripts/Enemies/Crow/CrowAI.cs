@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CrowAI : MonoBehaviour
 {
     #region Variables
     private Transform _transform;
+    private Animator _animator;
     private Transform _player;
     private Collider2D[] _playerCollider;
     private Rigidbody2D _rigidbody;
@@ -23,11 +25,15 @@ public class CrowAI : MonoBehaviour
     [Header("Conditions")]
     [SerializeField] private bool facingRight;
     private bool Slowly = false;
+    [Header("TimeStop")]
+    TimeManager timeManager;
     #endregion
 
     void Start()
-    {   
+    {
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _animator = GetComponent<Animator>();
         _playerCollider = _player.GetComponents<Collider2D>();
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -50,17 +56,26 @@ public class CrowAI : MonoBehaviour
     }
 
     void FixedUpdate()
-   {
-        //замедляется при приближении к игроку
-        if (!Slowly)
-            NormalAttack();
+    {
+        if (!timeManager.TimeIsStopped)
+        {
+            _animator.enabled = true;
+            _animator.SetTrigger("toFly");
+            //замедляется при приближении к игроку
+            if (!Slowly)
+                NormalAttack();
+            else
+                SlowlyAttack();
+        }
         else
-            SlowlyAttack();
+        {
+            _animator.enabled = false;
+        }
     }
-
     private void NormalAttack()
     {
         _transform.position = Vector2.MoveTowards(_transform.position, _player.position, _normalSpeed * Time.fixedDeltaTime);
+        
     }
 
     private void SlowlyAttack()
@@ -88,12 +103,4 @@ public class CrowAI : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
- 
-    //private void OnTriggerStay2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        FindObjectOfType<HealthSystem>().TakeDamage(damage);
-    //    }
-    //}
 }
