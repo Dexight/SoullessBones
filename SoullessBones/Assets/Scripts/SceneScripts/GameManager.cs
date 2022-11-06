@@ -25,11 +25,9 @@ public class GameManager : MonoBehaviour
             if (instance != this)
                 Destroy(gameObject);
         }
-
-        DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(Interface);
-        
+        DontDestroyOnLoad(gameObject);
         rb = Player.GetComponent<Rigidbody2D>();
     }
 }

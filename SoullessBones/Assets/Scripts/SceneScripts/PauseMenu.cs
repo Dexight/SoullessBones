@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static GameManager;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
             {
@@ -43,9 +42,9 @@ public class PauseMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
+        GameManager.instance.scenePassword = "menu";
         SceneManager.LoadScene(0);
     }
-
     //TODO: Реализовать переход из  меню паузы в меню опций
     public void Settings()
     {
