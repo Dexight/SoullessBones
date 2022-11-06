@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region Singleton Variables
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(Interface);
-
+        
         rb = Player.GetComponent<Rigidbody2D>();
     }
 }
