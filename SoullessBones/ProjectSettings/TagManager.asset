@@ -12,6 +12,7 @@ TagManager:
   - Interface
   - PlayerCamera
   - GameManager
+  - TimeManager
   layers:
   - Default
   - TransparentFX
