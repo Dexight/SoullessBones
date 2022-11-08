@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public Rigidbody2D rb;
     public GameObject Interface;
+    public GameObject timeManager;
     public string scenePassword;//сохраняет строку, когда игрок переходит на другую сцену
 
     #endregion
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(Player);
         DontDestroyOnLoad(Interface);
+        DontDestroyOnLoad(timeManager);
         DontDestroyOnLoad(gameObject);
         rb = Player.GetComponent<Rigidbody2D>();
     }
