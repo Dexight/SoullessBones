@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
             {
                 Destroy(GameManager.instance.Player);
                 Destroy(GameManager.instance.Interface);
+                Destroy(GameManager.instance.timeManager);
             }
         }
     }
