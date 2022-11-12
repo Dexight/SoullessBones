@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public Image blackImage;
     [SerializeField]private float alpha;
+    [SerializeField] private GameObject Player;
     private static SceneLoader instance;
 
     private void Awake()
@@ -21,6 +22,8 @@ public class SceneLoader : MonoBehaviour
             if (instance != this)
                 Destroy(gameObject);
         }
+
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
     
     public void FadeTo(string sceneName, bool load)
@@ -60,7 +63,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         yield return true;
-        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = GameManager.instance.Player.transform;
+        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
     }
 }
 

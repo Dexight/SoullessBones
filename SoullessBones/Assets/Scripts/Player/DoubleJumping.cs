@@ -3,16 +3,21 @@ using UnityEngine;
 
 public class DoubleJumping : MonoBehaviour
 {
+    private MovementController movementController;
+    private void Awake()
+    {
+        movementController = GetComponent<MovementController>();
+    }
     void Update()
     {
         DoubleJump();
     }
     private void DoubleJump()
     {
-        if (!GetComponent<MovementController>().isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && (GetComponent<MovementController>().jumpCount == 1) && !MovementController.isWallSliding)
+        if (!movementController.isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && (movementController.jumpCount == 1) && !movementController.isWallSliding && movementController._CanMove)
         {
-            GetComponent<MovementController>().Jump();
-            GetComponent<MovementController>().jumpCount = 0;
+            movementController.Jump();
+            movementController.jumpCount = 0;
         }
     }
 }

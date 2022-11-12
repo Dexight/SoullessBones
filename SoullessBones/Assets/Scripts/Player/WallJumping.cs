@@ -8,6 +8,7 @@ public class WallJumping : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private MovementController movementController;
+    private TimeManager timeManager;
     #endregion
 
     #region Wall Sliding
@@ -29,11 +30,12 @@ public class WallJumping : MonoBehaviour
     private Vector2 realClimbJumpForce;
     #endregion
 
-    void Start()
+    void Awake()
     {
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
         movementController = GetComponent<MovementController>();
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();  
     }
 
     void Update()
@@ -52,7 +54,7 @@ public class WallJumping : MonoBehaviour
             WallJump();
 
             movementController._moveInput *= -1;
-            StartCoroutine(WallSlideCoroutine());
+            StartCoroutine(WallJumpCoroutine());
         }
     }
 
@@ -85,14 +87,18 @@ public class WallJumping : MonoBehaviour
         realClimbJumpForce.x = climbJumpForce.x * DirectionX;
         realClimbJumpForce.y = climbJumpForce.y;
         rb.velocity = new Vector2(0, 0);
-        rb.AddForce(realClimbJumpForce, ForceMode2D.Impulse);
+        if (!timeManager.TimeIsStopped)
+            rb.AddForce(realClimbJumpForce, ForceMode2D.Impulse);
         movementController.jumpCount = 1;
     }
-    private IEnumerator WallSlideCoroutine()
+    private IEnumerator WallJumpCoroutine()
     {
         yield return new WaitForSeconds(0.2f);
-        movementController._CanMove = true;
-        rb.velocity = Vector2.up * (movementController.JumpForce / 2);
+        if (!timeManager.TimeIsStopped)
+        {
+            rb.velocity = Vector2.up * (movementController.JumpForce / 2);
+            movementController._CanMove = true;
+        }
     }
     #endregion
 

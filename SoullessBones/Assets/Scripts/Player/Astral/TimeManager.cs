@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Cinemachine.CinemachineTriggerAction.ActionSettings;
 
 public class TimeManager : MonoBehaviour
 {
     public bool TimeIsStopped;
+    private MovementController movementController;
     private static TimeManager instance; //только один на сцене (синглтон)
 
     private void Awake()
@@ -19,6 +17,7 @@ public class TimeManager : MonoBehaviour
             if (instance != this)
                 Destroy(gameObject);
         }
+        movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
     }
     public void ContinueTime()
     {
@@ -33,5 +32,6 @@ public class TimeManager : MonoBehaviour
     public void StopTime()
     {
         TimeIsStopped = true;
+        movementController._CanMove = false;
     }
 }

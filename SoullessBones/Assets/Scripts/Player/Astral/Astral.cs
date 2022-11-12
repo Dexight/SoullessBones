@@ -1,27 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class Astral : MonoBehaviour
 {
-    private TimeManager timemanager;
-    //public GrayscaleLayers Grayscale;
+    private TimeManager timeManager;
+    private MovementController movementController;
+    private Animator _animator;
+    [SerializeField] private GameObject ghostPrefab;
     void Start()
     {
-        timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
-
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+        movementController = GetComponent<MovementController>();
+        _animator = GetComponent<Animator>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) //Stop Time when Q is pressed
+
+        if (!timeManager.TimeIsStopped)
         {
-            timemanager.StopTime();
-            //Grayscale.enabled = true;
+            _animator.enabled = true;
         }
-        if (Input.GetKeyDown(KeyCode.E) && timemanager.TimeIsStopped)  //Continue Time when E is pressed
+        else
         {
-            timemanager.ContinueTime();
-            //Grayscale.enabled = false;
+            _animator.enabled = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Q)) //&& !movementController.isWallSliding) //Stop Time when Q is pressed
+        {
+            if (!timeManager.TimeIsStopped)
+            {
+                timeManager.StopTime();
+                spawnGhost();
+            }
+            else
+            {
+                timeManager.ContinueTime(); //Cancel when Q is pressed again
+                cancelAstral();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && timeManager.TimeIsStopped)  //Continue Time and teleport when E is pressed
+        {
+            timeManager.ContinueTime();
+            teleport_to_ghost();
+        }
+    }
+
+    GameObject prefab; 
+    void spawnGhost()
+    {
+       prefab = Instantiate(ghostPrefab, transform.position, Quaternion.identity);
+       GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = prefab.transform;
+    }
+
+    void cancelAstral()
+    {
+        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = transform;
+        movementController._CanMove = true;
+        Destroy(prefab);
+    }
+
+    void teleport_to_ghost()
+    {
+        transform.position = prefab.transform.position;
+        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = transform;
+        if (prefab.GetComponent<GhostMovement>().facingRight != movementController.facingRight)
+            movementController.FlipCur();
+        movementController._CanMove = true;
+        Destroy(prefab);
     }
 }

@@ -28,7 +28,7 @@ public class MovementController : MonoBehaviour
     public LayerMask Ground;
     [Header("Touching wall")]
     public bool isTouchingWall;
-    public static bool isWallSliding;
+    public bool isWallSliding;
     #endregion
     #region Jump Variables
     [Header("Jump Variables")]
@@ -100,7 +100,7 @@ public class MovementController : MonoBehaviour
         }
     }
 
-    private void FlipCur()
+    public void FlipCur()
     {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
@@ -120,7 +120,7 @@ public class MovementController : MonoBehaviour
 
     private void NormalJump()
     {
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && jumpCount == 1)
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && jumpCount == 1 && _CanMove)
         {
             Jump();
         }

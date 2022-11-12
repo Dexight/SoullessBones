@@ -59,17 +59,12 @@ public class CrowAI : MonoBehaviour
     {
         if (!timeManager.TimeIsStopped)
         {
-            _animator.enabled = true;
             _animator.SetTrigger("toFly");
             //замедляется при приближении к игроку
             if (!Slowly)
                 NormalAttack();
             else
                 SlowlyAttack();
-        }
-        else
-        {
-            _animator.enabled = false;
         }
     }
     private void NormalAttack()

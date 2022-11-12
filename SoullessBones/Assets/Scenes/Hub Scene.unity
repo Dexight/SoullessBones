@@ -3426,6 +3426,7 @@ GameObject:
   - component: {fileID: 1265347568}
   - component: {fileID: 1265347569}
   - component: {fileID: 1265347570}
+  - component: {fileID: 1265347571}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -3458,6 +3459,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 576
   isTouchingWall: 0
+  isWallSliding: 0
   JumpForce: 0
   jumpCount: 0
 --- !u!50 &1265347559
@@ -3724,6 +3726,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b21d4c7e4d38f408d016b8a6adb158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
+--- !u!114 &1265347571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265347557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10ef4489b91f554a8ae8d16512bb19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeBeforeAffected: 0
 --- !u!1 &1314637726
 GameObject:
   m_ObjectHideFlags: 0
@@ -3976,6 +3992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackImage: {fileID: 1785790636}
   alpha: 0
+  Player: {fileID: 0}
 --- !u!1 &1400391473
 GameObject:
   m_ObjectHideFlags: 0
@@ -5216,7 +5233,7 @@ GameObject:
   - component: {fileID: 2095284927}
   m_Layer: 0
   m_Name: PlayerCamera
-  m_TagString: Untagged
+  m_TagString: PlayerCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
