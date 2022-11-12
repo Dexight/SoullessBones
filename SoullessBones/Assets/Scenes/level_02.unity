@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 371970569}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 3.405219
@@ -248,7 +248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86308638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.65, y: -5.087478, z: -9.76}
+  m_LocalPosition: {x: -7.48, y: -5.1374784, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -814,6 +814,7 @@ GameObject:
   - component: {fileID: 371970559}
   - component: {fileID: 371970558}
   - component: {fileID: 371970557}
+  - component: {fileID: 371970570}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -833,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39b21d4c7e4d38f408d016b8a6adb158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
 --- !u!114 &371970558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -961,6 +963,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 576
   isTouchingWall: 0
+  isWallSliding: 0
   JumpForce: 0
   jumpCount: 0
 --- !u!50 &371970564
@@ -1102,7 +1105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371970556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.34, y: -5.47, z: 0}
+  m_LocalPosition: {x: -7.48, y: -5.478, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1112,6 +1115,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371970570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371970556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10ef4489b91f554a8ae8d16512bb19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeBeforeAffected: 0
 --- !u!1 &435722815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,6 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackImage: {fileID: 302171269}
   alpha: 0
+  Player: {fileID: 0}
 --- !u!114 &950216853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2218,7 +2235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032216285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8847404, y: -5.08344, z: -9.76}
+  m_LocalPosition: {x: -2.8846154, y: -5.1335797, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

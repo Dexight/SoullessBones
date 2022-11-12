@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallJumping : MonoBehaviour
+public class GhostWallJump : MonoBehaviour
 {
     #region Other   
     private Transform player;
     private Rigidbody2D rb;
-    private MovementController movementController;
-    private TimeManager timeManager;
+    private GhostMovement movementController;
     #endregion
 
     #region Wall Sliding
@@ -19,8 +18,8 @@ public class WallJumping : MonoBehaviour
     [SerializeField] Vector2 wallCheckSize;
     [Range(0, 3)] public float SlideSpeedUp;
 
-    [HideInInspector]public bool isTouchingWall;
-    [HideInInspector]public bool isWallSliding;
+    [HideInInspector] public bool isTouchingWall;
+    [HideInInspector] public bool isWallSliding;
     #endregion
 
     #region Wall Jumping Variables
@@ -30,12 +29,11 @@ public class WallJumping : MonoBehaviour
     private Vector2 realClimbJumpForce;
     #endregion
 
-    void Awake()
+    void Start()
     {
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
-        movementController = GetComponent<MovementController>();
-        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();  
+        movementController = GetComponent<GhostMovement>();
     }
 
     void Update()
@@ -54,7 +52,7 @@ public class WallJumping : MonoBehaviour
             WallJump();
 
             movementController._moveInput *= -1;
-            StartCoroutine(WallJumpCoroutine());
+            StartCoroutine(WallSlideCoroutine());
         }
     }
 
@@ -65,13 +63,8 @@ public class WallJumping : MonoBehaviour
 
         if (isWallSliding)
         {
-            GetComponent<AttackSystem>().onWall = true;
             movementController._CanMove = true;
             rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
-        }
-        else
-        {
-            GetComponent<AttackSystem>().onWall = false;
         }
 
         if (isWallSliding && Input.GetKey(KeyCode.S))
@@ -87,18 +80,14 @@ public class WallJumping : MonoBehaviour
         realClimbJumpForce.x = climbJumpForce.x * DirectionX;
         realClimbJumpForce.y = climbJumpForce.y;
         rb.velocity = new Vector2(0, 0);
-        if (!timeManager.TimeIsStopped)
-            rb.AddForce(realClimbJumpForce, ForceMode2D.Impulse);
+        rb.AddForce(realClimbJumpForce, ForceMode2D.Impulse);
         movementController.jumpCount = 1;
     }
-    private IEnumerator WallJumpCoroutine()
+    private IEnumerator WallSlideCoroutine()
     {
         yield return new WaitForSeconds(0.2f);
-        if (!timeManager.TimeIsStopped)
-        {
-            rb.velocity = Vector2.up * (movementController.JumpForce / 2);
-            movementController._CanMove = true;
-        }
+        movementController._CanMove = true;
+        rb.velocity = Vector2.up * (movementController.JumpForce / 2);
     }
     #endregion
 

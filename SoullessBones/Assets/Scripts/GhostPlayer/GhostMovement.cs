@@ -1,15 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+public class GhostMovement : MonoBehaviour
 {
     #region Other Variables
-    private static MovementController instance;
+    private static GhostMovement instance;
     [Header("ObjectReferences")]
     private Animator anim;
     [HideInInspector] public Rigidbody2D rb;
     public int DirectionX;
-    private WallJumping wallJumping;
+    private GhostWallJump wallJumping;
     #endregion
 
     #region Horizontal move Variables
@@ -28,7 +28,7 @@ public class MovementController : MonoBehaviour
     public LayerMask Ground;
     [Header("Touching wall")]
     public bool isTouchingWall;
-    public bool isWallSliding;
+    public static bool isWallSliding;
     #endregion
     #region Jump Variables
     [Header("Jump Variables")]
@@ -50,8 +50,8 @@ public class MovementController : MonoBehaviour
     }
 
     private void Start()
-    {   
-        wallJumping = GetComponent<WallJumping>();
+    {
+        wallJumping = GetComponent<GhostWallJump>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         JumpForce = 6.6f;
@@ -65,7 +65,7 @@ public class MovementController : MonoBehaviour
         isWallSliding = wallJumping.isWallSliding;
         isTouchingWall = wallJumping.isTouchingWall;
 
-        if(_CanMove)
+        if (_CanMove)
             HorizontalMove();
         NormalJump();
         Flip();
@@ -96,11 +96,10 @@ public class MovementController : MonoBehaviour
         if (_moveInput != 0 && (_moveInput > 0) != facingRight && !isWallSliding)
         {
             FlipCur();
-            GetComponent<AttackSystem>().PreDelete();
         }
     }
 
-    public void FlipCur()
+    private void FlipCur()
     {
         facingRight = !facingRight;
         Vector3 Scaler = transform.localScale;
@@ -120,7 +119,7 @@ public class MovementController : MonoBehaviour
 
     private void NormalJump()
     {
-        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && jumpCount == 1 && _CanMove)
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && jumpCount == 1)
         {
             Jump();
         }
@@ -138,7 +137,6 @@ public class MovementController : MonoBehaviour
 
     private void Animations()
     {
-        anim.SetBool("isRunning", _moveInput != 0 && !isTouchingWall);
         anim.SetBool("Grounded", isGrounded);
         if (!isWallSliding)
             anim.SetFloat("VelocityY", rb.velocity.y);
@@ -152,3 +150,4 @@ public class MovementController : MonoBehaviour
     }
     #endregion
 }
+
