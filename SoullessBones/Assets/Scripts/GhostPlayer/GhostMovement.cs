@@ -72,7 +72,7 @@ public class GhostMovement : MonoBehaviour
         Animations();
         CheckWorld();
         if (isGrounded && isTouchingWall && !Input.GetKey(KeyCode.Space))   //Фикс бага с прыгающей rb.velocity.y при спаме ходьбы в стенку;
-            rb.velocity = new Vector2(_moveInput * _Speed, 0);
+            rb.velocity = new Vector2(0, 0);
     }
 
     #region Horizontal Move Functions
