@@ -3,7 +3,7 @@ public class Exit : MonoBehaviour
 {
     bool gone = false;  //нужно для того, чтобы из-за корутин не ломалась логика перехода(не срабатывало дважды)
     public BoxCollider2D trigger;
-    [SerializeField] private string sceneName;
+    [SerializeField] private string nextSceneName;
     [SerializeField] private string newScenePassword;
     private SceneLoader loader;
     void Awake()
@@ -17,7 +17,7 @@ public class Exit : MonoBehaviour
         if(other.tag == "Player" && !gone)
         {
                 GameManager.instance.scenePassword = newScenePassword;
-                loader.FadeTo(sceneName, true);
+                loader.FadeTo(nextSceneName, true);
                 gone = true;
         }
     }
