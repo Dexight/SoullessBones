@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 7574485753354633713}
-  sceneName: level_01
-  newScenePassword: level_01
+  nextSceneName: 
+  newScenePassword: 
 --- !u!61 &7574485753354633713
 BoxCollider2D:
   m_ObjectHideFlags: 0
