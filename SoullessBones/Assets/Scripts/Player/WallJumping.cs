@@ -13,7 +13,7 @@ public class WallJumping : MonoBehaviour
 
     #region Wall Sliding
     [Header("WallSliding")]
-    [SerializeField] float wallSlideSpeed;
+    [SerializeField] float wallSlideSpeed = 0.7f;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] Transform wallCheckPoint;
     [SerializeField] Vector2 wallCheckSize;

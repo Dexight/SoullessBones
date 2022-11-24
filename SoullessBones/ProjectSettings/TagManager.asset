@@ -14,6 +14,7 @@ TagManager:
   - GameManager
   - TimeManager
   - GhostPlayer
+  - Platform
   layers:
   - Default
   - TransparentFX

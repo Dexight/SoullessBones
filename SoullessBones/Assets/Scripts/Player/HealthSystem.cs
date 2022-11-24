@@ -19,10 +19,6 @@ public class HealthSystem : MonoBehaviour
     public bool godMod = false;
     #endregion
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         if (health > numOfHearts)   

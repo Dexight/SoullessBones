@@ -970,7 +970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623035651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.36, y: -4.0794783, z: -9.76}
+  m_LocalPosition: {x: -7.29, y: -4.119478, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1829,7 +1829,7 @@ GameObject:
   - component: {fileID: 979055789}
   m_Layer: 9
   m_Name: Platforms(-1)
-  m_TagString: Ground
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2242,7 +2242,7 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979055783}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -2401,22 +2401,12 @@ CompositeCollider2D:
         Y: -96245576
       - X: 15000000
         Y: -95000000
-      - X: -4999900
+      - X: -10000000
         Y: -95000000
-      - X: -4999900
-        Y: -94999959
-      - X: -4999959
-        Y: -94999900
-      - X: -10000041
-        Y: -94999900
-      - X: -10000100
-        Y: -94999959
-      - X: -10000100
-        Y: -96249305
-      - X: -10000041
-        Y: -96249364
+      - X: -10000000
+        Y: -96249264
       - X: -5000000
-        Y: -96245676
+        Y: -96245576
       - X: -5000000
         Y: -96249464
   m_CompositePaths:
@@ -2437,10 +2427,10 @@ CompositeCollider2D:
       - {x: 9, y: 1.3753923}
       - {x: 8.99997, y: 1.5}
       - {x: 4.5, y: 1.4999707}
-    - - {x: -1.00001, y: -9.624901}
+    - - {x: -1, y: -9.624897}
       - {x: 1.5, y: -9.624528}
       - {x: 1.4999707, y: -9.5}
-      - {x: -1.00001, y: -9.500026}
+      - {x: -1, y: -9.50003}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &979055790
@@ -3353,7 +3343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408047001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.36, y: -4.0794783, z: -9.76}
+  m_LocalPosition: {x: -7.29, y: -4.119478, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3871,7 +3861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785169204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.33, y: -0.52, z: 0}
+  m_LocalPosition: {x: 3.4, y: -2.62, z: 0}
   m_LocalScale: {x: 1.2999998, y: 1.2999998, z: 1.2999998}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -24421,7 +24411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_YScrollSpeed: 0.5
   m_XScrollSpeed: 0.7
-  startPosition: {x: 0, y: 0}
+  startPosition: {x: 0, y: 2}
 --- !u!1 &2025302316
 GameObject:
   m_ObjectHideFlags: 0
@@ -24997,7 +24987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f95a9ac43256a49944aee5c8a89c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallSlideSpeed: 0
+  wallSlideSpeed: 0.7
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -25048,6 +25038,7 @@ MonoBehaviour:
   isWallSliding: 0
   JumpForce: 0
   jumpCount: 0
+  jumpDownEnable: 0
 --- !u!50 &2140269028
 Rigidbody2D:
   serializedVersion: 4
@@ -25187,7 +25178,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140269020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.36, y: -4.42, z: 0}
+  m_LocalPosition: {x: -7.29, y: -4.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
