@@ -64,14 +64,40 @@ public class GameManager : MonoBehaviour
         enableDoubleJumping = !enableDoubleJumping;
         Player.GetComponent<DoubleJumping>().enabled = enableDoubleJumping;
     }
+    //only enable DJumping
+    public void EnableDoubleJumping()
+    {
+        if (!enableDoubleJumping)
+        {
+            EnableOrDisableDoubleJumping();
+        }
+    }
+
     public void EnableOrDisableWallJumping()
     {
         enableWallJumping = !enableWallJumping;
         Player.GetComponent<WallJumping>().enabled = enableWallJumping;
     }
+    //only enable WJumping
+    public void EnableWallJumping()
+    {
+        if(!enableWallJumping)
+        {
+            EnableOrDisableWallJumping();
+        }
+    }
+
     public void EnableOrDisableAstral()
     {
         enableAstral = !enableAstral;
         Player.GetComponent<Astral>().enabled = enableAstral;
+    }
+    //only enable Astral
+    public void EnableAstral()
+    {
+        if (!enableAstral)
+        {
+            EnableOrDisableAstral();
+        }
     }
 }
