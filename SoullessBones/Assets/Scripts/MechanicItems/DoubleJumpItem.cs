@@ -11,13 +11,8 @@ public class DoubleJumpItem : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<MovementController>())
         {
-            Debug.Log("DJ Added");
             GameManager.instance.EnableDoubleJumping();
             Destroy(gameObject);
-        }
-        else
-        {
-            Debug.Log("DJ already added");
         }
     }
 }

@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<AttackSystem>().SlashUpRight.GetComponent<Slash>().damage = d;
         damage = d;
     }
-
+    //DOUBLE JUMPING
     public void EnableOrDisableDoubleJumping()
     {
         enableDoubleJumping = !enableDoubleJumping;
@@ -69,10 +69,15 @@ public class GameManager : MonoBehaviour
     {
         if (!enableDoubleJumping)
         {
+            Debug.Log("DJ Added");
             EnableOrDisableDoubleJumping();
         }
+        else
+        {
+            Debug.Log("DJ already added");
+        }
     }
-
+    //WALL JUMPING
     public void EnableOrDisableWallJumping()
     {
         enableWallJumping = !enableWallJumping;
@@ -83,10 +88,15 @@ public class GameManager : MonoBehaviour
     {
         if(!enableWallJumping)
         {
+            Debug.Log("WJ Added");
             EnableOrDisableWallJumping();
         }
+        else
+        {
+            Debug.Log("WJ already added");
+        }
     }
-
+    //ASTRAL
     public void EnableOrDisableAstral()
     {
         enableAstral = !enableAstral;
@@ -97,7 +107,12 @@ public class GameManager : MonoBehaviour
     {
         if (!enableAstral)
         {
+            Debug.Log("Astral Added");
             EnableOrDisableAstral();
+        }
+        else
+        {
+            Debug.Log("Astral already added");
         }
     }
 }
