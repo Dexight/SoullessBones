@@ -34,6 +34,10 @@ public class GhostMovement : MonoBehaviour
     [Header("Jump Variables")]
     [Range(0, 10f)] public float JumpForce;
     public int jumpCount;
+    [Header("Jump Down")]
+    public bool jumpDownEnable = false;
+    private int ghostLayer = 10;
+    private int platformLayer = 9;
     #endregion
 
     private void Awake()
@@ -68,6 +72,7 @@ public class GhostMovement : MonoBehaviour
         if (_CanMove)
             HorizontalMove();
         NormalJump();
+        JumpDown();
         Flip();
         Animations();
         CheckWorld();
@@ -123,6 +128,22 @@ public class GhostMovement : MonoBehaviour
         {
             Jump();
         }
+    }
+    private void JumpDown()
+    {
+        if (Input.GetKey(KeyCode.S) && !jumpDownEnable)
+        {
+            StartCoroutine(JumpDownCoroutine());
+        }
+    }
+
+    private IEnumerator JumpDownCoroutine()
+    {
+        jumpDownEnable = true;
+        Physics2D.IgnoreLayerCollision(ghostLayer, platformLayer, true);
+        yield return new WaitForSeconds(0.6f);
+        Physics2D.IgnoreLayerCollision(ghostLayer, platformLayer, false);
+        jumpDownEnable = false;
     }
     #endregion
 
