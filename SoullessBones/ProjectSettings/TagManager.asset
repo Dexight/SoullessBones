@@ -15,6 +15,9 @@ TagManager:
   - TimeManager
   - GhostPlayer
   - Platform
+  - BackgroundMusicSlider
+  - BackgroundMusicText
+  - BGMusic
   layers:
   - Default
   - TransparentFX
