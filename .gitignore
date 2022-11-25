@@ -28,6 +28,7 @@ sysinfo.txt
 *.user
 *.userprefs
 *.pidb
+*.log
 .DS_Store
 
 ###
@@ -44,4 +45,4 @@ Thumbs.db
 
 # Visual Studio cache directory
 .vs/
-.UserSettings/
+UserSettings/
