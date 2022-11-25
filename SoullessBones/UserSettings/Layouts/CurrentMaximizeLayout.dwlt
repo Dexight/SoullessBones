@@ -88,7 +88,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -163,15 +163,15 @@ MonoBehaviour:
     y: 0
     width: 781.6
     height: 350.4
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 5}
   m_Panes:
   - {fileID: 5}
   - {fileID: 6}
   - {fileID: 7}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 22.51018, y: 9.454597, z: 4.428866}
+    m_Target: {x: 23.426601, y: 10.454118, z: 2.749219}
     speed: 2
-    m_Value: {x: 22.4979, y: 9.423609, z: 4.5216994}
+    m_Value: {x: 23.426601, y: 10.454118, z: 2.749219}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -472,9 +472,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.1788168
+    m_Target: 1.7717052
     speed: 2
-    m_Value: 1.2343631
+    m_Value: 1.7717052
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -522,7 +522,7 @@ MonoBehaviour:
     x: 0
     y: 73.6
     width: 780.6
-    height: 328.6
+    height: 329.4
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -667,9 +667,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: a9902fffb1eebc84c8040059c249c970, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 1d5d26800b762934cb3b60f0001f52c4, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -1904770910080266487, guid: a9902fffb1eebc84c8040059c249c970, type: 2}
+  - m_Target: {fileID: 582820674417780406, guid: 1d5d26800b762934cb3b60f0001f52c4, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -756,8 +756,8 @@ MonoBehaviour:
     y: 350.4
     width: 781.6
     height: 380.4
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 9}
@@ -830,7 +830,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 25606
+  m_LastSelectedObjectID: 25710
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -888,9 +888,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6e640000
-      m_LastClickedID: 25710
-      m_ExpandedIDs: 0efbfffff4ffffff8e630000da6300002c640000da640000
+      m_SelectedIDs: 06640000
+      m_LastClickedID: 25606
+      m_ExpandedIDs: 98e6ffff90eeffff0efbfffff4ffffff2c6400003864000064640000ce640000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -981,22 +981,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Other
+    - Assets/Prefabs/Machanic Items
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Sprites/Other
+  - Assets/Prefabs/Machanic Items
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\UnityProjects\SoullessBones\SoullessBones
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c0670000
-    m_LastClickedID: 26560
-    m_ExpandedIDs: 000000009067000094670000a667000000ca9a3b
+    m_SelectedIDs: 286a0000
+    m_LastClickedID: 27176
+    m_ExpandedIDs: 000000008267000098670000a2670000a6670000a867000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1024,7 +1024,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000906700009267000094670000
+    m_ExpandedIDs: 000000008267000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1049,10 +1049,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6e640000
-    m_LastClickedInstanceID: 25710
+    m_SelectedInstanceIDs: 06640000
+    m_LastClickedInstanceID: 25606
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 9a720000ba690000a8640000b6630000a4890000807f00007e660000769b0000fe670000ec650000dc8000004c740000728f0000
+    m_ExpandedInstanceIDs: 9a720000ba690000a8640000b6630000a4890000807f00007e660000769b0000fe670000ec650000dc8000004c740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1068,7 +1068,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 8}
+      m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1076,7 +1076,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 285.2}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 74
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 146.79999
@@ -1141,7 +1141,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 59.200012
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
