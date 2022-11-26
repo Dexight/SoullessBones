@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 58771019}
   m_Layer: 5
   m_Name: CanvasPauseMenu
-  m_TagString: Untagged
+  m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988e4784555ae9f4580b58f382895e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameIsPaused: 0
   PauseMenuUI: {fileID: 1979654356}
 --- !u!114 &58771020
 MonoBehaviour:
@@ -4025,7 +4026,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1979654357
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24959,6 +24960,8 @@ MonoBehaviour:
   pointOfSlashUp: {fileID: 2140269033}
   CanAttack: 1
   onWall: 0
+  inAstral: 0
+  gameIsPaused: 0
   cooldown: 0.25
 --- !u!95 &2140269024
 Animator:

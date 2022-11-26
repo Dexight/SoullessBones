@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27336958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.03568, y: -25.38996, z: -9.76}
+  m_LocalPosition: {x: 80.03569, y: -25.38996, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10634,6 +10634,8 @@ MonoBehaviour:
   pointOfSlashUp: {fileID: 704876117}
   CanAttack: 1
   onWall: 0
+  inAstral: 0
+  gameIsPaused: 0
   cooldown: 0.25
 --- !u!95 &704876108
 Animator:
@@ -10718,6 +10720,7 @@ MonoBehaviour:
   isWallSliding: 0
   JumpForce: 0
   jumpCount: 0
+  jumpDownEnable: 0
 --- !u!50 &704876112
 Rigidbody2D:
   serializedVersion: 4
@@ -11479,7 +11482,7 @@ GameObject:
   - component: {fileID: 1023043906}
   m_Layer: 9
   m_Name: Platforms(-1)
-  m_TagString: Ground
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11759,7 +11762,7 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023043904}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -13206,6 +13209,11 @@ MonoBehaviour:
   Interface: {fileID: 1389998528}
   timeManager: {fileID: 1769767135}
   scenePassword: 
+  godMod: 0
+  damage: 5
+  enableDoubleJumping: 0
+  enableWallJumping: 0
+  enableAstral: 0
 --- !u!4 &1822168864
 Transform:
   m_ObjectHideFlags: 0
@@ -13405,6 +13413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988e4784555ae9f4580b58f382895e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameIsPaused: 0
   PauseMenuUI: {fileID: 834709867}
 --- !u!114 &1921347202
 MonoBehaviour:

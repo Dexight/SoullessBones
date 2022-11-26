@@ -882,6 +882,8 @@ MonoBehaviour:
   pointOfSlashUp: {fileID: 371970569}
   CanAttack: 1
   onWall: 0
+  inAstral: 0
+  gameIsPaused: 0
   cooldown: 0.25
 --- !u!95 &371970560
 Animator:
@@ -966,6 +968,7 @@ MonoBehaviour:
   isWallSliding: 0
   JumpForce: 0
   jumpCount: 0
+  jumpDownEnable: 0
 --- !u!50 &371970564
 Rigidbody2D:
   serializedVersion: 4
@@ -1426,6 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988e4784555ae9f4580b58f382895e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameIsPaused: 0
   PauseMenuUI: {fileID: 1016178880}
 --- !u!114 &774084754
 MonoBehaviour:
@@ -1633,6 +1637,11 @@ MonoBehaviour:
   Interface: {fileID: 950216851}
   timeManager: {fileID: 2052597109}
   scenePassword: 
+  godMod: 0
+  damage: 5
+  enableDoubleJumping: 0
+  enableWallJumping: 0
+  enableAstral: 0
 --- !u!4 &818343817
 Transform:
   m_ObjectHideFlags: 0
@@ -2419,7 +2428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032216285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8851075, y: -4.94516, z: -9.76}
+  m_LocalPosition: {x: -2.889874, y: -4.94516, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14014,7 +14023,7 @@ GameObject:
   - component: {fileID: 2106386668}
   m_Layer: 9
   m_Name: Platforms(-1)
-  m_TagString: Ground
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14302,7 +14311,7 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106386666}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 2147483647
@@ -14646,7 +14655,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 14
-      m_TileSpriteIndex: 13
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -14741,10 +14750,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 1889095898, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1889095898, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 29
     m_Data:

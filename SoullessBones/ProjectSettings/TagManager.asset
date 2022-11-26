@@ -18,6 +18,7 @@ TagManager:
   - BackgroundMusicSlider
   - BackgroundMusicText
   - BGMusic
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
