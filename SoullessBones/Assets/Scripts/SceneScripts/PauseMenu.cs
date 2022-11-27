@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject PauseMenuUI;
 
+    public GameObject CheatBoxCanvas;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -55,4 +56,8 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("QUIT succesful");
         Application.Quit();
     }
+
+    public void CheatBoxOn() => CheatBoxCanvas.SetActive(true);
+    public void CheatBoxOff() => CheatBoxCanvas.SetActive(false);
+
 }
