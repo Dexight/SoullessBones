@@ -46,3 +46,5 @@ Thumbs.db
 # Visual Studio cache directory
 .vs/
 UserSettings/
+*.dwlt
+*.dwlt
