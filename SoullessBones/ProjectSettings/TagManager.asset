@@ -19,6 +19,7 @@ TagManager:
   - BackgroundMusicText
   - BGMusic
   - PauseMenu
+  - Spikes
   layers:
   - Default
   - TransparentFX
