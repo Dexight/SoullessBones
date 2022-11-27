@@ -18,6 +18,8 @@ TagManager:
   - BackgroundMusicSlider
   - BackgroundMusicText
   - BGMusic
+  - PauseMenu
+  - Spikes
   layers:
   - Default
   - TransparentFX

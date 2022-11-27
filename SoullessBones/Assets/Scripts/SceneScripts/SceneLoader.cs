@@ -31,7 +31,7 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(FadeOut(sceneName, load));
     }
 
-    private IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         alpha = 1;
         while(alpha > 0)
@@ -49,15 +49,24 @@ public class SceneLoader : MonoBehaviour
     {
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = false;
         alpha = 0;
-        while(alpha < 1)
+
+        while (alpha < 1)
         {
             alpha += Time.deltaTime;
             blackImage.color = new Color(0, 0, 0, alpha);
             yield return new WaitForSeconds(0);
         }
+
         if (load)
+        {
             StartCoroutine(Loading(sceneName));
-        StartCoroutine(FadeIn());
+            StartCoroutine(FadeIn());
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("Spikes").GetComponent<Spikes>().blackBackground = true;
+            GameObject.FindGameObjectWithTag("Spikes").GetComponent<Spikes>().teleport = true;
+        }
     }
     private IEnumerator Loading(string sceneName)
     {
