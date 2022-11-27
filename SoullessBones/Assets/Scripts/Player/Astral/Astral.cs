@@ -31,7 +31,7 @@ public class Astral : MonoBehaviour
             {
                 if (!timeManager.TimeIsStopped)
                 {
-                    timeManager.StopTime();
+                    timeManager.StopTime(true);
                     spawnGhost();
                 }
                 else

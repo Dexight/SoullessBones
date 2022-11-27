@@ -15,6 +15,6 @@ public class GrayEffect : MonoBehaviour
 
     void Update()
     {
-        sprite.enabled = timeManager.TimeIsStopped;
+        sprite.enabled = timeManager.GrayBack;
     }
 }
