@@ -50,7 +50,10 @@ public class Cheats : MonoBehaviour
     public void SuperDamageOnOff()
     {
         Debug.Log("SuperDamageOnOff called");
-        gameManager.changeDamage(1000);
+        if(gameManager.damage == 5)
+            gameManager.changeDamage(1000);
+        else 
+            gameManager.changeDamage(5);
     }
 
 }

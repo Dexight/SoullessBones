@@ -13,11 +13,14 @@ public class Slash : MonoBehaviour
     public LayerMask enemy;
     [Range(0, 10f)] public float attackRange;
     private bool isDamageDone;
-
-    private void Start()
+    private void Awake()
     {
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         attackPos = transform;
+        damage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().damage;
+    }
+    private void Start()
+    {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position + new Vector3(0, Upper, 0), attackRange, enemy);
         isDamageDone = enemies.Length > 0;
         for (int i = 0; i < enemies.Length; i++)

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public string scenePassword;//сохраняет строку, когда игрок переходит на другую сцену
     [Header("CheatStats")]
     public bool godMod = false;
-    public int damage = 5;
+    public int damage;
     public bool enableDoubleJumping = false;
     public bool enableWallJumping = false;
     public bool enableAstral = false;
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(timeManager);
         DontDestroyOnLoad(gameObject);
         rb = Player.GetComponent<Rigidbody2D>();
+        damage = 5;
     }
 
     private void Update()
@@ -52,10 +53,6 @@ public class GameManager : MonoBehaviour
     //функция для изменения урона
     public void changeDamage(int d)
     {
-        Player.GetComponent<AttackSystem>().SlashLeft.GetComponent<Slash>().damage = d;
-        Player.GetComponent<AttackSystem>().SlashRight.GetComponent<Slash>().damage = d;
-        Player.GetComponent<AttackSystem>().SlashUpLeft.GetComponent<Slash>().damage = d;
-        Player.GetComponent<AttackSystem>().SlashUpRight.GetComponent<Slash>().damage = d;
         damage = d;
     }
     //DOUBLE JUMPING
