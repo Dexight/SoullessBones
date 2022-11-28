@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-
+    public bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    private AttackSystem attackSystem;
+    
+    private void Awake()
+    {
+       attackSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<AttackSystem>();
+    }
 
     public GameObject CheatBoxCanvas;
     void Update()
@@ -31,13 +36,14 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-
+        attackSystem.gameIsPaused = false;
     }
     void Pause()
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        attackSystem.gameIsPaused = true;
     }
 
     public void LoadMainMenu()

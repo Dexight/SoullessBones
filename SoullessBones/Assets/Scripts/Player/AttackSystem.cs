@@ -19,11 +19,13 @@ public class AttackSystem : MonoBehaviour
     private bool isSlashRight = true;
     public bool CanAttack = true;
     public bool onWall = false;
+    public bool inAstral = false;//In Astral
+    public bool gameIsPaused = false; //In Pause Menu
     public float cooldown;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && CanAttack && !onWall)
+        if (Input.GetMouseButtonDown(0) && CanAttack && !onWall && !gameIsPaused && !inAstral)
         {
             if (Input.GetKey(KeyCode.W))
             {

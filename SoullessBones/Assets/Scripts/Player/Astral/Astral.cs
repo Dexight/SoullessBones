@@ -25,17 +25,20 @@ public class Astral : MonoBehaviour
             _animator.enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) //&& !movementController.isWallSliding) //Stop Time when Q is pressed
+        if (Input.GetKeyDown(KeyCode.Q)) //Stop Time when Q is pressed
         {
-            if (!timeManager.TimeIsStopped)
+            if(!GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().GameIsPaused)
             {
-                timeManager.StopTime();
-                spawnGhost();
-            }
-            else
-            {
-                timeManager.ContinueTime(); //Cancel when Q is pressed again
-                cancelAstral();
+                if (!timeManager.TimeIsStopped)
+                {
+                    timeManager.StopTime(true);
+                    spawnGhost();
+                }
+                else
+                {
+                    timeManager.ContinueTime(); //Cancel when Q is pressed again
+                    cancelAstral();
+                } 
             }
         }
 

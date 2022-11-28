@@ -145,7 +145,7 @@ public class MovementController : MonoBehaviour
     {
         jumpDownEnable = true;
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, true);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.7f);
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, false);
         jumpDownEnable = false;
     }

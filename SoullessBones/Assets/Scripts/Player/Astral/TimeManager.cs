@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    public bool GrayBack;
     public bool TimeIsStopped;
-    private MovementController movementController;
+    private GameObject Player;
     private static TimeManager instance; //только один на сцене (синглтон)
 
     private void Awake()
@@ -17,21 +18,24 @@ public class TimeManager : MonoBehaviour
             if (instance != this)
                 Destroy(gameObject);
         }
-        movementController = GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
     public void ContinueTime()
     {
         TimeIsStopped = false;
-
-        var objects = FindObjectsOfType<TimeBody>();  //Находит каждый объект с компонентом TimeBody
+        Player.GetComponent<AttackSystem>().inAstral = false;
+        GrayBack = false;
+        var objects = FindObjectsOfType<TimeDependent>();  //Находит каждый объект с компонентом TimeBody
         for (var i = 0; i < objects.Length; i++)
         {
-            objects[i].GetComponent<TimeBody>().ContinueTime(); //Продолжает время каждого объекта
+            objects[i].GetComponent<TimeDependent>().ContinueTime(); //Продолжает время каждого объекта
         }
     }
-    public void StopTime()
+    public void StopTime(bool isAstral)
     {
+        GrayBack = isAstral;
         TimeIsStopped = true;
-        movementController._CanMove = false;
+        Player.GetComponent<MovementController>()._CanMove = false;
+        Player.GetComponent<AttackSystem>().inAstral = true;
     }
 }
