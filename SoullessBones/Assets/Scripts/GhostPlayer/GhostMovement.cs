@@ -141,7 +141,7 @@ public class GhostMovement : MonoBehaviour
     {
         jumpDownEnable = true;
         Physics2D.IgnoreLayerCollision(ghostLayer, platformLayer, true);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.7f);
         Physics2D.IgnoreLayerCollision(ghostLayer, platformLayer, false);
         jumpDownEnable = false;
     }

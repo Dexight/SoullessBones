@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class TimeBody : MonoBehaviour
+public class TimeDependent : MonoBehaviour
 {
-    public float TimeBeforeAffected; //Время после появления объекта, пока на него не повлияет таймстоп (для снарядов и т. д.)
     private TimeManager timemanager;
-    //private MovementController movementController;
     private Rigidbody2D rb;
-    private Vector3 recordedVelocity;
-    private float recordedMagnitude;
+    private Vector3 savedVelocity;
+    private float savedForce;
     private Animator _animator;
 
-    private float TimeBeforeAffectedTimer;
+    public float TimeBeforeTimestop; //Время после появления объекта, пока на него не повлияет таймстоп (для снарядов и т. д.)
+    private float TimerBeforeTimeStop;
     private bool CanBeAffected;
     private bool IsStopped;
     private bool _isAnimating = true;
@@ -20,9 +19,7 @@ public class TimeBody : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         timemanager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
-        //if(GetComponent<MovementController>())
-            //movementController = GetComponent<MovementController>();
-        TimeBeforeAffectedTimer = TimeBeforeAffected;
+        TimerBeforeTimeStop = TimeBeforeTimestop;
     }
 
     void Update()
@@ -32,13 +29,15 @@ public class TimeBody : MonoBehaviour
             _animator.enabled = true;
             _isAnimating = true;
         }
+
         if (timemanager.TimeIsStopped && _isAnimating)
         {
             _animator.enabled = false;
             _isAnimating = false;
         }
-        TimeBeforeAffectedTimer -= Time.deltaTime; // минус 1%
-        if (TimeBeforeAffectedTimer <= 0f)
+
+        TimerBeforeTimeStop -= Time.deltaTime; // минус 1%
+        if (TimerBeforeTimeStop <= 0f)
         {
             CanBeAffected = true;
         }
@@ -47,8 +46,8 @@ public class TimeBody : MonoBehaviour
         {
             if (rb.velocity.magnitude >= 0f) //Если движется
             {
-                recordedVelocity = rb.velocity.normalized; //записывает направление движения
-                recordedMagnitude = rb.velocity.magnitude; //записывает магнетуду движения
+                savedVelocity = rb.velocity.normalized; //записывает направление движения
+                savedForce = rb.velocity.magnitude; //записывает силы движения
 
                 rb.isKinematic = true; //не подвергается силам
                 rb.velocity = Vector3.zero; //останавливает движение rb
@@ -61,6 +60,6 @@ public class TimeBody : MonoBehaviour
     {
         rb.isKinematic = false;
         IsStopped = false;
-        rb.velocity = recordedVelocity * recordedMagnitude; //возвращает скорость после продолжения времени
+        rb.velocity = savedVelocity * savedForce; //возвращает скорость после продолжения времени
     }
 }

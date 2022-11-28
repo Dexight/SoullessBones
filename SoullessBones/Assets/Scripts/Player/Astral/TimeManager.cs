@@ -25,10 +25,10 @@ public class TimeManager : MonoBehaviour
         TimeIsStopped = false;
         Player.GetComponent<AttackSystem>().inAstral = false;
         GrayBack = false;
-        var objects = FindObjectsOfType<TimeBody>();  //Находит каждый объект с компонентом TimeBody
+        var objects = FindObjectsOfType<TimeDependent>();  //Находит каждый объект с компонентом TimeBody
         for (var i = 0; i < objects.Length; i++)
         {
-            objects[i].GetComponent<TimeBody>().ContinueTime(); //Продолжает время каждого объекта
+            objects[i].GetComponent<TimeDependent>().ContinueTime(); //Продолжает время каждого объекта
         }
     }
     public void StopTime(bool isAstral)

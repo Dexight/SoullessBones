@@ -29,10 +29,11 @@ public class GhostWallJump : MonoBehaviour
     private Vector2 realClimbJumpForce;
     #endregion
 
-    void Start()
+    void Awake()
     {
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+        wallSlideSpeed = 0.7f;
         movementController = GetComponent<GhostMovement>();
     }
 
