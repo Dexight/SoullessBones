@@ -7,6 +7,7 @@ public class Astral : MonoBehaviour
     private MovementController movementController;
     private Animator _animator;
     [SerializeField] private GameObject ghostPrefab;
+    public bool canUseAstral = true;
     void Start()
     {
         timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
@@ -25,7 +26,7 @@ public class Astral : MonoBehaviour
             _animator.enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) //Stop Time when Q is pressed
+        if (Input.GetKeyDown(KeyCode.Q) && canUseAstral) //Stop Time when Q is pressed
         {
             if(!GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().GameIsPaused)
             {

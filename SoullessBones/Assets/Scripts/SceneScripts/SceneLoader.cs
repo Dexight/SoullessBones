@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
     public Image blackImage;
     [SerializeField]private float alpha;
     [SerializeField] private GameObject Player;
+    private Astral astral;
     private static SceneLoader instance;
 
     private void Awake()
@@ -24,10 +25,12 @@ public class SceneLoader : MonoBehaviour
         }
 
         Player = GameObject.FindGameObjectWithTag("Player");
+        astral = Player.GetComponent<Astral>();
     }
     
     public void FadeTo(string sceneName, bool load)
     {
+        astral.canUseAstral = false;
         StartCoroutine(FadeOut(sceneName, load));
     }
 
@@ -43,6 +46,7 @@ public class SceneLoader : MonoBehaviour
             yield return new WaitForSeconds(0);
         }
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = true;
+        astral.canUseAstral = true;
     }
 
     private IEnumerator FadeOut(string sceneName, bool load)
