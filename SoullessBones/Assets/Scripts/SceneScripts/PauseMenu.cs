@@ -37,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         attackSystem.gameIsPaused = false;
+        CheatBoxOff();
     }
     void Pause()
     {
