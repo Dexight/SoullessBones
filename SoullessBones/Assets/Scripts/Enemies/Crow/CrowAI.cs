@@ -16,7 +16,6 @@ public class CrowAI : MonoBehaviour
     public float _slowlySpeed = 2f;
     public float _AttackDistance;
     public float _SlowlyDistance;
-    [SerializeField] private CompositeCollider2D groundCollider;
 
     [Header("Attack")]
     public int damage;
@@ -39,9 +38,14 @@ public class CrowAI : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
 
-        groundCollider = GameObject.FindGameObjectWithTag("Ground").GetComponent<CompositeCollider2D>();
-
+        var groundCollider = GameObject.FindGameObjectWithTag("Ground").GetComponent<CompositeCollider2D>();
         Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), groundCollider); //игнорирование столкновения с землёй
+        var doors = GameObject.FindGameObjectsWithTag("Door");
+        foreach(var door in doors)
+        {
+            var collider = door.GetComponent<BoxCollider2D>();
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collider); //игнорирование столкновения с дверьми
+        }
         _rigidbody.gravityScale = 0; // обнуляем гравитацию после взлёта
     }
 

@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour
     public GameObject timeManager;
     public string scenePassword;//сохраняет строку, когда игрок переходит на другую сцену
     [Header("CheatStats")]
-    public bool godMod = false;
+    public bool godMod;
     public int damage;
-    public bool enableDoubleJumping = false;
-    public bool enableWallJumping = false;
-    public bool enableAstral = false;
+    public bool enableDoubleJumping;
+    public bool enableWallJumping;
+    public bool enableAstral;
     #endregion
 
     private void Awake()
@@ -36,7 +36,15 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(timeManager);
         DontDestroyOnLoad(gameObject);
         rb = Player.GetComponent<Rigidbody2D>();
-        damage = 5;
+        damage = 5;        
+    }
+
+    private void Start()
+    {
+        godMod = Player.GetComponent<HealthSystem>().godMod;
+        enableDoubleJumping = Player.GetComponent<DoubleJumping>().enabled;
+        enableWallJumping = Player.GetComponent<WallJumping>().enabled;
+        enableAstral = Player.GetComponent<Astral>().enabled;
     }
 
     private void Update()
