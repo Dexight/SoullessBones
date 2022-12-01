@@ -10,9 +10,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         _anim = GetComponent<Animator>();
-        if (doorID == "level_01" && SceneStats.level01LukeOpened)
-            Destroy(gameObject);
-        if (doorID == "level_07" && SceneStats.level07LukeOpened)
+        if (SceneStats.stats.Contains(doorID))
             Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -34,10 +32,7 @@ public class Door : MonoBehaviour
     private void OpenDoor()
     {
         _anim.SetBool("Open", true);
-        if(doorID == "level_01")
-            SceneStats.level01LukeOpened = true;
-        if (doorID == "level_07")
-            SceneStats.level07LukeOpened = true;
+        SceneStats.stats.Add(doorID);
         StartCoroutine(Delete());
     }
 

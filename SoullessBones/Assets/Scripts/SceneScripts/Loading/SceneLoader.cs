@@ -7,10 +7,10 @@ using Cinemachine;
 public class SceneLoader : MonoBehaviour
 {
     public Image blackImage;
-    [SerializeField]private float alpha;
+    [SerializeField] private float alpha;
     [SerializeField] private GameObject Player;
     private Astral astral;
-    private static SceneLoader instance;
+    public static SceneLoader instance;
 
     private void Awake()
     {
@@ -31,6 +31,7 @@ public class SceneLoader : MonoBehaviour
     public void FadeTo(string sceneName, bool load)
     {
         astral.canUseAstral = false;
+        MovementController.instance.canJumpDown = false;
         StartCoroutine(FadeOut(sceneName, load));
     }
 
@@ -47,6 +48,7 @@ public class SceneLoader : MonoBehaviour
         }
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = true;
         astral.canUseAstral = true;
+        MovementController.instance.canJumpDown = true;
     }
 
     private IEnumerator FadeOut(string sceneName, bool load)

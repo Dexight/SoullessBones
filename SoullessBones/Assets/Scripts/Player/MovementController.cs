@@ -37,6 +37,7 @@ public class MovementController : MonoBehaviour
     public int jumpCount;
 
     [Header("Jump Down")]
+    public bool canJumpDown = true;
     public bool jumpDownEnable = false;
     private int playerLayer = 3;
     private int platformLayer = 9;
@@ -135,7 +136,7 @@ public class MovementController : MonoBehaviour
 
     private void JumpDown()
     {
-        if(Input.GetKey(KeyCode.S) && !jumpDownEnable)
+        if(Input.GetKey(KeyCode.S) && !jumpDownEnable && canJumpDown)
         {
             StartCoroutine(JumpDownCoroutine());
         }
