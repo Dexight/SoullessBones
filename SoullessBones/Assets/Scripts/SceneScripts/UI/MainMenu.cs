@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
                 Destroy(GameManager.instance.Player);
                 Destroy(GameManager.instance.Interface);
                 Destroy(GameManager.instance.timeManager);
-                Destroy(GameManager.instance);
+                Destroy(GameObject.FindGameObjectWithTag("GameManager"));
                 SceneStats.stats = new List<string>();
             }
         }

@@ -7,6 +7,7 @@ public class Spikes : MonoBehaviour
     SceneLoader sceneLoader;
     public bool blackBackground = false;
     public bool teleport = false;
+    public bool isTouched = false;
     public bool isTutorial;
     private void Awake()
     {
@@ -26,13 +27,14 @@ public class Spikes : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetType() == typeof(BoxCollider2D))
-            if (collision.gameObject.GetComponent<MovementController>() != null)
-            {
-                if(!isTutorial)
-                    collision.gameObject.GetComponent<HealthSystem>().TakeDamage(2);
-                timeManager.StopTime(false);
-                sceneLoader.FadeTo("", false);
-            }
+        if (collision.gameObject.GetComponent<MovementController>() != null && !isTouched)
+        {
+            Debug.Log("instance");
+            if(!isTutorial)
+                collision.gameObject.GetComponent<HealthSystem>().TakeDamage(2);
+            isTouched = true;
+            timeManager.StopTime(false);
+            sceneLoader.FadeTo("", false);
+        }
     }
 }

@@ -14866,6 +14866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blackBackground: 0
   teleport: 0
+  isTouched: 0
   isTutorial: 0
 --- !u!50 &1393060044
 Rigidbody2D:
@@ -15730,6 +15731,7 @@ MonoBehaviour:
   isWallSliding: 0
   JumpForce: 0
   jumpCount: 0
+  canJumpDown: 1
   jumpDownEnable: 0
 --- !u!50 &1541672255
 Rigidbody2D:

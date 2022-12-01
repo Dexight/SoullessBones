@@ -70,8 +70,10 @@ public class SceneLoader : MonoBehaviour
         }
         else
         {
-            GameObject.FindGameObjectWithTag("Spikes").GetComponent<Spikes>().blackBackground = true;
-            GameObject.FindGameObjectWithTag("Spikes").GetComponent<Spikes>().teleport = true;
+            Spikes spikes = GameObject.FindGameObjectWithTag("Spikes").GetComponent<Spikes>();
+            spikes.blackBackground = true;
+            spikes.teleport = true;
+            spikes.isTouched = false;
         }
     }
     private IEnumerator Loading(string sceneName)
