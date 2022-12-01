@@ -13,7 +13,12 @@ public class MainMenu : MonoBehaviour
                 Destroy(GameManager.instance.Player);
                 Destroy(GameManager.instance.Interface);
                 Destroy(GameManager.instance.timeManager);
-                Destroy(GameObject.FindGameObjectWithTag("GameManager"));
+                Destroy(GameManager.instance);
+                //Обнуление информации из инфофайла (TODO в будущем сделать адекватно, м.б. с помощью сейв-копии "пустых" статов.)
+                SceneStats.level01LukeOpened = false;
+                SceneStats.level01KeyTaken = false;
+                SceneStats.level07LukeOpened = false;
+                SceneStats.level07KeyTaken = false;
             }
         }
     }
