@@ -67,7 +67,6 @@ public class WallJumping : MonoBehaviour
         if (isWallSliding)
         {
             GetComponent<AttackSystem>().onWall = true;
-            movementController._CanMove = true;
             rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
         }
         else
