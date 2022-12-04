@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpiderAI : MonoBehaviour
 {
+    TimeManager timeManager;
     #region Values
     private Rigidbody2D rb;
     [SerializeField] private LayerMask playerLayer;
@@ -19,10 +20,11 @@ public class SpiderAI : MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask layer;
     #endregion
-    void Start()
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody2D>();
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
     }
     void Update()
     {
@@ -33,8 +35,8 @@ public class SpiderAI : MonoBehaviour
         if (Direction != currentDirection)
             Flip();
 
-
-        Patrolling();
+        if(!timeManager.TimeIsStopped)
+            Patrolling();
     }
     private void Patrolling()
     {
