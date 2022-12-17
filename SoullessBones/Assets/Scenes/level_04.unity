@@ -318,7 +318,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 1
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -395,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 234729824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.82019, y: -49.82024, z: -9.76}
+  m_LocalPosition: {x: 71.82244, y: -49.82024, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -453,6 +453,7 @@ MonoBehaviour:
   m_YScrollSpeed: 0.5
   m_XScrollSpeed: 0.7
   startPosition: {x: 31, y: -62}
+  testShakeAt60fpsLock: 0
 --- !u!1 &281131396
 GameObject:
   m_ObjectHideFlags: 0
