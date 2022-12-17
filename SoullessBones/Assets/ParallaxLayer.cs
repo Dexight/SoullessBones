@@ -8,8 +8,14 @@ public class ParallaxLayer : MonoBehaviour
     [SerializeField] float m_YScrollSpeed; //скорость скрола по оси У
     [SerializeField] float m_XScrollSpeed;//скорость скрола по оси Х
     public Vector2 startPosition;
+    public bool testShakeAt60fpsLock = false;
     private void Start()
     {
+        if (testShakeAt60fpsLock)
+        {
+            QualitySettings.vSyncCount = 1;
+            Application.targetFrameRate = 60;
+        }
         m_target = Camera.main.transform;
     }
     private void Update()
