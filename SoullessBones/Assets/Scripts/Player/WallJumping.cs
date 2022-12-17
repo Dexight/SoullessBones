@@ -13,7 +13,7 @@ public class WallJumping : MonoBehaviour
 
     #region Wall Sliding
     [Header("WallSliding")]
-    [SerializeField] float wallSlideSpeed;
+    private float wallSlideSpeed;
     [SerializeField] LayerMask wallLayer;
     [SerializeField] Transform wallCheckPoint;
     [SerializeField] Vector2 wallCheckSize;
@@ -34,6 +34,7 @@ public class WallJumping : MonoBehaviour
     {
         player = GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+        wallSlideSpeed = 0.7f;
         movementController = GetComponent<MovementController>();
         timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();  
     }
@@ -66,7 +67,6 @@ public class WallJumping : MonoBehaviour
         if (isWallSliding)
         {
             GetComponent<AttackSystem>().onWall = true;
-            movementController._CanMove = true;
             rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
         }
         else

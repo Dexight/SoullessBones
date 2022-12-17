@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovementController : MonoBehaviour
 {
     #region Other Variables
-    private static MovementController instance;
+    public static MovementController instance;
     [Header("ObjectReferences")]
     private Animator anim;
     [HideInInspector] public Rigidbody2D rb;
@@ -30,10 +30,17 @@ public class MovementController : MonoBehaviour
     public bool isTouchingWall;
     public bool isWallSliding;
     #endregion
+
     #region Jump Variables
     [Header("Jump Variables")]
     [Range(0, 10f)] public float JumpForce;
     public int jumpCount;
+
+    [Header("Jump Down")]
+    public bool canJumpDown = true;
+    public bool jumpDownEnable = false;
+    private int playerLayer = 3;
+    private int platformLayer = 9;
     #endregion
 
     private void Awake()
@@ -68,6 +75,7 @@ public class MovementController : MonoBehaviour
         if(_CanMove)
             HorizontalMove();
         NormalJump();
+        JumpDown();
         Flip();
         Animations();
         CheckWorld();
@@ -124,6 +132,23 @@ public class MovementController : MonoBehaviour
         {
             Jump();
         }
+    }
+
+    private void JumpDown()
+    {
+        if(Input.GetKey(KeyCode.S) && !jumpDownEnable && canJumpDown)
+        {
+            StartCoroutine(JumpDownCoroutine());
+        }
+    }
+
+    private IEnumerator JumpDownCoroutine()
+    {
+        jumpDownEnable = true;
+        Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, true);
+        yield return new WaitForSeconds(0.3f);
+        Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, false);
+        jumpDownEnable = false;
     }
     #endregion
 

@@ -14,6 +14,13 @@ TagManager:
   - GameManager
   - TimeManager
   - GhostPlayer
+  - Platform
+  - BackgroundMusicSlider
+  - BackgroundMusicText
+  - BGMusic
+  - PauseMenu
+  - Spikes
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -26,7 +33,7 @@ TagManager:
   - Punch
   - Platform
   - GhostPlayer
-  - 
+  - Door
   - 
   - 
   - 

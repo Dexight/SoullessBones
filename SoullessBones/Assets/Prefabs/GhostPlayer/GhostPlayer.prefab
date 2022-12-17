@@ -247,10 +247,11 @@ MonoBehaviour:
   checkSize: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 2624
   isTouchingWall: 0
   JumpForce: 0
   jumpCount: 0
+  jumpDownEnable: 0
 --- !u!114 &7508500775053349260
 MonoBehaviour:
   m_ObjectHideFlags: 0

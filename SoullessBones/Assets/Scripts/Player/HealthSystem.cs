@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class HealthSystem : MonoBehaviour
@@ -19,10 +18,6 @@ public class HealthSystem : MonoBehaviour
     public bool godMod = false;
     #endregion
 
-    void Start()
-    {
-    }
-
     void Update()
     {
         if (health > numOfHearts)   
@@ -34,8 +29,7 @@ public class HealthSystem : MonoBehaviour
             hearts[i].enabled = i < numOfHearts;                                     //для изменения максимального количества сердец
             if (health < 1)
             {
-                health = numOfHearts;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                AfterDeath.Death();
             }
         }
     }

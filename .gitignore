@@ -28,6 +28,7 @@ sysinfo.txt
 *.user
 *.userprefs
 *.pidb
+*.log
 .DS_Store
 
 ###
@@ -42,3 +43,9 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
+# Visual Studio cache directory
+.vs/
+UserSettings/
+*.dwlt
+*.dwlt
+SoullessBones/UserSettings/Layouts/default-2021.dwlt
