@@ -29,7 +29,7 @@ public class Spikes : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<MovementController>() != null && !isTouched)
         {
-            Debug.Log("instance");
+            //Debug.Log("instance");
             if(!isTutorial)
                 collision.gameObject.GetComponent<HealthSystem>().TakeDamage(2);
             isTouched = true;
