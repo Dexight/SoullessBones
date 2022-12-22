@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WallJumping : MonoBehaviour
@@ -20,7 +19,7 @@ public class WallJumping : MonoBehaviour
     [Range(0, 3)] public float SlideSpeedUp;
 
     [HideInInspector]public bool isTouchingWall;
-    [HideInInspector]public bool isWallSliding;
+    public bool isWallSliding;
     #endregion
 
     #region Wall Jumping Variables

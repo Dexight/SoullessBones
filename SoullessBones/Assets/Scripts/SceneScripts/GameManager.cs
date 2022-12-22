@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region Singleton Variables
@@ -47,10 +44,6 @@ public class GameManager : MonoBehaviour
         enableAstral = Player.GetComponent<Astral>().enabled;
     }
 
-    private void Update()
-    {
-    }
-
     //функция для изменения godmod
     public void changeGodMod()
     {
@@ -74,31 +67,32 @@ public class GameManager : MonoBehaviour
     {
         if (!enableDoubleJumping)
         {
-            Debug.Log("DJ Added");
+            //Debug.Log("DJ Added");
             EnableOrDisableDoubleJumping();
         }
         else
         {
-            Debug.Log("DJ already added");
+            //Debug.Log("DJ already added");
         }
     }
     //WALL JUMPING
     public void EnableOrDisableWallJumping()
     {
+        //Debug.Log("WS instance");
         enableWallJumping = !enableWallJumping;
         Player.GetComponent<WallJumping>().enabled = enableWallJumping;
     }
     //only enable WJumping
     public void EnableWallJumping()
     {
-        if(!enableWallJumping)
+        if (!enableWallJumping)
         {
-            Debug.Log("WJ Added");
+            //Debug.Log("WJ Added");
             EnableOrDisableWallJumping();
         }
         else
         {
-            Debug.Log("WJ already added");
+            //Debug.Log("WJ already added");
         }
     }
     //ASTRAL
@@ -112,12 +106,12 @@ public class GameManager : MonoBehaviour
     {
         if (!enableAstral)
         {
-            Debug.Log("Astral Added");
+            //Debug.Log("Astral Added");
             EnableOrDisableAstral();
         }
         else
         {
-            Debug.Log("Astral already added");
+            //Debug.Log("Astral already added");
         }
     }
 }

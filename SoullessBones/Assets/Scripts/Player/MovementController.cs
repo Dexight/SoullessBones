@@ -35,6 +35,7 @@ public class MovementController : MonoBehaviour
     [Header("Jump Variables")]
     [Range(0, 10f)] public float JumpForce;
     public int jumpCount;
+    private float MaxFallSpeed = 10f;
 
     [Header("Jump Down")]
     public bool canJumpDown = true;
@@ -61,7 +62,7 @@ public class MovementController : MonoBehaviour
         wallJumping = GetComponent<WallJumping>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        JumpForce = 6.6f;
+        JumpForce = 7f;
         jumpCount = 1;
         checkSize = new Vector2(0.52f, -0.01f);
         _CanMove = true;
@@ -70,10 +71,11 @@ public class MovementController : MonoBehaviour
     private void Update()
     {
         isWallSliding = wallJumping.isWallSliding;
-        isTouchingWall = wallJumping.isTouchingWall;
+        isTouchingWall = wallJumping.isTouchingWall && wallJumping.enabled;
 
         if(_CanMove)
             HorizontalMove();
+        fall_limit(MaxFallSpeed);
         NormalJump();
         JumpDown();
         Flip();
@@ -118,6 +120,14 @@ public class MovementController : MonoBehaviour
     #endregion
 
     #region Vertical Move Functions
+
+    void fall_limit(float MaxSpeed)
+    {
+        if (rb.velocity.magnitude > MaxSpeed)   //Если скорость объекта превышает максимальную скорость
+        {
+            rb.velocity = rb.velocity.normalized * MaxSpeed;  //Задать скорость на уровне максимальной
+        }
+    }
     /// <summary>
     /// Просто прыжок вверх
     /// </summary>
@@ -145,8 +155,11 @@ public class MovementController : MonoBehaviour
     private IEnumerator JumpDownCoroutine()
     {
         jumpDownEnable = true;
+        
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, true);
         yield return new WaitForSeconds(0.3f);
+        while (isWallSliding)
+            yield return new WaitForSeconds(0.1f);
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, false);
         jumpDownEnable = false;
     }
