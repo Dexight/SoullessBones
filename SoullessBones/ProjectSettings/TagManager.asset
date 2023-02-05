@@ -21,6 +21,7 @@ TagManager:
   - PauseMenu
   - Spikes
   - Door
+  - MovePlatform
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - Platform
   - GhostPlayer
   - Door
-  - 
+  - MovePlatform
   - 
   - 
   - 

@@ -34,6 +34,7 @@ public class MovementController : MonoBehaviour
     #region Jump Variables
     [Header("Jump Variables")]
     [Range(0, 10f)] public float JumpForce;
+    public bool isJumped = false;
     public int jumpCount;
     private float MaxFallSpeed = 10f;
 
@@ -134,8 +135,13 @@ public class MovementController : MonoBehaviour
     public void Jump()
     {
         rb.velocity = Vector2.up * JumpForce;
+        StartCoroutine(isJumping());
     }
-
+    private IEnumerator isJumping()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isJumped = true;
+    }
     private void NormalJump()
     {
         if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Joystick1Button0)) && jumpCount == 1 && _CanMove)
@@ -170,7 +176,10 @@ public class MovementController : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapBox(GroundCheck.position, checkSize, 0, Ground);
         if (isGrounded)
+        {
             jumpCount = 1;
+            isJumped = false;
+        }
         DirectionX = !facingRight ? 1 : -1;
     }
 
