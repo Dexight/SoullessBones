@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InElevator : MonoBehaviour
@@ -21,16 +19,14 @@ public class InElevator : MonoBehaviour
     {
         boxSprite.sprite = inBox;
         snail.enabled = true;
+        MovementController.instance.transform.parent = transform;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         boxSprite.sprite = OutOfBox;
         snail.enabled = false;
-    }
-
-    void Update()
-    {
-        
+        MovementController.instance.transform.parent = null;
+        DontDestroyOnLoad(MovementController.instance);
     }
 }

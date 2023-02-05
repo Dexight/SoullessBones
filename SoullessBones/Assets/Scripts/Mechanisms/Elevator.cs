@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Elevator : MonoBehaviour
@@ -14,12 +13,14 @@ public class Elevator : MonoBehaviour
     public bool upTrigger = false;
     public bool downTrigger = false;
 
-    [SerializeField] private bool goUp = false;
-    [SerializeField] private bool goDown = false;
+    public bool goUp = false;
+    public bool goDown = false;
 
     [SerializeField] private float speed;
     [SerializeField] private int curfloor;
     private float[] ypositions;
+    float maxfloor;
+
     void Up()
     {
         transform.position = new Vector2(transform.position.x, transform.position.y + speed * Time.fixedDeltaTime);
@@ -40,21 +41,26 @@ public class Elevator : MonoBehaviour
             ypositions[i++] = c.position.y;
         }
         curfloor = 0;
+        maxfloor = ypositions.Length-1;
     }
 
     void FixedUpdate()
     {
         if (upTrigger)
         {
-            MovementController.instance.transform.parent = transform;
-            goUp = true;
+            if (!goUp && !goDown && curfloor != maxfloor)
+            {
+                goUp = true;
+            }
             upTrigger = false;
         }
 
         if(downTrigger)
         {
-            MovementController.instance.transform.parent = transform;
-            goDown = true;
+            if (!goUp && !goDown && curfloor != 0)
+            {
+                goDown = true;
+            }
             downTrigger = false;
         }
 
@@ -65,8 +71,6 @@ public class Elevator : MonoBehaviour
             else 
             {
                 curfloor++;
-                MovementController.instance.transform.parent = null;
-                DontDestroyOnLoad(MovementController.instance);
                 goUp = false;
             }
         }
@@ -78,8 +82,6 @@ public class Elevator : MonoBehaviour
             else
             {
                 curfloor--;
-                MovementController.instance.transform.parent = null;
-                DontDestroyOnLoad(MovementController.instance);
                 goDown = false;
             }
         }

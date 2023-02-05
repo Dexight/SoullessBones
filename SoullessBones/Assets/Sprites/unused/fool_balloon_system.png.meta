@@ -257,7 +257,7 @@ TextureImporter:
         serializedVersion: 2
         x: 5
         y: 68
-        width: 5
+        width: 6
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -276,10 +276,10 @@ TextureImporter:
       name: fool_balloon_system_8
       rect:
         serializedVersion: 2
-        x: 22
+        x: 21
         y: 68
-        width: 5
-        height: 10
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: fool_balloon_system_9
       rect:
         serializedVersion: 2
-        x: 38
+        x: 37
         y: 68
-        width: 5
-        height: 8
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: fool_balloon_system_10
       rect:
         serializedVersion: 2
-        x: 54
+        x: 53
         y: 68
-        width: 4
-        height: 7
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,8 +341,8 @@ TextureImporter:
         serializedVersion: 2
         x: 69
         y: 68
-        width: 5
-        height: 9
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: fool_balloon_system_12
       rect:
         serializedVersion: 2
-        x: 6
+        x: 5
         y: 52
-        width: 4
-        height: 5
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +381,10 @@ TextureImporter:
       name: fool_balloon_system_13
       rect:
         serializedVersion: 2
-        x: 22
+        x: 21
         y: 52
-        width: 4
-        height: 5
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: fool_balloon_system_14
       rect:
         serializedVersion: 2
-        x: 38
+        x: 37
         y: 52
-        width: 4
-        height: 4
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +423,10 @@ TextureImporter:
       name: fool_balloon_system_15
       rect:
         serializedVersion: 2
-        x: 54
+        x: 53
         y: 52
-        width: 4
-        height: 5
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,10 +444,10 @@ TextureImporter:
       name: fool_balloon_system_16
       rect:
         serializedVersion: 2
-        x: 70
+        x: 69
         y: 52
-        width: 4
-        height: 6
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -465,10 +465,10 @@ TextureImporter:
       name: fool_balloon_system_17
       rect:
         serializedVersion: 2
-        x: 86
+        x: 85
         y: 52
-        width: 4
-        height: 6
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -570,10 +570,10 @@ TextureImporter:
       name: fool_balloon_system_22
       rect:
         serializedVersion: 2
-        x: 87
+        x: 85
         y: 68
-        width: 2
-        height: 1
+        width: 6
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
