@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: eaa15e60dfc463240b5b8d6f6ae04a91
+guid: 454c923f2cc0e284eace17e41f484260
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -100,47 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeatPoint(16x16)_0
+      name: tearsUp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712fe8e4d13d0714a8a093075d7e63b4
-      internalID: -2054570255
+      spriteID: 4cb806be6dcc67b4e9678d39429e746e
+      internalID: 2097084144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeatPoint(16x16)_1
+      name: tearsUp_1
       rect:
         serializedVersion: 2
         x: 16
@@ -175,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47bcc5fdd298ad54499e7be19ff59509
-      internalID: 1461897684
+      spriteID: f1e64af0c79725643af29bacb832b1f3
+      internalID: -222898933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeatPoint(16x16)_2
+      name: tearsUp_2
       rect:
         serializedVersion: 2
         x: 32
@@ -196,8 +161,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86620ded3a59924fa7535758bbc7a27
-      internalID: 2118419234
+      spriteID: a82476c166987c0498eceb7c6116c7f0
+      internalID: -366770065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tearsUp_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afdc01fe8c71c69439c557b1d722b145
+      internalID: 609401808
       vertices: []
       indices: 
       edges: []
@@ -213,9 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HeatPoint(16x16)_1: 1461897684
-      HeatPoint(16x16)_2: 2118419234
-      HeatPoint(16x16)_0: -2054570255
+      tearsUp_1: -222898933
+      tearsUp_0: 2097084144
+      tearsUp_2: -366770065
+      tearsUp_3: 609401808
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

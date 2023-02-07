@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3751359890687479508, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
       propertyPath: m_Name
-      value: Crow 2
+      value: Crow right
       objectReference: {fileID: 0}
     - target: {fileID: 3751359890687479513, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
       propertyPath: facingRight
@@ -25376,6 +25376,7 @@ MonoBehaviour:
   isTouchingWall: 0
   isWallSliding: 0
   JumpForce: 0
+  isJumped: 0
   jumpCount: 0
   canJumpDown: 1
   jumpDownEnable: 0

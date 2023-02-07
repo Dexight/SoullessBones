@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1463519489814364381}
   - component: {fileID: 2818646134588881374}
-  - component: {fileID: -6166655595365979125}
+  - component: {fileID: 1866381744439688875}
   m_Layer: 8
-  m_Name: SwordTrailLeft
-  m_TagString: LeftSlash
+  m_Name: SwordTrailRight
+  m_TagString: RightSlash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7300969396805928265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.635666, y: 5.721, z: 0}
-  m_LocalScale: {x: -1.3, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-6166655595365979125
+--- !u!114 &1866381744439688875
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  bottleFill: 3
   Upper: 0
   forceOfOutput: 100
   forceOfPlayerOutput: 400
