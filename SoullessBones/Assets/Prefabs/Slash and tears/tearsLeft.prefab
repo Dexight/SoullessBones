@@ -120,4 +120,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRight: 0
   isUp: 0
-  speed: 4
+  speed: 5
+  collisionSize: 0.1
+  offset: 0.15
+  maxDistance: 20
+  curDistance: 0
+  forceOfOutput: 200
+  forceOfPlayerOutput: 0
+  coefficientOfOutput: 0

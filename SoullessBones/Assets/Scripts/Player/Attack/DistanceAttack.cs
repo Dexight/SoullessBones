@@ -13,8 +13,12 @@ public class DistanceAttack : MonoBehaviour
     [SerializeField] private Sprite emptyRed;
     [SerializeField] private TextMeshProUGUI counter;
 
-    public bool isFull;
+    //water in bottle
     private int count = 0; //0 to 100
+    public bool isFull = true;
+    //public bool isDecrementing = false;
+    public bool isIncrementing = true;
+    public bool isEmpty = true;
 
     private void Start()
     {
@@ -38,28 +42,24 @@ public class DistanceAttack : MonoBehaviour
 
     private void updateBottle()
     {
+        //Updating counter.
         if (count > 100)
             count = 100;
         if (count < 0)
             count = 0;
-
         fullBottle.fillAmount = (float)(count/100.0);
-
-        counter.color = Color.cyan;
-        isFull = false;
-        emptyBottle.sprite = emptyBlack;
-
-        if (count == 0)
-        {
-            counter.color = Color.white;
-        }
-        else if (count == 100)
-        {
-            isFull = true;
-            counter.color = Color.red;
-            emptyBottle.sprite = emptyRed;
-        }
-
         counter.text = "" + count;
+
+        //Updating sprite.
+        //as default:
+        counter.color = Color.cyan;
+        emptyBottle.sprite = emptyBlack;
+        isFull = count == 100;
+        isEmpty = count == 0;
+
+        //TODO update sprite and counter color
+        //red sprite + red text     (=100 -> decrementing)
+        //black sprite + cyan text  (>0 and <100 and incrementing)
+        //black sprite + white text (=0 -> incrementing) 
     }
 }

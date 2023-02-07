@@ -28,8 +28,8 @@ public class Slash : MonoBehaviour
         isDamageDone = enemies.Length > 0;
         for (int i = 0; i < enemies.Length; i++)    //перебор всех врагов
         {
-            enemies[i].GetComponent<Enemy>().TakeDamage(damage);
-            distanceAttack.fillBottle(bottleFill);    
+            enemies[i].GetComponent<Enemy>().TakeDamage(damage); //нанесение урона
+            distanceAttack.fillBottle(bottleFill);    //набор бутылки
             if (!enemies[i].GetComponent<Enemy>().isHeavy)      //отдача от удара
             {
                 if (GetComponent<Slash>().gameObject.tag == "RightSlash")

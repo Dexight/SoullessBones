@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 617783626879484431}
   - component: {fileID: 617783626879484430}
-  - component: {fileID: 8200832124301152412}
   - component: {fileID: 7216136311053885725}
+  - component: {fileID: 8200832124301152412}
   m_Layer: 0
   m_Name: tearsUp
   m_TagString: Untagged
@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617783626879484432}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 68.449875, y: -51.579453, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &617783626879484430
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -86,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8200832124301152412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 617783626879484432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30321aa8a9ec6fc4bae3b30750c420c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRight: 0
-  isUp: 1
-  speed: 4
 --- !u!95 &7216136311053885725
 Animator:
   serializedVersion: 4
@@ -121,3 +106,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8200832124301152412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617783626879484432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30321aa8a9ec6fc4bae3b30750c420c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRight: 0
+  isUp: 1
+  speed: 5
+  collisionSize: 0.1
+  offset: 0.15
+  maxDistance: 20
+  curDistance: 0
+  forceOfOutput: 200
+  forceOfPlayerOutput: 0
+  coefficientOfOutput: 0

@@ -19,6 +19,8 @@ public class AttackSystem : MonoBehaviour
     public Transform pointOfSlashUp;
 
     //Distance system
+    //UNLOCK
+    public bool distanceUnlock = false;//TODO
     //Tears prefabs
     public GameObject TearsLeft;
     public GameObject TearsRight;
@@ -27,6 +29,7 @@ public class AttackSystem : MonoBehaviour
 
     private bool isSlashRight = true;
     public bool CanAttack;
+    public bool CanThrow;
     public bool onWall = false;
     public bool inAstral = false;//In Astral
     public bool gameIsPaused = false; //In Pause Menu
@@ -37,6 +40,7 @@ public class AttackSystem : MonoBehaviour
         movementController= GetComponent<MovementController>();
         BottleUI = SceneLoader.instance.GetComponent<DistanceAttack>();
         CanAttack = true;
+        CanThrow = true;
     }
 
     void Update()
@@ -76,7 +80,7 @@ public class AttackSystem : MonoBehaviour
         }
 
         //Tears
-        if (Input.GetMouseButtonDown(1) && CanAttack && !onWall && !gameIsPaused && !inAstral )//&& BottleUI.isFull)
+        if (Input.GetMouseButton(1) && CanThrow && !onWall && !gameIsPaused && !inAstral)
         {
             if (!Input.GetKey(KeyCode.W))
             {
@@ -88,8 +92,16 @@ public class AttackSystem : MonoBehaviour
             {
                 Instantiate(TearsUp, player.transform.position, player.transform.rotation);
             }
+            StartCoroutine(ThrowCooldown());
             BottleUI.minusTears(10);
         }
+    }
+
+    private IEnumerator ThrowCooldown()
+    {
+        CanThrow = false;
+        yield return new WaitForSeconds(0.4f);
+        CanThrow = true;
     }
 
     private IEnumerator DeleteSlash()

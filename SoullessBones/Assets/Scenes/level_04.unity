@@ -651,7 +651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281131396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 67.817, y: -51.252476, z: -9.76}
+  m_LocalPosition: {x: 67.4, y: -51.209476, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12013,6 +12013,8 @@ MonoBehaviour:
   emptyRed: {fileID: -345971298, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
   counter: {fileID: 647406881}
   isFull: 0
+  isIncrementing: 1
+  isEmpty: 1
 --- !u!4 &1152412797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6032108415794670352, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
@@ -12676,7 +12678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325032599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.953926, y: 14.324449, z: 0.4100385}
+  m_LocalPosition: {x: 45.953926, y: 14.324449, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13744,11 +13746,13 @@ MonoBehaviour:
   SlashUpLeft: {fileID: 7090247980191089057, guid: eedabb9bf16e0ec4c99bcba5575d8bf4, type: 3}
   pointOfSlash: {fileID: 1257583947}
   pointOfSlashUp: {fileID: 1541672260}
+  distanceUnlock: 0
   TearsLeft: {fileID: 3412166740771443429, guid: 92da54ee840043748b24fb6d6cf780ec, type: 3}
   TearsRight: {fileID: 7551750402563474162, guid: cab4f2b20f13cbf49bc66b85e60e4c7d, type: 3}
   TearsUp: {fileID: 617783626879484432, guid: 0497767147283df4f888a7529f6aad5a, type: 3}
   BottleUI: {fileID: 1151061921}
   CanAttack: 1
+  CanThrow: 0
   onWall: 0
   inAstral: 0
   gameIsPaused: 0
@@ -13977,7 +13981,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541672245}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 67.817, y: -51.593, z: 0}
+  m_LocalPosition: {x: 67.4, y: -51.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
