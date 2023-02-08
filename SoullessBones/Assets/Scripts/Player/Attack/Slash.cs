@@ -29,7 +29,7 @@ public class Slash : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)    //перебор всех врагов
         {
             enemies[i].GetComponent<Enemy>().TakeDamage(damage); //нанесение урона
-            if(playerRB.GetComponent<AttackSystem>().distanceUnlock)
+            if(playerRB.GetComponent<AttackSystem>().distanceUnlock && distanceAttack.isIncrementing)
                 distanceAttack.fillBottle(bottleFill);    //набор бутылки
             if (!enemies[i].GetComponent<Enemy>().isHeavy)      //отдача от удара
             {

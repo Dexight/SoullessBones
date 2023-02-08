@@ -4,6 +4,7 @@ using UnityEngine;
 public class Tears : MonoBehaviour
 {
     private Rigidbody2D playerRB;
+    public int damage;
     [SerializeField] private bool isRight;
     [SerializeField] private bool isUp;
     [SerializeField] private int speed;
@@ -47,14 +48,20 @@ public class Tears : MonoBehaviour
         }
 
         //столкновение
-        if (touch)
+        if (touch && !stop)
         {
             if (touch.CompareTag("Enemy") || touch.CompareTag("Ground") || touch.CompareTag("Spikes") || touch.CompareTag("Door") || curDistance >= maxDistance)
             {
                 stop = true;
                 GetComponent<Animator>().SetTrigger("crash");
-                if(touch.CompareTag("Enemy"))
-                    recoil(touch);//отдача  
+                if (touch.CompareTag("Enemy"))
+                {
+                    //Урон
+                    touch.GetComponent<Enemy>().TakeDamage(damage);
+                    //Отдача
+                    transform.SetParent(touch.transform);
+                    recoil(touch);
+                }
             }
         }
         else
