@@ -16,8 +16,7 @@ public class DistanceAttack : MonoBehaviour
     //water in bottle
     private int count = 0; //0 to 100
     public bool isFull = true;
-    //public bool isDecrementing = false;
-    public bool isIncrementing = true;
+    public bool isIncrementing = true;//наполняется|убавляется
     public bool isEmpty = true;
 
     private void Start()
@@ -49,7 +48,6 @@ public class DistanceAttack : MonoBehaviour
             count = 0;
         fullBottle.fillAmount = (float)(count/100.0);
         counter.text = "" + count;
-
         //Updating sprite.
         //as default:
         counter.color = Color.cyan;
@@ -57,9 +55,35 @@ public class DistanceAttack : MonoBehaviour
         isFull = count == 100;
         isEmpty = count == 0;
 
-        //TODO update sprite and counter color
         //red sprite + red text     (=100 -> decrementing)
+        if (isFull)
+        {
+            isIncrementing = false;            
+            counter.color = Color.red;
+            emptyBottle.sprite = emptyRed;
+        }
+
+        //black sprite + white text (=0 -> incrementing)
+        if (isEmpty && !isIncrementing)
+        {
+            isIncrementing = true;
+            counter.color = Color.white;
+            emptyBottle.sprite = emptyBlack;
+        }
+
         //black sprite + cyan text  (>0 and <100 and incrementing)
-        //black sprite + white text (=0 -> incrementing) 
+        if (!isFull && !isEmpty)
+        {
+            if (isIncrementing)
+            {
+                counter.color = Color.cyan;
+                emptyBottle.sprite = emptyBlack;
+            }
+            else
+            {
+                counter.color = Color.red;
+                emptyBottle.sprite = emptyRed;
+            }
+        }
     }
 }

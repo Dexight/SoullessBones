@@ -18,7 +18,7 @@ public class Slash : MonoBehaviour
     private void Awake()
     {
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        distanceAttack = SceneLoader.instance.GetComponent<DistanceAttack>();
+        distanceAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         attackPos = transform;
         damage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().damage;
     }
@@ -29,7 +29,8 @@ public class Slash : MonoBehaviour
         for (int i = 0; i < enemies.Length; i++)    //перебор всех врагов
         {
             enemies[i].GetComponent<Enemy>().TakeDamage(damage); //нанесение урона
-            distanceAttack.fillBottle(bottleFill);    //набор бутылки
+            if(playerRB.GetComponent<AttackSystem>().distanceUnlock)
+                distanceAttack.fillBottle(bottleFill);    //набор бутылки
             if (!enemies[i].GetComponent<Enemy>().isHeavy)      //отдача от удара
             {
                 if (GetComponent<Slash>().gameObject.tag == "RightSlash")

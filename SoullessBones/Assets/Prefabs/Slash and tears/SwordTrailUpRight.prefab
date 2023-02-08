@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  bottleFill: 3
+  bottleFill: 4
   Upper: 0.5
   forceOfOutput: 100
   forceOfPlayerOutput: 0

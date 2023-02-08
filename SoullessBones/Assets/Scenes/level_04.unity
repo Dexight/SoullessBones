@@ -11887,7 +11887,6 @@ GameObject:
   - component: {fileID: 1151061918}
   - component: {fileID: 1151061917}
   - component: {fileID: 1151061916}
-  - component: {fileID: 1151061921}
   m_Layer: 5
   m_Name: Interface
   m_TagString: Interface
@@ -11995,26 +11994,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1151061921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151061915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586ddc0a096d2ce448d73db081676d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullBottle: {fileID: 327055431}
-  emptyBottle: {fileID: 619996294}
-  emptyBlack: {fileID: -2004907468, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
-  emptyRed: {fileID: -345971298, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
-  counter: {fileID: 647406881}
-  isFull: 0
-  isIncrementing: 1
-  isEmpty: 1
 --- !u!4 &1152412797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6032108415794670352, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
@@ -13747,10 +13726,11 @@ MonoBehaviour:
   pointOfSlash: {fileID: 1257583947}
   pointOfSlashUp: {fileID: 1541672260}
   distanceUnlock: 0
+  triggerUnlock: 0
   TearsLeft: {fileID: 3412166740771443429, guid: 92da54ee840043748b24fb6d6cf780ec, type: 3}
   TearsRight: {fileID: 7551750402563474162, guid: cab4f2b20f13cbf49bc66b85e60e4c7d, type: 3}
   TearsUp: {fileID: 617783626879484432, guid: 0497767147283df4f888a7529f6aad5a, type: 3}
-  BottleUI: {fileID: 1151061921}
+  BottleUI: {fileID: 1855538747}
   CanAttack: 1
   CanThrow: 0
   onWall: 0
@@ -14262,13 +14242,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1855538746}
+  - component: {fileID: 1855538747}
   m_Layer: 5
   m_Name: Bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1855538746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14291,6 +14272,26 @@ RectTransform:
   m_AnchoredPosition: {x: 61, y: -156}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1855538747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855538745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ddc0a096d2ce448d73db081676d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullBottle: {fileID: 327055431}
+  emptyBottle: {fileID: 619996294}
+  emptyBlack: {fileID: -2004907468, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
+  emptyRed: {fileID: -345971298, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
+  counter: {fileID: 647406881}
+  isFull: 0
+  isIncrementing: 1
+  isEmpty: 1
 --- !u!1 &1868869197
 GameObject:
   m_ObjectHideFlags: 0

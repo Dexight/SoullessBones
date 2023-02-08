@@ -19,8 +19,8 @@ public class AttackSystem : MonoBehaviour
     public Transform pointOfSlashUp;
 
     //Distance system
-    //UNLOCK
-    public bool distanceUnlock = false;//TODO
+    public bool distanceUnlock = false;
+    public bool triggerUnlock = false;
     //Tears prefabs
     public GameObject TearsLeft;
     public GameObject TearsRight;
@@ -37,8 +37,7 @@ public class AttackSystem : MonoBehaviour
 
     private void Awake()
     {
-        movementController= GetComponent<MovementController>();
-        BottleUI = SceneLoader.instance.GetComponent<DistanceAttack>();
+        movementController = GetComponent<MovementController>();
         CanAttack = true;
         CanThrow = true;
     }
@@ -80,23 +79,41 @@ public class AttackSystem : MonoBehaviour
         }
 
         //Tears
-        if (Input.GetMouseButton(1) && CanThrow && !onWall && !gameIsPaused && !inAstral)
+
+        if(triggerUnlock)
         {
-            if (!Input.GetKey(KeyCode.W))
+            OnDistanceUnlock();
+            triggerUnlock = false;
+        }
+
+        if (distanceUnlock)
+        {
+            if (Input.GetMouseButton(1) && CanThrow && !onWall && !gameIsPaused && !inAstral && !BottleUI.isIncrementing)
             {
-                if(movementController.facingRight)
-                    Instantiate(TearsRight, player.transform.position, player.transform.rotation);
-                else Instantiate(TearsLeft, player.transform.position, player.transform.rotation);
+                if (!Input.GetKey(KeyCode.W))
+                {
+                    if (movementController.facingRight)
+                        Instantiate(TearsRight, player.transform.position, player.transform.rotation);
+                    else Instantiate(TearsLeft, player.transform.position, player.transform.rotation);
+                }
+                else
+                {
+                    Instantiate(TearsUp, player.transform.position, player.transform.rotation);
+                }
+                StartCoroutine(ThrowCooldown());
+                BottleUI.minusTears(10);
             }
-            else
-            {
-                Instantiate(TearsUp, player.transform.position, player.transform.rotation);
-            }
-            StartCoroutine(ThrowCooldown());
-            BottleUI.minusTears(10);
         }
     }
 
+    //------------------
+    public void OnDistanceUnlock()
+    {
+        distanceUnlock = true;
+        BottleUI.gameObject.SetActive(true);
+        BottleUI = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+    }
+    //------------------
     private IEnumerator ThrowCooldown()
     {
         CanThrow = false;
