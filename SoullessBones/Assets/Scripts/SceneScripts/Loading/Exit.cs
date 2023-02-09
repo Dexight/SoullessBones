@@ -9,7 +9,8 @@ public class Exit : MonoBehaviour
     void Awake()
     {
         trigger = GetComponent<BoxCollider2D>();
-        loader = FindObjectOfType<SceneLoader>();
+        //loader = FindObjectOfType<SceneLoader>();
+        loader = GameObject.FindGameObjectWithTag("Interface").GetComponent<SceneLoader>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

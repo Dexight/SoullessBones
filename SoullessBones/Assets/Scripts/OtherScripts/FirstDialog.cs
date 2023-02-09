@@ -6,7 +6,7 @@ public class FirstDialog : MonoBehaviour
 {
     [SerializeField] private GameObject DialogManager;
     [SerializeField] private GameObject dialogItem;
-    private void Awake()
+    private void Start()
     {
         if (GameManager.instance.scenePassword != "level_01_00")
         {

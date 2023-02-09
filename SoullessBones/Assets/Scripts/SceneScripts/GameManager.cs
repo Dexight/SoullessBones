@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Interface = GameObject.FindGameObjectWithTag("Interface");
         if (instance == null)
         {
             instance = this;
