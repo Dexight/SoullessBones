@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: eaa15e60dfc463240b5b8d6f6ae04a91
+guid: c19be3be489c9d6439e0541d0d304098
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -100,47 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HeatPoint(16x16)_0
+      name: tearsUP_crash_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712fe8e4d13d0714a8a093075d7e63b4
-      internalID: -2054570255
+      spriteID: a1c41f33caf603a44b511cfcfa57cd8e
+      internalID: -374276731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeatPoint(16x16)_1
+      name: tearsUP_crash_1
       rect:
         serializedVersion: 2
         x: 16
@@ -175,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 47bcc5fdd298ad54499e7be19ff59509
-      internalID: 1461897684
+      spriteID: 9efbcd2cf5d4f174ea9828ba43592aa2
+      internalID: 991342600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HeatPoint(16x16)_2
+      name: tearsUP_crash_2
       rect:
         serializedVersion: 2
         x: 32
@@ -196,8 +161,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86620ded3a59924fa7535758bbc7a27
-      internalID: 2118419234
+      spriteID: 7fe4504206b388a45a2344bf988bfe12
+      internalID: 665141067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tearsUP_crash_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0131373efefaeae4293a8cc8c9237ee5
+      internalID: -1443864655
       vertices: []
       indices: 
       edges: []
@@ -213,9 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HeatPoint(16x16)_1: 1461897684
-      HeatPoint(16x16)_2: 2118419234
-      HeatPoint(16x16)_0: -2054570255
+      tearsUP_crash_2: 665141067
+      tearsUP_crash_1: 991342600
+      tearsUP_crash_0: -374276731
+      tearsUP_crash_3: -1443864655
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

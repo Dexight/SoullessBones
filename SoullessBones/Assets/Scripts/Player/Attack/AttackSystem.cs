@@ -5,7 +5,9 @@ public class AttackSystem : MonoBehaviour
 {
 
     public GameObject player;
-    //for prefabs
+    private MovementController movementController;
+    //Melee System
+    //Slash prefabs
     public GameObject SlashLeft;
     public GameObject SlashRight;
     public GameObject SlashUpRight;
@@ -16,8 +18,18 @@ public class AttackSystem : MonoBehaviour
     public Transform pointOfSlash;
     public Transform pointOfSlashUp;
 
+    //Distance system
+    public bool distanceUnlock = false;
+    public bool triggerUnlock = false;
+    //Tears prefabs
+    public GameObject TearsLeft;
+    public GameObject TearsRight;
+    public GameObject TearsUp;
+    public DistanceAttack BottleUI;
+
     private bool isSlashRight = true;
     public bool CanAttack;
+    public bool CanThrow;
     public bool onWall = false;
     public bool inAstral = false;//In Astral
     public bool gameIsPaused = false; //In Pause Menu
@@ -25,19 +37,23 @@ public class AttackSystem : MonoBehaviour
 
     private void Awake()
     {
+        movementController = GetComponent<MovementController>();
         CanAttack = true;
+        CanThrow = true;
     }
+
     void Update()
     {
+        //Slash
         if (Input.GetMouseButtonDown(0) && CanAttack && !onWall && !gameIsPaused && !inAstral)
         {
             if (Input.GetKey(KeyCode.W))
             {
-                if (!GetComponent<MovementController>().facingRight && isSlashRight)
+                if (!movementController.facingRight && isSlashRight)
                 {
                     isSlashRight = false;
                 }
-                else if (GetComponent<MovementController>().facingRight && !isSlashRight)
+                else if (movementController.facingRight && !isSlashRight)
                 {
                     isSlashRight = true;
                 }
@@ -46,11 +62,11 @@ public class AttackSystem : MonoBehaviour
             }
             else
             {
-                if (!GetComponent<MovementController>().facingRight && isSlashRight)
+                if (!movementController.facingRight && isSlashRight)
                 {
                     isSlashRight = false;
                 }
-                else if (GetComponent<MovementController>().facingRight && !isSlashRight)
+                else if (movementController.facingRight && !isSlashRight)
                 {
                     isSlashRight = true;
                 }
@@ -61,6 +77,48 @@ public class AttackSystem : MonoBehaviour
             CanAttack = false;
             StartCoroutine(DeleteSlash());
         }
+
+        //Tears
+
+        if(triggerUnlock)
+        {
+            OnDistanceUnlock();
+            triggerUnlock = false;
+        }
+
+        if (distanceUnlock)
+        {
+            if (Input.GetMouseButton(1) && CanThrow && !onWall && !gameIsPaused && !inAstral && !BottleUI.isIncrementing)
+            {
+                if (!Input.GetKey(KeyCode.W))
+                {
+                    if (movementController.facingRight)
+                        Instantiate(TearsRight, player.transform.position, player.transform.rotation);
+                    else Instantiate(TearsLeft, player.transform.position, player.transform.rotation);
+                }
+                else
+                {
+                    Instantiate(TearsUp, player.transform.position, player.transform.rotation);
+                }
+                StartCoroutine(ThrowCooldown());
+                BottleUI.minusTears(10);
+            }
+        }
+    }
+
+    //------------------
+    public void OnDistanceUnlock()
+    {
+        distanceUnlock = true;
+        BottleUI.gameObject.SetActive(true);
+        BottleUI = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+    }
+    //------------------
+    private IEnumerator ThrowCooldown()
+    {
+        CanThrow = false;
+        yield return new WaitForSeconds(0.4f);
+        CanThrow = true;
     }
 
     private IEnumerator DeleteSlash()

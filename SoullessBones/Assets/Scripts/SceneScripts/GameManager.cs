@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Interface;
     public GameObject timeManager;
+    #endregion
+    #region Other Variables
     public string scenePassword;//сохраняет строку, когда игрок переходит на другую сцену
     [Header("CheatStats")]
     public bool godMod;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Interface = GameObject.FindGameObjectWithTag("Interface");
         if (instance == null)
         {
             instance = this;
