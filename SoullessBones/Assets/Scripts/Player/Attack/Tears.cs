@@ -18,6 +18,7 @@ public class Tears : MonoBehaviour
     private void Awake()
     {
         playerRB = MovementController.instance.GetComponent<Rigidbody2D>();
+        damage = GameManager.instance.damageDist;
     }
     void FixedUpdate()
     {

@@ -20,7 +20,8 @@ public class Slash : MonoBehaviour
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         distanceAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         attackPos = transform;
-        damage = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().damage;
+        damage = GameManager.instance.damage;
+        bottleFill = GameManager.instance.bottleFill;
     }
     private void Start()
     {

@@ -80,7 +80,7 @@ public class AttackSystem : MonoBehaviour
 
         //Tears
 
-        if(triggerUnlock)
+        if (triggerUnlock)
         {
             OnDistanceUnlock();
             triggerUnlock = false;
@@ -112,6 +112,13 @@ public class AttackSystem : MonoBehaviour
         distanceUnlock = true;
         BottleUI.gameObject.SetActive(true);
         BottleUI = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        BottleUI.OnStart();
+    }
+    public void OnDistanceLock()
+    {
+        distanceUnlock = false;
+        BottleUI.gameObject.SetActive(false);
+        BottleUI = null;
     }
     //------------------
     private IEnumerator ThrowCooldown()
