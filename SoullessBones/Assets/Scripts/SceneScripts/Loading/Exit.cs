@@ -17,6 +17,7 @@ public class Exit : MonoBehaviour
     {
         if(other.tag == "Player" && !gone)
         {
+            MovementController.instance.GetComponent<Astral>().timerNull();
                 GameManager.instance.scenePassword = newScenePassword;
                 loader.FadeTo(nextSceneName, true);
                 gone = true;
