@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 public class MainMenu : MonoBehaviour
 {
+    public GameObject SettingsPanel;
     private void Awake()
     {
         if (GameManager.instance)
@@ -27,5 +30,10 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Игра закрылась");
         Application.Quit();
+    }
+
+    public void ShowSettings()
+    {
+        SettingsPanel.SetActive(true);
     }
 }
