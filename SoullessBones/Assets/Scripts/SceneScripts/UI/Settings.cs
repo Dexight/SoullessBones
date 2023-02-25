@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
+
 public class Settings : MonoBehaviour
 {
 
     public GameObject SettingsPanel;
     public Button CloseButton;
+    public Toggle toggle;
     public TMP_Dropdown ResolutionDropdown;
     public Resolution[] Resolutions;
     void Start()
     {
+        toggle.isOn = false;
         ResolutionDropdown.ClearOptions();
         List<string> Options = new List<string>();
         Resolutions = Screen.resolutions;
@@ -28,7 +32,7 @@ public class Settings : MonoBehaviour
         LoadSettings(CurrentResolutionIndex);
     }
 
-    public void SetWindowMode(bool isFullScreen)=>Screen.fullScreen = isFullScreen;
+    public void SetWindowMode()=>Screen.fullScreen = !toggle.isOn;
 
 
     public void SaveAndCloseSettings()
