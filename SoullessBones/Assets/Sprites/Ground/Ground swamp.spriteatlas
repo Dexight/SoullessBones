@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ground swamp
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+    - {fileID: 2800000, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 2122313786, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 856254462, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 1443314337, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 1003761789, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -960514339, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -798962806, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -1917760137, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -1935296835, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 1796629910, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -902193696, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 595871469, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -1605833970, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 474447162, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -1346938464, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -635636727, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -885830915, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 1913412325, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -1702126741, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 1663575167, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: 1189746535, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
+  - {fileID: -381541959, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 1968605514, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 658433923, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -1827055903, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 179316824, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 1098644438, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 1860521166, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -1648964270, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -1261476221, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 1207511088, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -870739464, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -1782371995, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 764855883, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 631204269, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -1475452821, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 1690370754, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 715173859, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: 1722727291, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Terrain v2 (16x16) swamp_8
+  - Terrain v2 (16x16) swamp_9
+  - Terrain v2 (16x16) swamp_0
+  - Terrain v2 (16x16) swamp_1
+  - Terrain v2 (16x16) swamp_2
+  - Terrain v2 (16x16) swamp_3
+  - Terrain v2 (16x16) swamp_4
+  - Terrain v2 (16x16) swamp_5
+  - Terrain v2 (16x16) swamp_6
+  - Terrain v2 (16x16) swamp_7
+  - Terrain v2 (16x16) swamp_19
+  - Terrain v2 (16x16) swamp_18
+  - Terrain v2 (16x16) swamp_13
+  - Terrain v2 (16x16) swamp_12
+  - Terrain v2 (16x16) swamp_11
+  - Terrain v2 (16x16) swamp_10
+  - Terrain v2 (16x16) swamp_17
+  - Terrain v2 (16x16) swamp_16
+  - Terrain v2 (16x16) swamp_15
+  - Terrain v2 (16x16) swamp_14
+  - spikes swamp_16
+  - spikes swamp_17
+  - spikes swamp_14
+  - spikes swamp_15
+  - spikes swamp_12
+  - spikes swamp_13
+  - spikes swamp_10
+  - spikes swamp_11
+  - spikes swamp_9
+  - spikes swamp_8
+  - spikes swamp_3
+  - spikes swamp_2
+  - spikes swamp_1
+  - spikes swamp_0
+  - spikes swamp_7
+  - spikes swamp_6
+  - spikes swamp_5
+  - spikes swamp_4
+  m_RenderDataMap: {}
+  m_Tag: Ground swamp
+  m_IsVariant: 0

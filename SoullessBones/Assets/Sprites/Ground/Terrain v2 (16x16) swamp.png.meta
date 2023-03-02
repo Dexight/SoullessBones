@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8de8c46518be9734aab113f7bffe7a9d
+guid: d298967d4b8add4418959d1a365f2d3e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -63,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -101,47 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_0
+      name: Terrain v2 (16x16) swamp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,24 +113,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5.983242, y: 8}
-        - {x: -5.959925, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92741f0d614c7304dbbba0af58c48425
-      internalID: -1260643241
+      spriteID: 25ab5935a571aa84e83957ed782b4bbf
+      internalID: 1443314337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_1
+      name: Terrain v2 (16x16) swamp_1
       rect:
         serializedVersion: 2
         x: 16
@@ -174,24 +134,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a4834cbc7abff543a60775c01de53a5
-      internalID: -456129499
+      spriteID: ed461d7d6c77eee458665842cbe5aabc
+      internalID: 1003761789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_2
+      name: Terrain v2 (16x16) swamp_2
       rect:
         serializedVersion: 2
         x: 32
@@ -199,24 +155,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 6.0200005, y: -8}
-        - {x: 6, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bddacc3b12d931546a2e2225419f2c43
-      internalID: 2119787540
+      spriteID: 290a4dc1695d1b24b831635d6ce5533e
+      internalID: -960514339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_3
+      name: Terrain v2 (16x16) swamp_3
       rect:
         serializedVersion: 2
         x: 48
@@ -224,24 +176,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -6, y: 8}
-        - {x: -6, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36e5bb6bba5830a43b4908c98e05096f
-      internalID: 1437198123
+      spriteID: bc26fe8df54da9a489d189dd2ab3f391
+      internalID: -798962806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_4
+      name: Terrain v2 (16x16) swamp_4
       rect:
         serializedVersion: 2
         x: 64
@@ -249,20 +197,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa07dbca89b67b148b87ab9765f21ec4
-      internalID: 1651368205
+      spriteID: 7ee15f0e5d6af564292ef1673c4ade52
+      internalID: -1917760137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_5
+      name: Terrain v2 (16x16) swamp_5
       rect:
         serializedVersion: 2
         x: 0
@@ -270,24 +218,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5.965166, y: 8}
-        - {x: -6.0077453, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c87af26b9dc3ed4e8af968bd71c02ef
-      internalID: 1741814381
+      spriteID: 1b32e0b8d47aec34ba1169ac2263aea4
+      internalID: -1935296835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_6
+      name: Terrain v2 (16x16) swamp_6
       rect:
         serializedVersion: 2
         x: 16
@@ -295,20 +239,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0044d46a7f5865845854a792ebc689f6
-      internalID: -876483192
+      spriteID: 6b23540a4ff147b42b52efa66a80cc7e
+      internalID: 1796629910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_7
+      name: Terrain v2 (16x16) swamp_7
       rect:
         serializedVersion: 2
         x: 32
@@ -316,24 +260,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 6.0200005, y: -8}
-        - {x: 5.9799995, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7229a7323129d8f46bf7539f34c93bca
-      internalID: -141432923
+      spriteID: 35ad989becd14604d95d13de83814ba8
+      internalID: -902193696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_8
+      name: Terrain v2 (16x16) swamp_8
       rect:
         serializedVersion: 2
         x: 48
@@ -341,20 +281,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06a2e46f96b762a41ab691be7c986252
-      internalID: -1195266301
+      spriteID: 8887c2ab9f109f34cabd0b3d78f6cec3
+      internalID: 2122313786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_9
+      name: Terrain v2 (16x16) swamp_9
       rect:
         serializedVersion: 2
         x: 64
@@ -362,20 +302,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab07f1c4ebfffc4499ae336dd511648e
-      internalID: 1892824028
+      spriteID: 423dd7e29727f934ea9b8a875c4de396
+      internalID: 856254462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_10
+      name: Terrain v2 (16x16) swamp_10
       rect:
         serializedVersion: 2
         x: 0
@@ -383,24 +323,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5.9843855, y: 8}
-        - {x: -5.9997625, y: -7}
-        - {x: 8, y: -7.0200005}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1bb688f8ecd174282045bc3e153f71
-      internalID: 895466876
+      spriteID: e69a065d656ac614083a7b24db68e472
+      internalID: -885830915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_11
+      name: Terrain v2 (16x16) swamp_11
       rect:
         serializedVersion: 2
         x: 16
@@ -408,24 +344,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -7}
-        - {x: 8, y: -6.9799995}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04eaf4e3801ba7d4a91dd16ae4f11257
-      internalID: -503184188
+      spriteID: 655072af838d2af40a155534f393b1e2
+      internalID: -635636727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_12
+      name: Terrain v2 (16x16) swamp_12
       rect:
         serializedVersion: 2
         x: 32
@@ -433,24 +365,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -7}
-        - {x: 5.963791, y: -6.9781723}
-        - {x: 6.0200005, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ead33534bce65e4aa5a6783e7c3b696
-      internalID: 949660289
+      spriteID: 72ca2d42ed7261747b4d09a8efa8a869
+      internalID: -1346938464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_13
+      name: Terrain v2 (16x16) swamp_13
       rect:
         serializedVersion: 2
         x: 48
@@ -458,20 +386,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a78a56a5fcdca3e47990084ca3895ed5
-      internalID: -1625719732
+      spriteID: 261872911a7d77249afa67ca4041257d
+      internalID: 474447162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_14
+      name: Terrain v2 (16x16) swamp_14
       rect:
         serializedVersion: 2
         x: 64
@@ -479,24 +407,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4effe5195eecd374a8a20c9d57f0844b
-      internalID: -1692940866
+      spriteID: 23496f99986b9f14fa5f3632f09d6b8f
+      internalID: 1189746535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_15
+      name: Terrain v2 (16x16) swamp_15
       rect:
         serializedVersion: 2
         x: 0
@@ -504,24 +428,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -6.9690046, y: 8}
-        - {x: -7.0205293, y: -6.954467}
-        - {x: 8, y: -6.9605913}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dc3cb4867b36c147a02dfe837899bff
-      internalID: 1010838958
+      spriteID: 6d1526e7cf92a0d4aa84388cfa9ed1b5
+      internalID: 1663575167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_16
+      name: Terrain v2 (16x16) swamp_16
       rect:
         serializedVersion: 2
         x: 16
@@ -529,24 +449,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -6.951086}
-        - {x: 8, y: -7.0110245}
-        - {x: 8, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7adf177b83ac8334a8be18d944775d12
-      internalID: -1002129203
+      spriteID: c8dd5af81cb0f1c45a97397870e3b952
+      internalID: -1702126741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_17
+      name: Terrain v2 (16x16) swamp_17
       rect:
         serializedVersion: 2
         x: 32
@@ -554,25 +470,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -7.0078506}
-        - {x: 6.9921494, y: -6.972417}
-        - {x: 7.0432816, y: -4.1220026}
-        - {x: 7.0078506, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef2dbbfa024e5ad40a5646e1be2584de
-      internalID: 1321934397
+      spriteID: 0b5aa4791ffc3324e972ce6c29741bbf
+      internalID: 1913412325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_18
+      name: Terrain v2 (16x16) swamp_18
       rect:
         serializedVersion: 2
         x: 48
@@ -580,24 +491,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -6.971302, y: 8}
-        - {x: -6.966881, y: -6.9850044}
-        - {x: 7.026882, y: -6.9850044}
-        - {x: 7, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37d7427f074e4c4291712dc799d6e97
-      internalID: -1475742388
+      spriteID: fcebaf96e66248841a2707ab6835993c
+      internalID: -1605833970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Terrain v2 (16x16)_19
+      name: Terrain v2 (16x16) swamp_19
       rect:
         serializedVersion: 2
         x: 64
@@ -605,18 +512,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 6, y: -8}
-        - {x: 6, y: 8}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f2bd78f5ccac0b43979bff0a1a77135
-      internalID: 742396863
+      spriteID: 4bfb8648bd9f6194ba59d55351f546f8
+      internalID: 595871469
       vertices: []
       indices: 
       edges: []
@@ -632,26 +535,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Terrain v2 (16x16)_5: 1741814381
-      Terrain v2 (16x16)_9: 1892824028
-      Terrain v2 (16x16)_11: -503184188
-      Terrain v2 (16x16)_13: -1625719732
-      Terrain v2 (16x16)_4: 1651368205
-      Terrain v2 (16x16)_10: 895466876
-      Terrain v2 (16x16)_18: -1475742388
-      Terrain v2 (16x16)_0: -1260643241
-      Terrain v2 (16x16)_1: -456129499
-      Terrain v2 (16x16)_8: -1195266301
-      Terrain v2 (16x16)_17: 1321934397
-      Terrain v2 (16x16)_3: 1437198123
-      Terrain v2 (16x16)_14: -1692940866
-      Terrain v2 (16x16)_2: 2119787540
-      Terrain v2 (16x16)_7: -141432923
-      Terrain v2 (16x16)_16: -1002129203
-      Terrain v2 (16x16)_15: 1010838958
-      Terrain v2 (16x16)_6: -876483192
-      Terrain v2 (16x16)_12: 949660289
-      Terrain v2 (16x16)_19: 742396863
+      Terrain v2 (16x16) swamp_3: -798962806
+      Terrain v2 (16x16) swamp_9: 856254462
+      Terrain v2 (16x16) swamp_13: 474447162
+      Terrain v2 (16x16) swamp_18: -1605833970
+      Terrain v2 (16x16) swamp_19: 595871469
+      Terrain v2 (16x16) swamp_11: -635636727
+      Terrain v2 (16x16) swamp_8: 2122313786
+      Terrain v2 (16x16) swamp_7: -902193696
+      Terrain v2 (16x16) swamp_0: 1443314337
+      Terrain v2 (16x16) swamp_12: -1346938464
+      Terrain v2 (16x16) swamp_15: 1663575167
+      Terrain v2 (16x16) swamp_14: 1189746535
+      Terrain v2 (16x16) swamp_16: -1702126741
+      Terrain v2 (16x16) swamp_5: -1935296835
+      Terrain v2 (16x16) swamp_17: 1913412325
+      Terrain v2 (16x16) swamp_2: -960514339
+      Terrain v2 (16x16) swamp_1: 1003761789
+      Terrain v2 (16x16) swamp_10: -885830915
+      Terrain v2 (16x16) swamp_4: -1917760137
+      Terrain v2 (16x16) swamp_6: 1796629910
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
