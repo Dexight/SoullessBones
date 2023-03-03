@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27336958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.00774, y: -25.38994, z: -9.76}
+  m_LocalPosition: {x: 80.007774, y: -25.38994, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10974,12 +10974,16 @@ MonoBehaviour:
   rb: {fileID: 0}
   Interface: {fileID: 0}
   timeManager: {fileID: 646607587}
-  scenePassword: level_07_01
-  godMod: 0
   damage: 5
+  damageDist: 0
+  bottleFill: 0
+  godMod: 0
   enableDoubleJumping: 0
   enableWallJumping: 0
   enableAstral: 0
+  enableDistanceAttacks: 0
+  fullBottle: 0
+  scenePassword: level_07_01
 --- !u!4 &1082960235
 Transform:
   m_ObjectHideFlags: 0
@@ -11271,6 +11275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
   canUseAstral: 1
+  timeLessSpeed: 0.3
+  cooldownSpeed: 0.3
 --- !u!114 &1364433419
 MonoBehaviour:
   m_ObjectHideFlags: 0
