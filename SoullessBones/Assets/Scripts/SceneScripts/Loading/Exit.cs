@@ -9,7 +9,6 @@ public class Exit : MonoBehaviour
     void Awake()
     {
         trigger = GetComponent<BoxCollider2D>();
-        //loader = FindObjectOfType<SceneLoader>();
         loader = GameObject.FindGameObjectWithTag("Interface").GetComponent<SceneLoader>();
     }
 
@@ -18,9 +17,10 @@ public class Exit : MonoBehaviour
         if(other.tag == "Player" && !gone)
         {
             MovementController.instance.GetComponent<Astral>().timerNull();
-                GameManager.instance.scenePassword = newScenePassword;
-                loader.FadeTo(nextSceneName, true);
-                gone = true;
+            GameManager.instance.scenePassword = newScenePassword;
+            GameManager.instance.currentScene = nextSceneName;
+            loader.FadeTo(nextSceneName, true);
+            gone = true;
         }
     }
 

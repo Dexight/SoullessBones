@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     public bool enableDistanceAttacks;
     public bool fullBottle;
     #endregion
-    public string scenePassword;//сохраняет строку, когда игрок переходит на другую сцену
-
+    public string scenePassword;//сохраняет, когда игрок переходит на другую сцену
+    public string currentScene;
     private void Awake()
     {
         attackSystem = Player.GetComponent<AttackSystem>();
