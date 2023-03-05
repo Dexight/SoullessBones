@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Interface;
     public GameObject timeManager;
+    public GameObject DistAttack;
     #endregion
     #region Cheats Variables
     [Header("CheatStats")]
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         attackSystem = Player.GetComponent<AttackSystem>();
-        BottleUI = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        BottleUI = DistAttack.GetComponent<DistanceAttack>();
         Interface = GameObject.FindGameObjectWithTag("Interface");
         if (instance == null)
         {

@@ -25,6 +25,7 @@ public class AttackSystem : MonoBehaviour
     public GameObject TearsLeft;
     public GameObject TearsRight;
     public GameObject TearsUp;
+    public GameObject Bottle;
     public DistanceAttack BottleUI;
 
     private bool isSlashRight = true;
@@ -110,14 +111,14 @@ public class AttackSystem : MonoBehaviour
     public void OnDistanceUnlock()
     {
         distanceUnlock = true;
-        BottleUI.gameObject.SetActive(true);
+        Bottle.SetActive(true);
         BottleUI = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         BottleUI.OnStart();
     }
     public void OnDistanceLock()
     {
         distanceUnlock = false;
-        BottleUI.gameObject.SetActive(false);
+        Bottle.SetActive(false);
         BottleUI = null;
     }
     //------------------

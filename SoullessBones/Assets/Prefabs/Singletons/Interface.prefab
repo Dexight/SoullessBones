@@ -720,7 +720,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3551872162566688122}
-  - component: {fileID: 3551872162566688123}
   m_Layer: 5
   m_Name: Bottle
   m_TagString: Untagged
@@ -735,42 +734,21 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3551872162566688121}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3551872161359408736}
   - {fileID: 3551872161386852293}
-  m_Father: {fileID: 3551872163002729696}
+  m_Father: {fileID: 2944602332140216615}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 61, y: -156}
+  m_AnchoredPosition: {x: 49.99999, y: -49.999954}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3551872162566688123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3551872162566688121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586ddc0a096d2ce448d73db081676d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fullBottle: {fileID: 3551872162216669959}
-  emptyBottle: {fileID: 3551872161386852294}
-  emptyBlack: {fileID: -2004907468, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
-  emptyRed: {fileID: -345971298, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
-  counter: {fileID: 3551872161359408737}
-  isFull: 0
-  isIncrementing: 1
-  isEmpty: 1
-  alwaysFull: 0
 --- !u!1 &3551872162868898016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,7 +993,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3551872162566688122}
+  - {fileID: 2944602332140216615}
   - {fileID: 3551872161791093038}
   - {fileID: 3551872161366199136}
   - {fileID: 3551872163034393903}
@@ -1518,6 +1496,65 @@ MonoBehaviour:
   m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5818242753814559554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2944602332140216615}
+  - component: {fileID: 4541733809600342656}
+  m_Layer: 5
+  m_Name: DistAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2944602332140216615
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818242753814559554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3551872162566688122}
+  m_Father: {fileID: 3551872163002729696}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -899, y: 384.18805}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4541733809600342656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5818242753814559554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ddc0a096d2ce448d73db081676d03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullBottle: {fileID: 3551872162216669959}
+  emptyBottle: {fileID: 3551872161386852294}
+  emptyBlack: {fileID: -2004907468, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
+  emptyRed: {fileID: -345971298, guid: 6a98530be92a0574ba51da53f5c90069, type: 3}
+  counter: {fileID: 3551872161359408737}
+  isFull: 0
+  isIncrementing: 1
+  isEmpty: 1
+  alwaysFull: 0
 --- !u!1 &7420765808581282390
 GameObject:
   m_ObjectHideFlags: 0

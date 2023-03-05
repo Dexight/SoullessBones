@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &155896632 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3551872162566688123, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
-  m_PrefabInstance: {fileID: 1683837651}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586ddc0a096d2ce448d73db081676d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &188341745
 GameObject:
   m_ObjectHideFlags: 0
@@ -4579,7 +4568,7 @@ Transform:
   m_Children:
   - {fileID: 1209181727}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &485375513
 GameObject:
@@ -4641,7 +4630,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &681943523
 PrefabInstance:
@@ -4834,7 +4823,8 @@ MonoBehaviour:
   TearsLeft: {fileID: 3412166740771443429, guid: 92da54ee840043748b24fb6d6cf780ec, type: 3}
   TearsRight: {fileID: 7551750402563474162, guid: cab4f2b20f13cbf49bc66b85e60e4c7d, type: 3}
   TearsUp: {fileID: 617783626879484432, guid: 0497767147283df4f888a7529f6aad5a, type: 3}
-  BottleUI: {fileID: 155896632}
+  Bottle: {fileID: 1683837652}
+  BottleUI: {fileID: 0}
   CanAttack: 1
   CanThrow: 0
   onWall: 0
@@ -4918,7 +4908,7 @@ MonoBehaviour:
   checkSize: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 2624
+    m_Bits: 6720
   isTouchingWall: 0
   isWallSliding: 0
   JumpForce: 0
@@ -5073,7 +5063,7 @@ Transform:
   - {fileID: 485375514}
   - {fileID: 1524853165}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &743953108 stripped
 MonoBehaviour:
@@ -5409,6 +5399,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   Interface: {fileID: 0}
   timeManager: {fileID: 856361900}
+  DistAttack: {fileID: 1683837653}
   damage: 5
   damageDist: 0
   bottleFill: 0
@@ -5755,7 +5746,7 @@ Transform:
   m_Children:
   - {fileID: 756366074}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1683837651
 PrefabInstance:
@@ -5778,7 +5769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3551872163002729696, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3551872163002729696, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5854,6 +5845,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
+--- !u!1 &1683837652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3551872162566688121, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
+  m_PrefabInstance: {fileID: 1683837651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1683837653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5818242753814559554, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
+  m_PrefabInstance: {fileID: 1683837651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1697638603
 PrefabInstance:
   m_ObjectHideFlags: 0

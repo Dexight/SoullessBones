@@ -156,6 +156,11 @@ Transform:
   m_Father: {fileID: 658573869}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3744776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3551872162566688121, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
+  m_PrefabInstance: {fileID: 1584963734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &14292236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4210,6 +4215,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &770672184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5818242753814559554, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
+  m_PrefabInstance: {fileID: 1584963734}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832418813
 GameObject:
   m_ObjectHideFlags: 0
@@ -4243,6 +4253,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   Interface: {fileID: 0}
   timeManager: {fileID: 422250064}
+  DistAttack: {fileID: 770672184}
   damage: 5
   damageDist: 0
   bottleFill: 0
@@ -4391,7 +4402,8 @@ MonoBehaviour:
   TearsLeft: {fileID: 3412166740771443429, guid: 92da54ee840043748b24fb6d6cf780ec, type: 3}
   TearsRight: {fileID: 7551750402563474162, guid: cab4f2b20f13cbf49bc66b85e60e4c7d, type: 3}
   TearsUp: {fileID: 617783626879484432, guid: 0497767147283df4f888a7529f6aad5a, type: 3}
-  BottleUI: {fileID: 2028953522}
+  Bottle: {fileID: 3744776}
+  BottleUI: {fileID: 0}
   CanAttack: 1
   CanThrow: 0
   onWall: 0
@@ -4475,7 +4487,7 @@ MonoBehaviour:
   checkSize: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 2624
+    m_Bits: 6720
   isTouchingWall: 0
   isWallSliding: 0
   JumpForce: 0
@@ -6642,17 +6654,6 @@ Transform:
   m_Father: {fileID: 917131348}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2028953522 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3551872162566688123, guid: 14bc65c04986d684d801cb3f901f2aef, type: 3}
-  m_PrefabInstance: {fileID: 1584963734}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586ddc0a096d2ce448d73db081676d03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2033115367
 GameObject:
   m_ObjectHideFlags: 0
