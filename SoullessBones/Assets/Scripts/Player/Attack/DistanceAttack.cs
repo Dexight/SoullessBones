@@ -26,7 +26,29 @@ public class DistanceAttack : MonoBehaviour
         OnStart();
         updateBottle();
     }
+    //------------------------------------------
 
+    public int getCount()
+    {
+        return count;
+    }
+
+    public bool getIsFull()
+    {
+        return isFull;
+    }
+
+    public bool getIsIncrementing()
+    {
+        return isIncrementing;
+    }
+
+    public bool getIsEmpty()
+    {
+        return isEmpty;
+    }
+
+    //-------------------------------------------
     public void fillBottle(int n)
     {
         count += n;

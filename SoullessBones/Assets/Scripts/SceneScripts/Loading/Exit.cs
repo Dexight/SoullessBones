@@ -6,6 +6,7 @@ public class Exit : MonoBehaviour
     [SerializeField] private string nextSceneName;
     [SerializeField] private string newScenePassword;
     private SceneLoader loader;
+
     void Awake()
     {
         trigger = GetComponent<BoxCollider2D>();
@@ -19,7 +20,7 @@ public class Exit : MonoBehaviour
             MovementController.instance.GetComponent<Astral>().timerNull();
             GameManager.instance.scenePassword = newScenePassword;
             GameManager.instance.currentScene = nextSceneName;
-            loader.FadeTo(nextSceneName, true);
+            loader.FadeTo(nextSceneName, true, false);
             gone = true;
         }
     }

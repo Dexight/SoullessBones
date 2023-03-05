@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
-public class SaveSystem : MonoBehaviour
+public class FountainSystem : MonoBehaviour
 {
     [SerializeField] private GameObject saveText;
     private bool isPlayer = false;
 
     void Save()
     {
-
+        GameManager.instance.Save();
+        SceneStats.EnterPassword = "save";
+        SceneStats.lastSave = GameManager.instance.currentScene;
     }
 
     private void Awake()
@@ -27,7 +28,7 @@ public class SaveSystem : MonoBehaviour
             Save();
             GameManager.instance.scenePassword = "save";
             Debug.Log("Saved");
-            SceneLoader.instance.FadeTo(GameManager.instance.currentScene, true);
+            SceneLoader.instance.FadeTo(SceneStats.curScene, true, true);
         }
     }
     

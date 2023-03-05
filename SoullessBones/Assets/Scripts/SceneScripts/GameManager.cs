@@ -63,6 +63,27 @@ public class GameManager : MonoBehaviour
             fullBottle= false;
     }
 
+    public void Save()
+    {
+        //scene stats
+        SceneStats.EnterPassword = scenePassword;
+        SceneStats.curScene = currentScene;
+
+        //player stats
+        SceneStats.doubleJump = enableDoubleJumping;
+        SceneStats.wallJump = enableWallJumping;
+        SceneStats.astral = enableAstral;
+        SceneStats.distanceAttacks = enableDistanceAttacks;
+
+        //hp & tears
+        SceneStats.hp = Player.GetComponent<HealthSystem>().health;
+        var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        SceneStats.tears = distAttack.getCount();
+        SceneStats.isFull = distAttack.getIsFull();
+        SceneStats.isEmpty = distAttack.getIsEmpty();
+        SceneStats.isIncrementing = distAttack.getIsIncrementing();
+    }
+
     //-----------------------------------------------------------------------------х
     //Ниже функции вкл\выкл состояние + функции для вкл. состояний по лору игры
     //--------------------------------------------------------------------------х

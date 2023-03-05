@@ -17,12 +17,12 @@ public class MainMenu : MonoBehaviour
                 Destroy(GameManager.instance.Interface);
                 Destroy(GameManager.instance.timeManager);
                 Destroy(GameObject.FindGameObjectWithTag("GameManager"));
-                SceneStats.stats = new List<string>();
             }
         }
     }
     public void PlayGame()
     {
+        SceneStats.stats = new List<string>();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

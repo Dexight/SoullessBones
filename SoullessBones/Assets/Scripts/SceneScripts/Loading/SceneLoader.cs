@@ -28,17 +28,22 @@ public class SceneLoader : MonoBehaviour
         astral = Player.GetComponent<Astral>();
     }
     
-    public void FadeTo(string sceneName, bool load)
+    public void FadeTo(string sceneName, bool load, bool isSave)
     {
         astral.canUseAstral = false;
         MovementController.instance.canJumpDown = false;
-        StartCoroutine(FadeOut(sceneName, load));
+        StartCoroutine(FadeOut(sceneName, load, isSave));
     }
 
-    public IEnumerator FadeIn()
+    public IEnumerator FadeIn(bool isSave)
     {
         alpha = 1;
-        while(alpha > 0)
+        if (isSave)
+        {
+            var hp = MovementController.instance.GetComponent<HealthSystem>();
+            hp.health = hp.numOfHearts;
+        }
+        while (alpha > 0)
         {
             GameManager.instance.rb.velocity = new Vector2(0, GameManager.instance.rb.velocity.y);
             GameManager.instance.Player.GetComponent<Animator>().SetBool("isRunning", false);
@@ -51,7 +56,7 @@ public class SceneLoader : MonoBehaviour
         MovementController.instance.canJumpDown = true;
     }
 
-    private IEnumerator FadeOut(string sceneName, bool load)
+    private IEnumerator FadeOut(string sceneName, bool load, bool isSave)
     {
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = false;
         alpha = 0;
@@ -65,8 +70,9 @@ public class SceneLoader : MonoBehaviour
 
         if (load)
         {
+            GameManager.instance.Save();
             StartCoroutine(Loading(sceneName));
-            StartCoroutine(FadeIn());
+            StartCoroutine(FadeIn(isSave));
         }
         else
         {
