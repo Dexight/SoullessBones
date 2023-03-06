@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     #endregion
     public string scenePassword;//сохран€ет, когда игрок переходит на другую сцену
     public string currentScene;
+    public string lastSave;
     private void Awake()
     {
         attackSystem = Player.GetComponent<AttackSystem>();
@@ -63,11 +64,15 @@ public class GameManager : MonoBehaviour
             fullBottle= false;
     }
 
+    /// <summary>
+    /// Fast Save
+    /// </summary>
     public void Save()
     {
         //scene stats
         SceneStats.EnterPassword = scenePassword;
         SceneStats.curScene = currentScene;
+        SceneStats.lastSave = lastSave;
 
         //player stats
         SceneStats.doubleJump = enableDoubleJumping;
@@ -82,6 +87,11 @@ public class GameManager : MonoBehaviour
         SceneStats.isFull = distAttack.getIsFull();
         SceneStats.isEmpty = distAttack.getIsEmpty();
         SceneStats.isIncrementing = distAttack.getIsIncrementing();
+    }
+
+    public void LoadSave()
+    {
+
     }
 
     //-----------------------------------------------------------------------------х
@@ -103,45 +113,39 @@ public class GameManager : MonoBehaviour
         else
             damage = d;
     }
+
     //DOUBLE JUMPING
     public void EnableOrDisableDoubleJumping()
     {
         enableDoubleJumping = !enableDoubleJumping;
         Player.GetComponent<DoubleJumping>().enabled = enableDoubleJumping;
     }
+
     //only enable DJumping
     public void EnableDoubleJumping()
     {
         if (!enableDoubleJumping)
         {
-            //Debug.Log("DJ Added");
             EnableOrDisableDoubleJumping();
         }
-        else
-        {
-            //Debug.Log("DJ already added");
-        }
     }
+
     //WALL JUMPING
     public void EnableOrDisableWallJumping()
     {
-        //Debug.Log("WS instance");
         enableWallJumping = !enableWallJumping;
         Player.GetComponent<WallJumping>().enabled = enableWallJumping;
     }
+
     //only enable WJumping
     public void EnableWallJumping()
     {
         if (!enableWallJumping)
         {
-            //Debug.Log("WJ Added");
             EnableOrDisableWallJumping();
         }
-        else
-        {
-            //Debug.Log("WJ already added");
-        }
     }
+
     //ASTRAL
     public void EnableOrDisableAstral()
     {
@@ -154,12 +158,7 @@ public class GameManager : MonoBehaviour
     {
         if (!enableAstral)
         {
-            //Debug.Log("Astral Added");
             EnableOrDisableAstral();
-        }
-        else
-        {
-            //Debug.Log("Astral already added");
         }
     }
 

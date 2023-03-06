@@ -9,11 +9,12 @@ public class FountainSystem : MonoBehaviour
     [SerializeField] private GameObject saveText;
     private bool isPlayer = false;
 
-    void Save()
+    public static void Save()
     {
+        GameManager.instance.lastSave = GameManager.instance.currentScene;
         GameManager.instance.Save();
         SceneStats.EnterPassword = "save";
-        SceneStats.lastSave = GameManager.instance.currentScene;
+        Debug.Log("Fountain Save!!");
     }
 
     private void Awake()
@@ -27,8 +28,7 @@ public class FountainSystem : MonoBehaviour
         {
             Save();
             GameManager.instance.scenePassword = "save";
-            Debug.Log("Saved");
-            SceneLoader.instance.FadeTo(SceneStats.curScene, true, true);
+            SceneLoader.instance.FadeTo(SceneStats.curScene, true, true, false);
         }
     }
     

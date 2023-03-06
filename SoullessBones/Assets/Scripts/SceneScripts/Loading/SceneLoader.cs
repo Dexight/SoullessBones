@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using Ink;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -28,11 +29,12 @@ public class SceneLoader : MonoBehaviour
         astral = Player.GetComponent<Astral>();
     }
     
-    public void FadeTo(string sceneName, bool load, bool isSave)
+    public void FadeTo(string sceneName, bool load, bool isSave, bool isDead)
     {
         astral.canUseAstral = false;
         MovementController.instance.canJumpDown = false;
-        StartCoroutine(FadeOut(sceneName, load, isSave));
+        Debug.Log("FadeTo");
+        StartCoroutine(FadeOut(sceneName, load, isSave, isDead));
     }
 
     public IEnumerator FadeIn(bool isSave)
@@ -40,6 +42,8 @@ public class SceneLoader : MonoBehaviour
         alpha = 1;
         if (isSave)
         {
+            FountainSystem.Save();
+            GameManager.instance.timeManager.GetComponent<TimeManager>().ContinueTime();    
             var hp = MovementController.instance.GetComponent<HealthSystem>();
             hp.health = hp.numOfHearts;
         }
@@ -51,12 +55,14 @@ public class SceneLoader : MonoBehaviour
             blackImage.color = new Color(0, 0, 0, alpha);
             yield return new WaitForSeconds(0);
         }
+        alpha = 0;
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = true;
         astral.canUseAstral = true;
         MovementController.instance.canJumpDown = true;
+        MovementController.instance.GetComponent<HealthSystem>().SetDead(false);
     }
 
-    private IEnumerator FadeOut(string sceneName, bool load, bool isSave)
+    private IEnumerator FadeOut(string sceneName, bool load, bool isSave, bool isDead)
     {
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = false;
         alpha = 0;
@@ -67,15 +73,19 @@ public class SceneLoader : MonoBehaviour
             blackImage.color = new Color(0, 0, 0, alpha);
             yield return new WaitForSeconds(0);
         }
-
+        alpha = 1;
         if (load)
         {
+            if (isDead)
+                StartCoroutine(DeathLoading());
+            else
+                StartCoroutine(Loading(sceneName));
             GameManager.instance.Save();
-            StartCoroutine(Loading(sceneName));
             StartCoroutine(FadeIn(isSave));
         }
         else
         {
+            //наткнулись на шипы
             Spikes spikes = GameObject.FindGameObjectWithTag("Spikes").GetComponent<Spikes>();
             spikes.blackBackground = true;
             spikes.teleport = true;
@@ -85,6 +95,16 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator Loading(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        yield return true;
+        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
+    }
+
+    private IEnumerator DeathLoading()
+    {
+        SceneManager.LoadScene(SceneStats.lastSave);
+        GameManager.instance.currentScene = GameManager.instance.lastSave;
+        GameManager.instance.scenePassword = "save";
+
         yield return true;
         GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
     }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AfterDeath : MonoBehaviour
 {
+    static private UnityEngine.Object explosion;
+
     void Update()
     {
         
@@ -12,11 +14,14 @@ public class AfterDeath : MonoBehaviour
 
     static public void Death()
     {
-        Destroy(GameObject.FindGameObjectWithTag("Interface"));
-        Destroy(GameObject.FindGameObjectWithTag("BGMusic"));
-        Destroy(GameObject.FindGameObjectWithTag("TimeManager"));
-        Destroy(GameObject.FindGameObjectWithTag("GameManager"));
-        Destroy(GameObject.FindGameObjectWithTag("Player"));
-        SceneManager.LoadScene("Menu");
+
+        //DeathExplosion
+        //explosion = Resources.Load("Explosion");
+        //GameObject explosionRef = (GameObject)Instantiate(explosion);
+        //explosionRef.transform.position = new Vector3(MovementController.instance.transform.position.x, MovementController.instance.transform.position.y, MovementController.instance.transform.position.z);
+
+        //Death Effect
+        SceneLoader sceneLoader = GameObject.FindGameObjectWithTag("Interface").GetComponent<SceneLoader>();
+        sceneLoader.FadeTo("", true, true, true);
     }
 }

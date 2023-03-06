@@ -34,7 +34,8 @@ public class Spikes : MonoBehaviour
                 collision.gameObject.GetComponent<HealthSystem>().TakeDamage(2);
             isTouched = true;
             timeManager.StopTime(false);
-            sceneLoader.FadeTo("", false, false);
+            if(collision.gameObject.GetComponent<HealthSystem>().health > 0)
+                sceneLoader.FadeTo("", false, false, false);
         }
     }
 }

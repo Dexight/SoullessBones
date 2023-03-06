@@ -1,7 +1,7 @@
 using UnityEngine;
 public class Exit : MonoBehaviour
 {
-    bool gone = false;  //нужно для того, чтобы из-за корутин не ломалась логика перехода(не срабатывало дважды)
+    public bool gone = false;  //нужно для того, чтобы из-за корутин не ломалась логика перехода(не срабатывало дважды)
     public BoxCollider2D trigger;
     [SerializeField] private string nextSceneName;
     [SerializeField] private string newScenePassword;
@@ -20,7 +20,9 @@ public class Exit : MonoBehaviour
             MovementController.instance.GetComponent<Astral>().timerNull();
             GameManager.instance.scenePassword = newScenePassword;
             GameManager.instance.currentScene = nextSceneName;
-            loader.FadeTo(nextSceneName, true, false);
+            GameManager.instance.Save();
+            Debug.Log("FastSave");
+            loader.FadeTo(nextSceneName, true, false, false);
             gone = true;
         }
     }
