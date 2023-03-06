@@ -1,15 +1,15 @@
 using UnityEngine;
 public class Exit : MonoBehaviour
 {
-    bool gone = false;  //нужно для того, чтобы из-за корутин не ломалась логика перехода(не срабатывало дважды)
+    public bool gone = false;  //нужно для того, чтобы из-за корутин не ломалась логика перехода(не срабатывало дважды)
     public BoxCollider2D trigger;
     [SerializeField] private string nextSceneName;
     [SerializeField] private string newScenePassword;
     private SceneLoader loader;
+
     void Awake()
     {
         trigger = GetComponent<BoxCollider2D>();
-        //loader = FindObjectOfType<SceneLoader>();
         loader = GameObject.FindGameObjectWithTag("Interface").GetComponent<SceneLoader>();
     }
 
@@ -18,9 +18,12 @@ public class Exit : MonoBehaviour
         if(other.tag == "Player" && !gone)
         {
             MovementController.instance.GetComponent<Astral>().timerNull();
-                GameManager.instance.scenePassword = newScenePassword;
-                loader.FadeTo(nextSceneName, true);
-                gone = true;
+            GameManager.instance.scenePassword = newScenePassword;
+            GameManager.instance.currentScene = nextSceneName;
+            GameManager.instance.Save();
+            Debug.Log("FastSave");
+            loader.FadeTo(nextSceneName, true, false, false);
+            gone = true;
         }
     }
 

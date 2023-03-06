@@ -20,7 +20,7 @@ public class Spikes : MonoBehaviour
         if (sceneLoader.blackImage.color.a >= 0.9 && blackBackground)
         {
             timeManager.ContinueTime();
-            StartCoroutine(sceneLoader.FadeIn());
+            StartCoroutine(sceneLoader.FadeIn(false));
             blackBackground = false;
         }
     }
@@ -34,7 +34,8 @@ public class Spikes : MonoBehaviour
                 collision.gameObject.GetComponent<HealthSystem>().TakeDamage(2);
             isTouched = true;
             timeManager.StopTime(false);
-            sceneLoader.FadeTo("", false);
+            if(collision.gameObject.GetComponent<HealthSystem>().health > 0)
+                sceneLoader.FadeTo("", false, false, false);
         }
     }
 }

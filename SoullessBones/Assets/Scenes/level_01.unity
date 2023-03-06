@@ -769,7 +769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623035651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.24978, y: 3.42994, z: -9.76}
+  m_LocalPosition: {x: 9.250447, y: 3.42994, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -794,7 +794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454502916895683454, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.9
+      value: -3.4
       objectReference: {fileID: 0}
     - target: {fileID: 1454502916895683455, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
       propertyPath: entrancePassword
@@ -818,7 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6032108415794670352, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.31703
+      value: -5.82
       objectReference: {fileID: 0}
     - target: {fileID: 6032108415794670352, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3348,6 +3348,7 @@ MonoBehaviour:
   enableDistanceAttacks: 0
   fullBottle: 0
   scenePassword: level_01_00
+  currentScene: 
 --- !u!4 &1632229632
 Transform:
   m_ObjectHideFlags: 0
