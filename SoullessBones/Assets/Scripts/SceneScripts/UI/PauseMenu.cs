@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     public bool GameIsPaused = false;
     public GameObject PauseMenuUI;
     private AttackSystem attackSystem;
-    
+    public GameObject SettingsPanel;
     private void Awake()
     {
        attackSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<AttackSystem>();
@@ -38,6 +38,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         attackSystem.gameIsPaused = false;
         CheatBoxOff();
+        SettingsPanel.SetActive(false);
     }
     void Pause()
     {
@@ -53,10 +54,9 @@ public class PauseMenu : MonoBehaviour
         GameManager.instance.scenePassword = "menu";
         SceneManager.LoadScene(0);
     }
+
     //TODO: Реализовать переход из  меню паузы в меню опций
-    public void Settings()
-    {
-    }
+    public void ShowSettings() => SettingsPanel.SetActive(true);
 
     public void QuitGame()
     {
