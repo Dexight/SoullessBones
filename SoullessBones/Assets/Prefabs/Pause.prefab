@@ -2011,8 +2011,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -48.287537, y: 0}
-  m_SizeDelta: {x: -126.5751, y: 0}
+  m_AnchoredPosition: {x: 7.271515, y: 0}
+  m_SizeDelta: {x: -14.543, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2533083564679961194
 CanvasRenderer:
@@ -2105,7 +2105,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -14.308105, y: 0, z: -111.576294, w: 0}
+  m_margin: {x: -13.74691, y: 0, z: 0.6700458, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2263,7 +2263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2533083564936890998
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2282,8 +2282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -277, y: -54}
-  m_SizeDelta: {x: 182.1114, y: 32.2904}
+  m_AnchoredPosition: {x: -274.9, y: -52}
+  m_SizeDelta: {x: 185.57, y: 32.290405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2533083564936890997
 CanvasRenderer:
@@ -2367,13 +2367,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2533083565419202192}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 2533083565419202198}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ShowSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3498,6 +3498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameIsPaused: 0
   PauseMenuUI: {fileID: 2533083564290982259}
+  SettingsPanel: {fileID: 0}
   CheatBoxCanvas: {fileID: 2533083563745321723}
 --- !u!1 &2533083565451438665
 GameObject:

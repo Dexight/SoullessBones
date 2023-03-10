@@ -20,6 +20,11 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+    //TODO: Реализовать загрузку игры с последнего чекпоинта
+    public void Continuegame()
+    {
+
+    }
     public void PlayGame()
     {
         SceneStats.stats = new List<string>();
