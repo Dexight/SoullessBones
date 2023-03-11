@@ -16,12 +16,12 @@ TagManager:
   - GhostPlayer
   - Platform
   - BackgroundMusicSlider
-  - BackgroundMusicText
   - BGMusic
   - PauseMenu
   - Spikes
   - Door
   - MovePlatform
+  - BackgroundEffectSlider
   layers:
   - Default
   - TransparentFX
