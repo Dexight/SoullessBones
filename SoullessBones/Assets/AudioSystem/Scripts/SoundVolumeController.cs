@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,9 +6,7 @@ using UnityEngine.UI;
 public class SoundVolumeController : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private AudioSource audioSource;
-    private Slider musicSlider;
-    private Slider effectSlider;
+    [SerializeField] private AudioSource[] audioSources;
 
     [Header("Keys")]
     [SerializeField] private string saveMusicVolumeKey;
@@ -20,9 +19,17 @@ public class SoundVolumeController : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] private float musicVolume;
     [SerializeField] private float effectVolume;
-
-    [SerializeField] private AudioClip[] clips;
+    [SerializeField] private AudioClip[] c_clips;
     [SerializeField] bool randomize = false;
+
+    private Slider musicSlider;
+    private Slider effectSlider;
+    private AudioClip c_currentClip;
+    private int c_index = 0;
+    private int a_indexGlobal = 0;
+    private int a_indexLocal = 0;
+    private float swapTime = 2;
+    private bool inSwap = false;
 
     private void Awake()
     {
@@ -41,11 +48,15 @@ public class SoundVolumeController : MonoBehaviour
             PlayerPrefs.SetFloat(saveEffectVolumeKey, effectVolume);
             //effectVolumeSet
         }
-        if (randomize) Shuffle(clips);
-        //audioSource.time < audioSource.clip.length;
-        audioSource.clip = clips[0];
-        audioSource.Play();
-        audioSource.volume = musicVolume;
+        if (randomize) Shuffle(c_clips);
+
+        a_indexLocal = a_indexGlobal % audioSources.Length;
+        c_currentClip = c_clips[c_index];
+        audioSources[a_indexLocal].clip = c_currentClip;
+
+        audioSources[a_indexLocal].Play();
+        SetMusicVolume(0, musicVolume);
+        SetMusicVolume(1, musicVolume);
     }
     private void InitSliders()
     {
@@ -65,7 +76,8 @@ public class SoundVolumeController : MonoBehaviour
     {
         musicVolume = a;
         PlayerPrefs.SetFloat(saveMusicVolumeKey, musicVolume);
-        audioSource.volume = musicVolume;
+        SetMusicVolume(0, musicVolume);
+        SetMusicVolume(1, musicVolume);
     }
     private void effectValueChanged(float a)
     {
@@ -73,14 +85,11 @@ public class SoundVolumeController : MonoBehaviour
         PlayerPrefs.SetFloat(saveEffectVolumeKey, effectVolume);
         //effectVolumeSet
     }
-    private void Update()
+    private void SetMusicVolume(int a, float volume)
     {
-        if (musicSlider == null)
-        {
-            InitSliders();
-        }
+        audioSources[a].volume = volume;
     }
-    public static void Shuffle<T>(T[] array)
+    public void Shuffle<T>(T[] array)
     {
         int n = array.Length;
         while (n > 1)
@@ -90,6 +99,52 @@ public class SoundVolumeController : MonoBehaviour
             array[n] = array[k];
             array[k] = temp;
         }
+    }
+    private void Update()
+    {
+        if (musicSlider == null)
+        {
+            InitSliders();
+        }
+        //Debug.Log(audioSources[a_indexLocal].time);
+
+        if(c_currentClip.length < audioSources[a_indexLocal].time + swapTime && !inSwap)
+        {
+            StartCoroutine(SwitchSource());
+        }
+    }
+
+    IEnumerator SwitchSource()
+    {
+        inSwap = true;
+        int a_indexLocalPrevious = a_indexLocal;
+        a_indexGlobal++;
+        a_indexLocal = a_indexGlobal % audioSources.Length;
+
+        c_index++;
+        c_currentClip = c_clips[c_index % c_clips.Length];
+        audioSources[a_indexLocal].clip = c_currentClip;
+        audioSources[a_indexLocal].Play();
+
+        int points = 10;
+        for (int i = 0; i < points; i++)
+        {
+            SetMusicVolume(a_indexLocalPrevious, (1f - (float)i / points) * musicVolume);
+            SetMusicVolume(a_indexLocal, (float)i / points * musicVolume);
+            yield return new WaitForSeconds(swapTime / points);
+        }
+        inSwap = false;
+    }
+    IEnumerator SwitchSourceDebug()
+    {
+        inSwap = true;
+        int points = 10;
+        for (int i = 0; i < points; i++)
+        {
+            SetMusicVolume(a_indexLocal, (1f - (float)i / points) * musicVolume);
+            yield return new WaitForSeconds(swapTime / points);
+        }
+        inSwap = false;
     }
 
 }
