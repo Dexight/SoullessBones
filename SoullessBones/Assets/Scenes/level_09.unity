@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.62
       objectReference: {fileID: 0}
+    - target: {fileID: 7096867335386782994, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.62
+      objectReference: {fileID: 0}
     - target: {fileID: 7096867335768184910, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -285,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 7096867335768184911, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_Name
       value: CultistSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867336649444275, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.4
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7096867335262388976, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
