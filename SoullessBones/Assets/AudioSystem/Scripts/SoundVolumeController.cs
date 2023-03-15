@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class SoundVolumeController : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private Slider musicSlider;
-    [SerializeField] private Slider effectSlider;
+    private Slider musicSlider;
+    private Slider effectSlider;
 
     [Header("Keys")]
     [SerializeField] private string saveMusicVolumeKey;
@@ -15,10 +16,13 @@ public class SoundVolumeController : MonoBehaviour
     [Header("Tags")]
     [SerializeField] private string musicSliderTag;
     [SerializeField] private string effectSliderTag;
-    
+
     [Header("Parameters")]
     [SerializeField] private float musicVolume;
     [SerializeField] private float effectVolume;
+
+    [SerializeField] private AudioClip[] clips;
+    [SerializeField] bool randomize = false;
 
     private void Awake()
     {
@@ -29,7 +33,7 @@ public class SoundVolumeController : MonoBehaviour
             effectVolume = PlayerPrefs.GetFloat(saveEffectVolumeKey);
             //effectVolumeSet
         }
-        else 
+        else
         {
             musicVolume = 0.5f;
             effectVolume = 0.5f;
@@ -37,6 +41,10 @@ public class SoundVolumeController : MonoBehaviour
             PlayerPrefs.SetFloat(saveEffectVolumeKey, effectVolume);
             //effectVolumeSet
         }
+        if (randomize) Shuffle(clips);
+        //audioSource.time < audioSource.clip.length;
+        audioSource.clip = clips[0];
+        audioSource.Play();
         audioSource.volume = musicVolume;
     }
     private void InitSliders()
@@ -72,4 +80,16 @@ public class SoundVolumeController : MonoBehaviour
             InitSliders();
         }
     }
+    public static void Shuffle<T>(T[] array)
+    {
+        int n = array.Length;
+        while (n > 1)
+        {
+            int k = Random.Range(0, n--);
+            T temp = array[n];
+            array[n] = array[k];
+            array[k] = temp;
+        }
+    }
+
 }

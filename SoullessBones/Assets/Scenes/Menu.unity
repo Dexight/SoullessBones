@@ -386,14 +386,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 190801980}
-  musicSlider: {fileID: 0}
-  effectSlider: {fileID: 0}
   saveMusicVolumeKey: musicVolumeKey
   saveEffectVolumeKey: effectVolumeKey
   musicSliderTag: BackgroundMusicSlider
   effectSliderTag: BackgroundEffectSlider
   musicVolume: 0
   effectVolume: 0
+  clips:
+  - {fileID: 8300000, guid: 1c1509489efdb2549ad2815ce773384b, type: 3}
+  - {fileID: 8300000, guid: fb9e68e86be48b14e81439af6c9040bd, type: 3}
+  - {fileID: 8300000, guid: 100fc03d128fc7449a22e894d813328e, type: 3}
+  - {fileID: 8300000, guid: 4d53a066424def240bb1513fa2afe31c, type: 3}
+  - {fileID: 8300000, guid: 5da535bb62ad00d4d8c6ea765094c03d, type: 3}
+  randomize: 1
 --- !u!114 &190801983
 MonoBehaviour:
   m_ObjectHideFlags: 0
