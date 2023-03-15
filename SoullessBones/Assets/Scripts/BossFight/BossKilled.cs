@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class BossKilled : MonoBehaviour
 {
-    public bool openTrigger = false;
+    [SerializeField] private BossDoor bossDoor;
+    private bool openTrigger = false;
+    public bool isBossAlive = true;
 
     private void Update()
     {
@@ -12,6 +15,14 @@ public class BossKilled : MonoBehaviour
         {
             GetComponent<Animator>().enabled = true;
             openTrigger = false;
+        }
+        if (!isBossAlive)
+        {
+            bossDoor.OpenDoor();
+            openTrigger = true;
+            isBossAlive = true;
+            //TODO SAVE
+
         }
     }
 

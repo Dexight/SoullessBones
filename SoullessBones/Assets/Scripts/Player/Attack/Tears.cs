@@ -75,7 +75,7 @@ public class Tears : MonoBehaviour
     //отдача от столкновения
     private void recoil(Collider2D collision)
     {
-        if (!collision.GetComponent<Enemy>().isHeavy)      
+        if (!collision.GetComponent<Enemy>().isBoss)      
         {
             if (isRight)
             {

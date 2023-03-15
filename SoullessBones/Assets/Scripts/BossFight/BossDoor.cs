@@ -5,8 +5,8 @@ using UnityEngine;
 public class BossDoor : MonoBehaviour
 {
     [SerializeField] Animator anim;
-
-    static void OpenDoor(Animator anim)
+    [SerializeField] CultistMove bossScript;
+    public void OpenDoor()
     {
         anim.SetTrigger("Open");
     }
@@ -14,6 +14,7 @@ public class BossDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GetComponent<BoxCollider2D>().enabled = false;
+        bossScript.enabled = true;
         anim.enabled = true;
     }
 }

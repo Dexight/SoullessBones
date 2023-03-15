@@ -32,7 +32,7 @@ public class Slash : MonoBehaviour
             enemies[i].GetComponent<Enemy>().TakeDamage(damage); //нанесение урона
             if(playerRB.GetComponent<AttackSystem>().distanceUnlock && distanceAttack.isIncrementing)
                 distanceAttack.fillBottle(bottleFill);    //набор бутылки
-            if (!enemies[i].GetComponent<Enemy>().isHeavy)      //отдача от удара
+            if (!enemies[i].GetComponent<Enemy>().isBoss)      //отдача от удара
             {
                 if (GetComponent<Slash>().gameObject.tag == "RightSlash")
                 {
