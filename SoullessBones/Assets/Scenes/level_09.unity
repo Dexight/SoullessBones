@@ -222,6 +222,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7096867335262388976, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: isBoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388976, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: bossManager
+      value: 
+      objectReference: {fileID: 807480659}
+    - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: aggroSize.x
+      value: 4.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: aggroBoxPosition.x
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7096867335262388987, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
@@ -238,9 +258,29 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.62
       objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388989, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388991, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388991, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388991, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388991, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7096867335386782994, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.62
+      value: 10.73
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335768184910, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_RootOrder
@@ -248,11 +288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335768184910, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59.43252
+      value: 55.56
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335768184910, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -31.88679
+      value: -32.04
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335768184910, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -290,12 +330,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: CultistSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 7096867336468422856, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.532
+      objectReference: {fileID: 0}
     - target: {fileID: 7096867336649444275, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4
+      value: -0.19
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7096867335262388976, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
 --- !u!1 &167573766
 GameObject:
@@ -1224,7 +1267,7 @@ GameObject:
   - component: {fileID: 807480656}
   - component: {fileID: 807480659}
   m_Layer: 6
-  m_Name: DownPlatform
+  m_Name: BossManager
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1307,7 +1350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e64d74d8ed92443b5a96b5f3ef3f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTrigger: 0
+  bossDoor: {fileID: 1326033930}
+  isBossAlive: 1
 --- !u!1001 &856903215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9489,7 +9533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e64d74d8ed92443b5a96b5f3ef3f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openTrigger: 0
+  bossDoor: {fileID: 0}
+  isBossAlive: 1
 --- !u!61 &1208405519
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9757,6 +9802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1208405520}
+  bossScript: {fileID: 1327459908}
 --- !u!61 &1326033931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9799,6 +9845,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327459908 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+  m_PrefabInstance: {fileID: 79618624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ac1a93197810847a5f320fa7f616bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1435903500
 GameObject:
   m_ObjectHideFlags: 0
