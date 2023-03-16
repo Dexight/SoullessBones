@@ -427,9 +427,12 @@ MonoBehaviour:
   effectSliderTag: BackgroundEffectSlider
   musicVolume: 0
   effectVolume: 0
+  swapTime: 3
   c_clips:
   - {fileID: 8300000, guid: 1c1509489efdb2549ad2815ce773384b, type: 3}
   - {fileID: 8300000, guid: fb9e68e86be48b14e81439af6c9040bd, type: 3}
+  c_battleClips:
+  - {fileID: 8300000, guid: 0b98f649e8065ad4083a11994613cdf1, type: 3}
   randomize: 0
 --- !u!114 &190801983
 MonoBehaviour:
