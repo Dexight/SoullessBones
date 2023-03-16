@@ -13,6 +13,7 @@ public class FountainSystem : MonoBehaviour
         GameManager.instance.lastSave = GameManager.instance.currentScene;
         GameManager.instance.Save();
         SceneStats.EnterPassword = "save";
+        SceneStatsJsonSerializer.SaveSceneStatsToJson();
         Debug.Log("Fountain Save!!");
     }
 

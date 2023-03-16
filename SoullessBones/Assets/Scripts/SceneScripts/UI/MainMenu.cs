@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     {
         if (GameManager.instance)
         {
-            if (GameManager.instance.scenePassword == "menu") //при переходе из паузы в меню удаляет игрока и интерфейс
+            if (GameManager.instance.inMenu) //при переходе из паузы в меню удаляет игрока и интерфейс
             {
                 Destroy(GameManager.instance.Player);
                 Destroy(GameManager.instance.Interface);
@@ -20,11 +20,14 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+
     //TODO: Реализовать загрузку игры с последнего чекпоинта
     public void Continuegame()
     {
-
+        SceneStatsJsonSerializer.LoadSceneStatsFromJson();
+        SceneManager.LoadScene(SceneStats.lastSave);
     }
+
     public void PlayGame()
     {
         SceneStats.stats = new List<string>();

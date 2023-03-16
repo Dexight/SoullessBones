@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 //contain information for each scene + player stats
+[System.Serializable]
 public static class SceneStats
 {
     public static bool doubleJump = false;
@@ -19,5 +20,9 @@ public static class SceneStats
     public static string EnterPassword = "level_01_00";
     public static string lastSave = "level_01_00";
 
+    //TODO: save key count
+
     public static List<string> stats = new List<string> {};
+
+    //TODO: Zeroing stats
 }

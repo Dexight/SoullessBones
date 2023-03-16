@@ -51,7 +51,9 @@ public class PauseMenu : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
-        GameManager.instance.scenePassword = "menu";
+        GameManager.instance.inMenu = true;
+        GameManager.instance.Save();
+        SceneStatsJsonSerializer.SaveSceneStatsToJson();
         SceneManager.LoadScene(0);
     }
 
@@ -61,6 +63,8 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("QUIT succesful");
+        GameManager.instance.Save();
+        SceneStatsJsonSerializer.SaveSceneStatsToJson();
         Application.Quit();
     }
 

@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public string scenePassword;//сохран€ет, когда игрок переходит на другую сцену
     public string currentScene;
     public string lastSave;
+    public bool inMenu = false;
     private void Awake()
     {
         attackSystem = Player.GetComponent<AttackSystem>();
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Fast Save
+    /// Update local variables in SceneStats(hp, player stats etc.)
     /// </summary>
     public void Save()
     {
