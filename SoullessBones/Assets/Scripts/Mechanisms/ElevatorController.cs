@@ -4,20 +4,24 @@ public class ElevatorController : MonoBehaviour
 {
     [SerializeField] private GameObject lift;
     [SerializeField] private Animator fireAnimator;
+    [SerializeField] private GameObject tutorial;
     private Elevator elevator;
     private bool nearLeverArm = false;
+
     private void Awake()
     {
         elevator = lift.GetComponent<Elevator>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
-    {   
+    {
+        tutorial.SetActive(true);
         nearLeverArm = collision.gameObject.tag == "Player";
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        tutorial.SetActive(false);
         nearLeverArm = false;
     }
 
