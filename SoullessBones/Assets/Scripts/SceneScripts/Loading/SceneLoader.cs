@@ -103,7 +103,7 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(SceneStats.lastSave);
         GameManager.instance.currentScene = GameManager.instance.lastSave;
-        GameManager.instance.scenePassword = "save";
+        GameManager.instance.enterPassword = "save";
 
         yield return true;
         GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;

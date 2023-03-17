@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public bool enableDistanceAttacks;
     public bool fullBottle;
     #endregion
-    public string scenePassword;//сохран€ет, когда игрок переходит на другую сцену
+    public string enterPassword;//сохран€ет, когда игрок переходит на другую сцену
     public string currentScene;
     public string lastSave;
     public bool inMenu = false;
@@ -71,10 +71,12 @@ public class GameManager : MonoBehaviour
     public void Save()
     {
         //scene stats
-        SceneStats.EnterPassword = scenePassword;
-        SceneStats.curScene = currentScene;
-        SceneStats.lastSave = lastSave;
-
+        if (lastSave != "")
+        {
+            SceneStats.EnterPassword = enterPassword;
+            SceneStats.curScene = currentScene;
+            SceneStats.lastSave = lastSave;
+        }
         //player stats
         SceneStats.doubleJump = enableDoubleJumping;
         SceneStats.wallJump = enableWallJumping;

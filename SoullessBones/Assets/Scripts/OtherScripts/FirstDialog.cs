@@ -8,7 +8,7 @@ public class FirstDialog : MonoBehaviour
     [SerializeField] private GameObject dialogItem;
     private void Start()
     {
-        if (GameManager.instance.scenePassword != "level_01_00")
+        if (GameManager.instance.enterPassword != "level_01_00")
         {
             Destroy(dialogItem.GetComponent<StartDialogueScript>());
             Destroy(DialogManager);

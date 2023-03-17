@@ -27,7 +27,7 @@ public class FountainSystem : MonoBehaviour
         if (MovementController.instance._CanMove && Input.GetKeyDown(KeyCode.F) && isPlayer)
         {
             Save();
-            GameManager.instance.scenePassword = "save";
+            GameManager.instance.enterPassword = "save";
             SceneLoader.instance.FadeTo(SceneStats.curScene, true, true, false);
         }
     }

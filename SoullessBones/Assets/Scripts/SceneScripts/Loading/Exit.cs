@@ -18,7 +18,7 @@ public class Exit : MonoBehaviour
         if(other.tag == "Player" && !gone)
         {
             MovementController.instance.GetComponent<Astral>().timerNull();
-            GameManager.instance.scenePassword = newScenePassword;
+            GameManager.instance.enterPassword = newScenePassword;
             GameManager.instance.currentScene = nextSceneName;
             GameManager.instance.Save();
             Debug.Log("FastSave");

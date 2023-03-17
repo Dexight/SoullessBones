@@ -15,10 +15,10 @@ public class Entrance : MonoBehaviour
     {
         if (spikes.teleport)
         {
-            if (GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().scenePassword == entrancePassword)
+            if (GameManager.instance.enterPassword == entrancePassword)
             {
                 //Debug.Log("Spikes worked");
-                GameManager.instance.Player.transform.position = transform.position;//наша точка спавна
+                GameManager.instance.Player.transform.position = transform.position;//наша точка спавнасле шипов
                 spikes.teleport = false;
             }
         }
@@ -27,7 +27,7 @@ public class Entrance : MonoBehaviour
     void Start()
     {
         if(GameManager.instance)
-            if(GameManager.instance.scenePassword == entrancePassword)
+            if(GameManager.instance.enterPassword == entrancePassword)
             {
                 GameManager.instance.Player.transform.position = transform.position;//наша точка спавна
             }

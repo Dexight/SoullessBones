@@ -25,7 +25,7 @@ public class MainMenu : MonoBehaviour
     public void Continuegame()
     {
         SceneStatsJsonSerializer.LoadSceneStatsFromJson();
-        SceneManager.LoadScene(SceneStats.lastSave);
+        SceneManager.LoadScene(SceneStats.curScene);
     }
 
     public void PlayGame()
