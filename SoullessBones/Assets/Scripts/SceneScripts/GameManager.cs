@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         damage = 5;
         damageDist = 15;
         bottleFill = 4;
+        LoadSave();
     }
 
     private void Start()
@@ -90,11 +91,40 @@ public class GameManager : MonoBehaviour
         SceneStats.isFull = distAttack.getIsFull();
         SceneStats.isEmpty = distAttack.getIsEmpty();
         SceneStats.isIncrementing = distAttack.getIsIncrementing();
+        Debug.Log("FastSave");
     }
 
     public void LoadSave()
     {
+        //scene stats
+         enterPassword = SceneStats.EnterPassword;
+         currentScene = SceneStats.curScene;
+         lastSave = SceneStats.lastSave;
+        //player stats
+        if(SceneStats.doubleJump)
+        {
+            EnableDoubleJumping();
+        }
+        if(SceneStats.wallJump)
+        {
+            EnableWallJumping();
+        }
+        if(SceneStats.astral)
+        {
+            EnableAstral();
+        }
+        if (SceneStats.distanceAttacks)
+        {
+            EnableDistanceAttack();
+        }
 
+        //hp & tears
+        Player.GetComponent<HealthSystem>().health = SceneStats.hp;
+        //var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        //SceneStats.tears = distAttack.getCount();
+        //SceneStats.isFull = distAttack.getIsFull();
+        //SceneStats.isEmpty = distAttack.getIsEmpty();
+        //SceneStats.isIncrementing = distAttack.getIsIncrementing();
     }
 
     //-----------------------------------------------------------------------------õ
