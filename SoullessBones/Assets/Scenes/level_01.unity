@@ -870,7 +870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623035651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.693006, y: 3.4299898, z: -9.76}
+  m_LocalPosition: {x: 9.247677, y: 3.42994, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3453,9 +3453,10 @@ MonoBehaviour:
   enableAstral: 0
   enableDistanceAttacks: 0
   fullBottle: 0
-  scenePassword: level_01_00
+  enterPassword: 
   currentScene: 
   lastSave: 
+  inMenu: 0
 --- !u!4 &1632229632
 Transform:
   m_ObjectHideFlags: 0
@@ -25656,7 +25657,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140269020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39b21d4c7e4d38f408d016b8a6adb158, type: 3}
   m_Name: 
@@ -25750,7 +25751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140269020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93f95a9ac43256a49944aee5c8a89c94, type: 3}
   m_Name: 
@@ -25772,7 +25773,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140269020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41925d0fe58bcc74099ee8daed1f277a, type: 3}
   m_Name: 
@@ -25983,7 +25984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golden: 0
-  red: 0
+  fly: 0
 --- !u!1001 &2968518842282243986
 PrefabInstance:
   m_ObjectHideFlags: 0

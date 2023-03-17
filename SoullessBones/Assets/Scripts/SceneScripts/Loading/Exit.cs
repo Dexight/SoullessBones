@@ -21,7 +21,7 @@ public class Exit : MonoBehaviour
             GameManager.instance.enterPassword = newScenePassword;
             GameManager.instance.currentScene = nextSceneName;
             GameManager.instance.Save();
-            Debug.Log("FastSave");
+            //Debug.Log("FastSave");
             loader.FadeTo(nextSceneName, true, false, false);
             gone = true;
         }

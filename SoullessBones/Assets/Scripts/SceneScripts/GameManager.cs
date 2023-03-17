@@ -86,12 +86,15 @@ public class GameManager : MonoBehaviour
 
         //hp & tears
         SceneStats.hp = Player.GetComponent<HealthSystem>().health;
+        SceneStats.keycounter = Interface.GetComponentInChildren<GoldKeyUI>().count;
+        SceneStats.keyList = Player.GetComponent<KeyHolder>().keyList;
+
         var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         SceneStats.tears = distAttack.getCount();
         SceneStats.isFull = distAttack.getIsFull();
         SceneStats.isEmpty = distAttack.getIsEmpty();
         SceneStats.isIncrementing = distAttack.getIsIncrementing();
-        Debug.Log("FastSave");
+        //Debug.Log("FastSave");
     }
 
     public void LoadSave()
@@ -120,6 +123,11 @@ public class GameManager : MonoBehaviour
 
         //hp & tears
         Player.GetComponent<HealthSystem>().health = SceneStats.hp;
+        GoldKeyUI KeyCounter = Interface.GetComponentInChildren<GoldKeyUI>();
+        KeyCounter.count = SceneStats.keycounter;
+        Player.GetComponent<KeyHolder>().keyList = SceneStats.keyList;
+
+
         //var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         //SceneStats.tears = distAttack.getCount();
         //SceneStats.isFull = distAttack.getIsFull();

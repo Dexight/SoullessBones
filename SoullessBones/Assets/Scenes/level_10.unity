@@ -1316,7 +1316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667097611}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.722973, y: -20.6503, z: -9.76}
+  m_LocalPosition: {x: 60.722904, y: -20.6503, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1469,9 +1469,10 @@ MonoBehaviour:
   enableAstral: 0
   enableDistanceAttacks: 0
   fullBottle: 0
-  scenePassword: level_06_01
+  enterPassword: 
   currentScene: 
   lastSave: 
+  inMenu: 0
 --- !u!4 &797981643
 Transform:
   m_ObjectHideFlags: 0
@@ -1653,7 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golden: 0
-  red: 0
+  fly: 0
 --- !u!114 &1040755619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1768,7 +1769,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040755617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93f95a9ac43256a49944aee5c8a89c94, type: 3}
   m_Name: 
@@ -1790,7 +1791,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040755617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41925d0fe58bcc74099ee8daed1f277a, type: 3}
   m_Name: 

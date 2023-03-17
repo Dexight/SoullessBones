@@ -7,13 +7,14 @@ public class GoldKeyUI : MonoBehaviour
     [SerializeField] GameObject sprite;
     [SerializeField] GameObject counter;
     bool hide = true;
-    int count = 0;
+    public int count = 0;       //просто UI счётчик
+
     void Start()
     {
+        count = SceneStats.keycounter;
         textMeshPro = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        textMeshPro.text = "" + 0;
-        sprite.SetActive(false);
-        counter.SetActive(false);
+        textMeshPro.text = "" + count;
+        UpdateCounter();
     }
 
     public void AddKey()
@@ -41,5 +42,21 @@ public class GoldKeyUI : MonoBehaviour
             hide = true;
         }
         textMeshPro.text = "" + count;
+    }
+
+    public void UpdateCounter()
+    {
+        if (count > 0 && hide)
+        {
+            sprite.SetActive(true);
+            counter.SetActive(true);
+            hide = false;
+            textMeshPro.text = "" + count;
+        }
+        else
+        {
+            sprite.SetActive(false);
+            counter.SetActive(false);
+        }
     }
 }

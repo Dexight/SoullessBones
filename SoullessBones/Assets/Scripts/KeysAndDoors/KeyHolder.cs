@@ -3,33 +3,28 @@ using UnityEngine;
 
 public class KeyHolder : MonoBehaviour
 {
-    Dictionary<Key.KeyType, int> keyList;
-    [SerializeField] int golden, red; 
-    private void Awake()
-    {
-        keyList = new Dictionary<Key.KeyType, int>();
-        keyList.Add(Key.KeyType.Gold, 0);
-        //keyList.Add(Key.KeyType.Red, 0);
-        golden = 0;
-        //red = 0;
-    }
+    public Dictionary<Key.KeyType, int> keyList; // предмет(ключ) - количество
+    [SerializeField] int golden, fly;
     private void Update()
     {
         golden = keyList[Key.KeyType.Gold];
-        //red = keyList[Key.KeyType.Red];
+        fly = keyList[Key.KeyType.Fly];
     }
     public void AddKey(Key.KeyType keyType)
     {
         keyList[keyType]++;
         SceneLoader.instance.GetComponentInChildren<GoldKeyUI>().AddKey();
+        SceneStats.keycounter++; 
     }
 
     public void RemoveKey(Key.KeyType keyType)
     {
         keyList[keyType]--;
+        SceneStats.keycounter--;
         if (keyList[keyType] < 0)
         {
             keyList[keyType] = 0;
+            SceneStats.keycounter = 0;
         }
         SceneLoader.instance.GetComponentInChildren<GoldKeyUI>().RemoveKey();
     }

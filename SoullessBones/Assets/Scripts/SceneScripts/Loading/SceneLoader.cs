@@ -33,7 +33,7 @@ public class SceneLoader : MonoBehaviour
     {
         astral.canUseAstral = false;
         MovementController.instance.canJumpDown = false;
-        Debug.Log("FadeTo");
+        //Debug.Log("FadeTo");
         StartCoroutine(FadeOut(sceneName, load, isSave, isDead));
     }
 

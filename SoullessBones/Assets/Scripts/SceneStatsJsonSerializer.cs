@@ -13,6 +13,9 @@ public static class SceneStats
 
     public static float hp = 7;
     public static int tears = 0;
+    public static int keycounter = 0;
+    public static int keycount = 0;
+    public static Dictionary<Key.KeyType, int> keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Fly, 0 }};
 
     public static bool isFull;
     public static bool isIncrementing;
@@ -21,8 +24,6 @@ public static class SceneStats
     public static string curScene = "level_01";
     public static string EnterPassword = "level_01_00";
     public static string lastSave = "level_01_00";
-
-    //TODO: save key count
 
     public static List<string> stats = new List<string> { };
 
@@ -40,6 +41,8 @@ public class SceneStatsWrapper
 
     public float hp;
     public int tears;
+    public int keycounter;
+    public Dictionary<Key.KeyType, int> keyList;
 
     public bool isFull;
     public bool isIncrementing;
@@ -60,6 +63,8 @@ public class SceneStatsWrapper
 
         hp = SceneStats.hp;
         tears = SceneStats.tears;
+        keycounter = SceneStats.keycounter;
+        keyList = SceneStats.keyList;
 
         isFull = SceneStats.isFull;
         isIncrementing = SceneStats.isIncrementing;
@@ -81,6 +86,8 @@ public class SceneStatsWrapper
 
         SceneStats.hp = hp;
         SceneStats.tears = tears;
+        SceneStats.keycounter = keycounter;
+        SceneStats.keyList = keyList;
 
         SceneStats.isFull = isFull;
         SceneStats.isIncrementing = isIncrementing;
@@ -104,6 +111,7 @@ public static class SceneStatsJsonSerializer
 
         string json = JsonUtility.ToJson(wrapper);
         File.WriteAllText(filePath, json);
+        //Debug.Log("save keycount = " + SceneStats.keyList[Key.KeyType.Gold]);         //проверка на запись в сейв
     }
 
     public static void LoadSceneStatsFromJson()
@@ -112,7 +120,8 @@ public static class SceneStatsJsonSerializer
         {
             string json = File.ReadAllText(filePath);
             SceneStatsWrapper wrapper = JsonUtility.FromJson<SceneStatsWrapper>(json);
-            wrapper.UpdateSceneStats();                             //загрузка в SceneStats из сейва
+            wrapper.UpdateSceneStats();                                              //загрузка в SceneStats из сейва
+            //Debug.Log("load keycount = " + SceneStats.keyList[Key.KeyType.Gold]); //проверка на выгрузку из сейв
         }
     }
 }
