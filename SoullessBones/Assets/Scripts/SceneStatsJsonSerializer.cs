@@ -17,17 +17,39 @@ public static class SceneStats
     public static int keycount = 0;
     public static Dictionary<Key.KeyType, int> keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Fly, 0 }};
 
-    public static bool isFull;
-    public static bool isIncrementing;
-    public static bool isEmpty;
+    public static bool isFull = false;
+    public static bool isIncrementing = true;
+    public static bool isEmpty = true;
 
-    public static string curScene = "level_01";
-    public static string EnterPassword = "level_01_00";
-    public static string lastSave = "level_01_00";
+    public static string curScene = "Hub Scene";
+    public static string EnterPassword = "start";
+    public static string lastSave = "start";
 
     public static List<string> stats = new List<string> { };
 
-    //TODO: Zeroing stats
+    public static void ResetData()
+    {
+      doubleJump = false;
+      wallJump = false;
+      astral = false;
+      distanceAttacks = false;
+
+      hp = 7;
+      tears = 0;
+      keycounter = 0;
+      keycount = 0;
+      keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Fly, 0 }};
+
+      isFull = false;
+      isIncrementing = true;
+      isEmpty = true;
+
+      curScene = "Hub Scene";
+      EnterPassword = "start";
+      lastSave = "start";
+
+      stats = new List<string> { };
+    }
 }
 
 //класс-обёртка для статического класса SceneStats(для возможности сериализации/десериализации)
@@ -111,6 +133,7 @@ public static class SceneStatsJsonSerializer
 
         string json = JsonUtility.ToJson(wrapper);
         File.WriteAllText(filePath, json);
+        Debug.Log("Save in : " + filePath);
         //Debug.Log("save keycount = " + SceneStats.keyList[Key.KeyType.Gold]);         //проверка на запись в сейв
     }
 
@@ -122,6 +145,16 @@ public static class SceneStatsJsonSerializer
             SceneStatsWrapper wrapper = JsonUtility.FromJson<SceneStatsWrapper>(json);
             wrapper.UpdateSceneStats();                                              //загрузка в SceneStats из сейва
             //Debug.Log("load keycount = " + SceneStats.keyList[Key.KeyType.Gold]); //проверка на выгрузку из сейв
+        }
+    }
+
+
+    public static void DeleteSave()
+    {
+        string savePath = Application.persistentDataPath + "/save.json";
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
         }
     }
 }

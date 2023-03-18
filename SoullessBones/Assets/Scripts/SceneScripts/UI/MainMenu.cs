@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject SettingsPanel;
+    [SerializeField] private GameObject continueButton;
     private void Awake()
     {
+        //SceneStatsJsonSerializer.DeleteSave();
+        continueButton.SetActive(File.Exists(Application.persistentDataPath + "/save.json"));
+
         if (GameManager.instance)
         {
             if (GameManager.instance.inMenu) //при переходе из паузы в меню удаляет игрока и интерфейс
@@ -30,13 +34,15 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneStats.stats = new List<string>();
+        SceneStats.ResetData();
+        SceneStatsJsonSerializer.SaveSceneStatsToJson();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame()
     {
-        Debug.Log("Игра закрылась");
+        SceneStatsJsonSerializer.SaveSceneStatsToJson();
+        Debug.Log("Игра сохранилась и закрылась");
         Application.Quit();
     }
 

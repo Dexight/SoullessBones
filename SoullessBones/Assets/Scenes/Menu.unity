@@ -371,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingsPanel: {fileID: 1717820487}
+  continueButton: {fileID: 2122731463}
 --- !u!1 &190801979
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tag: BGMusic
+  battle: 0
 --- !u!1 &210850612
 GameObject:
   m_ObjectHideFlags: 0
