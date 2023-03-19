@@ -62,7 +62,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("QUIT succesful");
+        Debug.Log("Игра сохранилась и закрылась");
         GameManager.instance.Save();
         SceneStatsJsonSerializer.SaveSceneStatsToJson();
         Application.Quit();

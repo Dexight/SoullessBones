@@ -41,6 +41,7 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
+        GameManager.instance.Save();
         SceneStatsJsonSerializer.SaveSceneStatsToJson();
         Debug.Log("Игра сохранилась и закрылась");
         Application.Quit();

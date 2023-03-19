@@ -5,9 +5,22 @@ using UnityEngine;
 
 public class BossKilled : MonoBehaviour
 {
-    [SerializeField] private BossDoor bossDoor;
     private bool openTrigger = false;
     public bool isBossAlive = true;
+    public string bossName;
+    [SerializeField] private BossDoor bossDoor;
+    [SerializeField] private BossDependence bossDependence;
+    [SerializeField] private GameObject BossObject;
+    private void Awake()
+    {
+        bossDependence = GetComponent<BossDependence>();
+        if (SceneStats.stats.Contains("Cultist"))
+        {
+            Destroy(bossDoor.gameObject);
+            Destroy(BossObject);
+            transform.position = transform.position + new Vector3(0, -2, 0);    
+        }
+    }
 
     private void Update()
     {
@@ -16,20 +29,13 @@ public class BossKilled : MonoBehaviour
             GetComponent<Animator>().enabled = true;
             openTrigger = false;
         }
+
         if (!isBossAlive)
         {
-            bossDoor.OpenDoor();
-            openTrigger = true;
             isBossAlive = true;
-            //TODO SAVE
-
+            SceneStats.stats.Add(bossName);//SAVE IT
+            bossDependence.DoAll();
         }
-    }
-
-    public void SaveAndStop()
-    {
-        //TODO SAVE
-        Destroy(GetComponentInParent<BossDoor>().gameObject);
     }
     
     public void ForPlatform()
@@ -40,6 +46,5 @@ public class BossKilled : MonoBehaviour
     public void DeleteAnimator()
     {
         Destroy(GetComponent<Animator>());
-        //TODO SAVE
     }
 }

@@ -32,27 +32,26 @@ public class Slash : MonoBehaviour
             enemies[i].GetComponent<Enemy>().TakeDamage(damage); //нанесение урона
             if(playerRB.GetComponent<AttackSystem>().distanceUnlock && distanceAttack.isIncrementing)
                 distanceAttack.fillBottle(bottleFill);    //набор бутылки
-            if (!enemies[i].GetComponent<Enemy>().isBoss)      //отдача от удара
+            if (GetComponent<Slash>().gameObject.tag == "RightSlash")
             {
-                if (GetComponent<Slash>().gameObject.tag == "RightSlash")
-                {
+                if (!enemies[i].GetComponent<Enemy>().isBoss)      //отдача от удара
                     enemies[i].GetComponent<Rigidbody2D>().AddForce(transform.right * forceOfOutput);
-                    if(playerRB.velocity.x == 0)
-                        playerRB.GetComponent<Rigidbody2D>().AddForce(-1 * transform.right * forceOfPlayerOutput);
-                    else
-                        playerRB.GetComponent<Rigidbody2D>().AddForce(-1 * coefficientOfOutput * playerRB.velocity.x * transform.right * forceOfPlayerOutput);
-                }
-                else if (GetComponent<Slash>().gameObject.tag == "LeftSlash")
-                {
-                    enemies[i].GetComponent<Rigidbody2D>().AddForce(transform.right * -1 * forceOfOutput);
-                    if (playerRB.velocity.x == 0)
-                        playerRB.GetComponent<Rigidbody2D>().AddForce(transform.right * forceOfPlayerOutput);
-                    else
-                        playerRB.GetComponent<Rigidbody2D>().AddForce(-1 * coefficientOfOutput * playerRB.velocity.x * transform.right * forceOfPlayerOutput);
-                }
+                if(playerRB.velocity.x == 0)
+                    playerRB.GetComponent<Rigidbody2D>().AddForce(-1 * transform.right * forceOfPlayerOutput);
                 else
-                    enemies[i].GetComponent<Rigidbody2D>().AddForce(transform.up * forceOfOutput);
+                    playerRB.GetComponent<Rigidbody2D>().AddForce(-1 * coefficientOfOutput * playerRB.velocity.x * transform.right * forceOfPlayerOutput);
             }
+            else if (GetComponent<Slash>().gameObject.tag == "LeftSlash")
+            {
+                if (!enemies[i].GetComponent<Enemy>().isBoss)      //отдача от удара
+                    enemies[i].GetComponent<Rigidbody2D>().AddForce(transform.right * -1 * forceOfOutput);
+                if (playerRB.velocity.x == 0)
+                    playerRB.GetComponent<Rigidbody2D>().AddForce(transform.right * forceOfPlayerOutput);
+                else
+                    playerRB.GetComponent<Rigidbody2D>().AddForce(-1 * coefficientOfOutput * playerRB.velocity.x * transform.right * forceOfPlayerOutput);
+            }
+            else
+                enemies[i].GetComponent<Rigidbody2D>().AddForce(transform.up * forceOfOutput);
         }
     }   
 
