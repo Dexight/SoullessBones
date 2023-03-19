@@ -7,7 +7,6 @@ public class BossKilled : MonoBehaviour
 {
     private bool openTrigger = false;
     public bool isBossAlive = true;
-    public string bossName;
     [SerializeField] private BossDoor bossDoor;
     [SerializeField] private BossDependence bossDependence;
     [SerializeField] private GameObject BossObject;
@@ -33,7 +32,6 @@ public class BossKilled : MonoBehaviour
         if (!isBossAlive)
         {
             isBossAlive = true;
-            SceneStats.stats.Add(bossName);//SAVE IT
             bossDependence.DoAll();
         }
     }
