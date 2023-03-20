@@ -4,11 +4,11 @@ using UnityEngine;
 public class KeyHolder : MonoBehaviour
 {
     public Dictionary<Key.KeyType, int> keyList; // предмет(ключ) - количество
-    [SerializeField] int golden, fly;
+    [SerializeField] int golden, red;
     private void Update()
     {
         golden = keyList[Key.KeyType.Gold];
-        fly = keyList[Key.KeyType.Fly];
+        red = keyList[Key.KeyType.Red];
     }
     public void AddKey(Key.KeyType keyType)
     {

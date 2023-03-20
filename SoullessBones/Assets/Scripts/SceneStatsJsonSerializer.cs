@@ -15,7 +15,7 @@ public static class SceneStats
     public static int tears = 0;
     public static int keycounter = 0;
     public static int keycount = 0;
-    public static Dictionary<Key.KeyType, int> keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Fly, 0 }};
+    public static Dictionary<Key.KeyType, int> keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Red, 0 }};
 
     public static bool isFull = false;
     public static bool isIncrementing = true;
@@ -38,7 +38,7 @@ public static class SceneStats
       tears = 0;
       keycounter = 0;
       keycount = 0;
-      keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Fly, 0 }};
+      keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Red, 0 }};
 
       isFull = false;
       isIncrementing = true;

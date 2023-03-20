@@ -9,7 +9,7 @@ public class Key : MonoBehaviour
     public enum KeyType
     {
         Gold,
-        Fly
+        Red // to use in future (may be)
     }
 
     private void Start()
