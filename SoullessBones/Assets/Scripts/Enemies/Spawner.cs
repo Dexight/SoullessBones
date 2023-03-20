@@ -12,13 +12,15 @@ public class Spawner : MonoBehaviour
     private int currentEnemies = 0;
 
     [SerializeField] private bool isRoom = false;
-
+    private TimeManager timeManager;
     private void Awake()
     {
         if(SceneStats.stats.Contains("Spawners"))
         {
             Destroy(gameObject);
         }
+            
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
     }
 
     void Start()
@@ -30,30 +32,34 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            if (currentEnemies < maxEnemies && spawnPoints.Count != 0)
+            if (!timeManager.TimeIsStopped)
             {
-                int spawnIndex = Random.Range(0, spawnPoints.Count);
-                Transform spawnPoint = spawnPoints[spawnIndex];
-                GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-                currentEnemies++;
-                enemy.GetComponent<Enemy>().spawner = this;
-            }
-            else
-            {
-                if(isRoom)
+                if (currentEnemies < maxEnemies && spawnPoints.Count != 0)
                 {
-                    itemPrefab.SetActive(true);
-                    Destroy(gameObject);
-                    break;
+                    int spawnIndex = Random.Range(0, spawnPoints.Count);
+                    Transform spawnPoint = spawnPoints[spawnIndex];
+                    GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                    currentEnemies++;
+                    enemy.GetComponent<Enemy>().spawner = this;
                 }
                 else
                 {
-                    Destroy(gameObject);
-                    break;
+                    if (isRoom)
+                    {
+                        itemPrefab.SetActive(true);
+                        Destroy(gameObject);
+                        break;
+                    }
+                    else
+                    {
+                        Destroy(gameObject);
+                        break;
+                    }
                 }
-            }
 
-            yield return new WaitForSeconds(spawnDelay);
+                yield return new WaitForSeconds(spawnDelay);
+            }
+            yield return new WaitForSeconds(0);
         }
     }
 

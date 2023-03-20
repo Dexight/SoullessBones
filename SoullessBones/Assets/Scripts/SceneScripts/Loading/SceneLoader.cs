@@ -110,7 +110,7 @@ public class SceneLoader : MonoBehaviour
         {
             SceneManager.LoadScene("Hub Scene"); 
             GameManager.instance.enterPassword = "start";
-            GameManager.instance.currentScene = "Hub Scene";
+            GameManager.instance.currentScene = "Hub Scene" ;
         }
 
         yield return true;

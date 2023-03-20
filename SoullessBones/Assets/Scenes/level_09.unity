@@ -1444,7 +1444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBossAlive: 1
-  bossName: Cultist
   bossDoor: {fileID: 1326033930}
   bossDependence: {fileID: 807480660}
   BossObject: {fileID: 265735425}
