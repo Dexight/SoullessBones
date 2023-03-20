@@ -15,13 +15,18 @@ public class FlyUI : MonoBehaviour
 
     private void CheckFlyState()
     {
-        isTaken = SceneStats.stats.Contains("Fly");
+        isTaken = SceneStats.stats.Contains("Fly") && !SceneStats.stats.Contains("Altar");
         Sprite.SetActive(isTaken);
     }
 
     public void Taked()
     {
         SceneStats.stats.Add("Fly");
+        CheckFlyState();
+    }
+
+    public void Give()
+    {
         CheckFlyState();
     }
 }
