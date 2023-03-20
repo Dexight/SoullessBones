@@ -6,6 +6,7 @@ public class BossDoor : MonoBehaviour
 {
     [SerializeField] Animator anim;
     [SerializeField] CultistMove bossScript;
+    [SerializeField] Spawner Spawner;
     public void OpenDoor()
     {
         anim.SetTrigger("Open");
@@ -13,8 +14,14 @@ public class BossDoor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<BoxCollider2D>().enabled = false;
-        bossScript.enabled = true;
+        GetComponent<Collider2D>().enabled = false;
+        if (bossScript)
+        {
+            bossScript.enabled = true;
+            bossScript.GetComponent<Animator>().enabled= true;
+        }
+        if(Spawner)
+            Spawner.enabled = true;
         anim.enabled = true;
     }
 }

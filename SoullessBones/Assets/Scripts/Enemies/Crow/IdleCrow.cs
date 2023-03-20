@@ -10,6 +10,8 @@ public class IdleCrow : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Animator _animator;
     private Transform _player;
+    private BoxCollider2D _collider;
+    private Collider2D[] _playerCollider;
     [SerializeField] private float _upSpeed;
     private bool Attacking = false;
 
@@ -18,14 +20,21 @@ public class IdleCrow : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private Vector2 _AttackBoxPosition;
     [SerializeField] private Vector2 aggroSize;
+    public int maxhp;
+    public int curhp;
     #endregion
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _playerCollider = _player.GetComponents<Collider2D>();
         _transform = GetComponent<Transform>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        _collider = GetComponent<BoxCollider2D>();
         CrowAI = GetComponent<CrowAI>();
+
+        curhp = GetComponent<Enemy>().health;
+        maxhp = GetComponent<Enemy>().health;
 
         _rigidbody.gravityScale = 1;
         CrowAI.enabled = false; //отключаем скрипт "полёта"
@@ -33,10 +42,11 @@ public class IdleCrow : MonoBehaviour
 
     void Update()
     {
-        if (PlayerInSight()) //триггер при попадании игрока в поле зрения (нужно будет дополнить ещё триггер при получении урона или физического столкновения)
+        if (PlayerInSight() || PlayerIsTouch() || PlayerIsDamage()) //триггер при попадании игрока в поле зрения (нужно будет дополнить ещё триггер при получении урона или физического столкновения)
         {
             Attacking = true;
         }
+        curhp = GetComponent<Enemy>().health;
     }
 
     private void FixedUpdate()
@@ -61,6 +71,26 @@ public class IdleCrow : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(aggroCollider.bounds.center + transform.right * _AttackBoxPosition.x * transform.localScale.x + transform.up * _AttackBoxPosition.y, aggroCollider.bounds.size * aggroSize,
             0, Vector2.right, 0, playerLayer);
         return hit.collider != null;
+    }
+
+    private bool PlayerIsDamage()
+    {
+        if(curhp < maxhp)
+        {
+            Debug.Log("damage");
+            return true;
+        }
+        return false;
+    }
+
+    private bool PlayerIsTouch()
+    {
+        if (_collider.IsTouching(_playerCollider[0]) || _collider.IsTouching(_playerCollider[1]) || _collider.IsTouching(_playerCollider[2]))
+        {
+            FindObjectOfType<HealthSystem>().TakeDamage(1);
+            return true;
+        }
+        return false;
     }
 
     private void OnDrawGizmos()

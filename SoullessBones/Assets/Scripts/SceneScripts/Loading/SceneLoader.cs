@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Cinemachine;
-using Ink;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -101,9 +100,18 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator DeathLoading()
     {
-        SceneManager.LoadScene(SceneStats.lastSave);
-        GameManager.instance.currentScene = GameManager.instance.lastSave;
-        GameManager.instance.enterPassword = "save";
+        if (SceneStats.lastSave != "start")
+        {
+            SceneManager.LoadScene(SceneStats.lastSave);
+            GameManager.instance.enterPassword = "save";
+            GameManager.instance.currentScene = GameManager.instance.lastSave;
+        }
+        else 
+        {
+            SceneManager.LoadScene("Hub Scene"); 
+            GameManager.instance.enterPassword = "start";
+            GameManager.instance.currentScene = "Hub Scene" ;
+        }
 
         yield return true;
         GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;

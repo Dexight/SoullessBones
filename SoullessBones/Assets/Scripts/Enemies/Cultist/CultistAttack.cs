@@ -8,6 +8,7 @@ public class CultistAttack : MonoBehaviour
     private GameObject portal = null;
     private SpriteRenderer magicSprite;
     [SerializeField][Range(0, 1)] private float timeOfEnterAndExit;
+    [SerializeField][Range(0, 1)] private float timeOfEnterAndExitPortal;
     private CultistMove moving;
 
     private bool isAttack;
@@ -21,9 +22,10 @@ public class CultistAttack : MonoBehaviour
     [SerializeField] private List<GameObject> enemies;
     public Transform leftDotPosition;
     public Transform rightDotPosition;
-    public int coolDown;
-    //private int countOfEnemiesLast = 2;
+
     private int countOfEnemies = 0;
+    private int curCount = 0;
+    [SerializeField] private float coolDown;
     Vector2 whereSpawn;
 
     private void Start()
@@ -61,18 +63,19 @@ public class CultistAttack : MonoBehaviour
 
         countOfEnemies = enemies.Count;
 
-        //if(countOfEnemies == countOfEnemiesLast - 1) // если была уничтожена призывная сущность
-        //{
-        //    countOfEnemies += 1;
-        //    //StartCoroutine(SpawnWithCooldown);
-        //}
-
-        if (countOfEnemies < 2 && isAttack && !blockSpawn)
+        if ((countOfEnemies < 2 || countOfEnemies < curCount) && isAttack && !blockSpawn)
         {
-            Spawn();
+            if (countOfEnemies < curCount)
+            {
+                blockSpawn = true;
+                Invoke("Spawn", coolDown);
+            }
+            else
+            {
+                curCount++;
+                Spawn();
+            }
         }
-
-        //countOfEnemiesLast = countOfEnemies;
         #endregion
     }
 
@@ -85,16 +88,8 @@ public class CultistAttack : MonoBehaviour
         whereSpawn = new Vector2(randomPortalPositionX, leftDotPosition.position.y);
         //спавн портала (потом сам удаляется)
         SpawnPortal(whereSpawn, ref portal);
-        //спавн врага
-        SpawnEnemy(whereSpawn);
         //портал удаляется своим скриптом
         StartCoroutine(afterDeletePortal());
-    }
-
-    private IEnumerator SpawnWithCooldown()
-    {
-        yield return new WaitForSeconds(1);
-        Spawn();
     }
 
     #region Spawn Portal
@@ -107,14 +102,21 @@ public class CultistAttack : MonoBehaviour
     {
         portal = Instantiate(portalPrefab, vector, transform.rotation);
         SpriteRenderer portalSprite = portal.GetComponent<SpriteRenderer>();
-        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, 0f);
-        yield return new WaitForSeconds(0.1f);
-        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.33f);
-        yield return new WaitForSeconds(0.1f);
-        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.33f);
-        yield return new WaitForSeconds(0.1f);
-        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.34f);
+        yield return new WaitForSeconds(timeOfEnterAndExitPortal);
+        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.4f);
+        yield return new WaitForSeconds(timeOfEnterAndExitPortal);
+        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.2f);
+        yield return new WaitForSeconds(timeOfEnterAndExitPortal);
+        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.2f);
+        yield return new WaitForSeconds(timeOfEnterAndExitPortal);
+        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.1f);
+        yield return new WaitForSeconds(timeOfEnterAndExitPortal);
+        portalSprite.color = new Color(portalSprite.color.r, portalSprite.color.g, portalSprite.color.b, portalSprite.color.a + 0.1f);
+        yield return new WaitForSeconds(timeOfEnterAndExitPortal);
+        //спавн врага
+        SpawnEnemy(vector);
     }
+
     private IEnumerator afterDeletePortal()
     {
         yield return new WaitForSeconds(1f);
