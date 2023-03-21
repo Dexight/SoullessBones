@@ -22,6 +22,7 @@ public class AfterDeath : MonoBehaviour
 
 
         SceneLoader sceneLoader = GameObject.FindGameObjectWithTag("Interface").GetComponent<SceneLoader>();
+        //Воспроизвести звук смерти
         //TODO 0 in bottle
         sceneLoader.FadeTo("", true, true, true);
     }

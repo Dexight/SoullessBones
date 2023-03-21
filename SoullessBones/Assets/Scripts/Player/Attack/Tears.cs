@@ -20,6 +20,12 @@ public class Tears : MonoBehaviour
         playerRB = MovementController.instance.GetComponent<Rigidbody2D>();
         damage = GameManager.instance.damageDist;
     }
+
+    private void Start()
+    {
+        //Воспроизвести звук tears
+    }
+
     void FixedUpdate()
     {
         Collider2D touch = null;

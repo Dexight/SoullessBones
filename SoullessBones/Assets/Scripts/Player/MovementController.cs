@@ -94,7 +94,10 @@ public class MovementController : MonoBehaviour
     private void HorizontalMove()
     {
         if (!isTouchingWall)
+        {
             _moveInput = Input.GetAxis("Horizontal");
+            //Воспроизведение звука ходьбы
+        }
         else
             _moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(_moveInput * _Speed, rb.velocity.y);
