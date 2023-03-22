@@ -21,10 +21,17 @@ public class BossDoor : MonoBehaviour
             if (!bossScript.enabled) SoundVolumeController.SwitchToBattle();
             bossScript.enabled = true;
             bossScript.GetComponent<Animator>().enabled= true;
-            
         }
-        if(Spawner)
+
+        if (Spawner)
+        {
             Spawner.enabled = true;
+            foreach (var i in Spawner.spawnPoints)
+            {
+                i.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+
         anim.enabled = true;
     }
 }
