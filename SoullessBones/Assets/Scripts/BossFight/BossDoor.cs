@@ -17,8 +17,11 @@ public class BossDoor : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         if (bossScript)
         {
+            //start battle music
+            if (!bossScript.enabled) SoundVolumeController.SwitchToBattle();
             bossScript.enabled = true;
             bossScript.GetComponent<Animator>().enabled= true;
+            
         }
         if(Spawner)
             Spawner.enabled = true;

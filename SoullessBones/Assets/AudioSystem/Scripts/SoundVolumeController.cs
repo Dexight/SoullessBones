@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class SoundVolumeController : MonoBehaviour
 {
     [Header("Components")]
-    [SerializeField] private AudioSource[] audioSources;
+    [SerializeField] private AudioSource[] audioSourcesBG;
+    [SerializeField] private AudioSource audioSourcesEffects;
+    [SerializeField] private AudioSource audioSourcesEffectsLong;
 
     [Header("Keys")]
     [SerializeField] private string saveMusicVolumeKey;
@@ -22,7 +24,11 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private float swapTime = 2;
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
+    [SerializeField] private AudioClip[] c_effects;
+    [SerializeField] private AudioClip c_walk;
     [SerializeField] bool randomize = false;
+    [SerializeField] bool battle;
+    bool inBattle;
 
     private Slider musicSlider;
     private Slider effectSlider;
@@ -54,11 +60,11 @@ public class SoundVolumeController : MonoBehaviour
         }
         if (randomize) Shuffle(c_clips);
 
-        a_indexLocal = a_indexGlobal % audioSources.Length;
+        a_indexLocal = a_indexGlobal % audioSourcesBG.Length;
         c_currentClip = c_clips[c_index];
-        audioSources[a_indexLocal].clip = c_currentClip;
+        audioSourcesBG[a_indexLocal].clip = c_currentClip;
 
-        audioSources[a_indexLocal].Play();
+        audioSourcesBG[a_indexLocal].Play();
         SetMusicVolume(0, musicVolume);
         SetMusicVolume(1, musicVolume);
     }
@@ -86,16 +92,18 @@ public class SoundVolumeController : MonoBehaviour
     {
         effectVolume = a;
         PlayerPrefs.SetFloat(saveEffectVolumeKey, effectVolume);
-        //effectVolumeSet
+        audioSourcesEffects.volume = a;
+        audioSourcesEffectsLong.volume = a;
     }
     private void SetMusicVolume(int a, float volume)
     {
-        audioSources[a].volume = volume;
+        audioSourcesBG[a].volume = volume;
     }
     
     private void SwitchToBattleLocal(int a)
     {
         state = states.battle;
+        StopCoroutine(SwitchSource(c_currentClip));
         c_currentClip = c_battleClips[a];
         StartCoroutine(SwitchSource(c_currentClip));
     }
@@ -106,6 +114,20 @@ public class SoundVolumeController : MonoBehaviour
         c_currentClip = c_clips[c_index % c_clips.Length];
         StartCoroutine(SwitchSource(c_currentClip));
     }
+    private void PlaySoundEffectLocal(int a)
+    {
+        audioSourcesEffects.clip = c_effects[a];
+        audioSourcesEffects.Play();
+    }
+    private void PlayWalkSoundLocal(bool a)
+    {
+        audioSourcesEffectsLong.clip = c_walk;
+        if (a)
+            audioSourcesEffectsLong.Play();
+        else
+            audioSourcesEffectsLong.Stop();
+    }
+
     //перемешать массив bg клипов
     public void Shuffle<T>(T[] array)
     {
@@ -124,14 +146,14 @@ public class SoundVolumeController : MonoBehaviour
         {
             InitSliders();
         }
-        //Debug.Log(audioSources[a_indexLocal].time);
 
-        if(!inSwap && state == states.normal && c_currentClip.length < audioSources[a_indexLocal].time + swapTime)
+        if(!inSwap && state == states.normal && c_currentClip.length < audioSourcesBG[a_indexLocal].time + swapTime)
         {
             c_index++;
             c_currentClip = c_clips[c_index % c_clips.Length];
             StartCoroutine(SwitchSource(c_currentClip));
         }
+
     }
     //плавный переход между клипами
     IEnumerator SwitchSource(AudioClip clip)
@@ -139,16 +161,16 @@ public class SoundVolumeController : MonoBehaviour
         inSwap = true;
         int a_indexLocalPrevious = a_indexLocal;
         a_indexGlobal++;
-        a_indexLocal = a_indexGlobal % audioSources.Length;
+        a_indexLocal = a_indexGlobal % audioSourcesBG.Length;
 
-        audioSources[a_indexLocal].clip = c_currentClip;
-        audioSources[a_indexLocal].Play();
+        audioSourcesBG[a_indexLocal].clip = c_currentClip;
+        audioSourcesBG[a_indexLocal].Play();
 
-        int points = 10;
-        for (int i = 0; i < points-1; i++)
+        float points = 10;
+        for (int i = 0; i < points; i++)
         {
-            SetMusicVolume(a_indexLocalPrevious, (1f - (float)i / points) * musicVolume);
-            SetMusicVolume(a_indexLocal, (float)i / points * musicVolume);
+            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume);
+            SetMusicVolume(a_indexLocal, i / points * musicVolume);
             yield return new WaitForSeconds(swapTime / points);
         }
         SetMusicVolume(a_indexLocalPrevious, 0);
@@ -163,5 +185,20 @@ public class SoundVolumeController : MonoBehaviour
     public static void SwitchToNormal()
     {
         instance.SwitchToNormalLocal();
+    }
+
+    /// <summary>
+    /// 0 - open door,
+    /// 1 - slash,
+    /// 2 - tear,
+    /// 3 - death
+    /// </summary>
+    public static void PlaySoundEffect(int a)
+    {
+        instance.PlaySoundEffectLocal(a);
+    }
+    public static void PlayWalkSound(bool a)
+    {
+        instance.PlayWalkSoundLocal(a);
     }
 }

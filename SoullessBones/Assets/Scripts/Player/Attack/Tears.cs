@@ -24,6 +24,7 @@ public class Tears : MonoBehaviour
     private void Start()
     {
         //Воспроизвести звук tears
+        SoundVolumeController.PlaySoundEffect(2);
     }
 
     void FixedUpdate()

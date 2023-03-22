@@ -17,7 +17,7 @@ public class BossKilled : MonoBehaviour
         {
             Destroy(bossDoor.gameObject);
             Destroy(BossObject);
-            transform.position = transform.position + new Vector3(0, -2, 0);    
+            transform.position = transform.position + new Vector3(0, -2, 0);
         }
     }
 

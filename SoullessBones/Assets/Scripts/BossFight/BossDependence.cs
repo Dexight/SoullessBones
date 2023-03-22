@@ -16,6 +16,9 @@ public class BossDependence : MonoBehaviour
     private void spawnItems()
     {
         spawnedItem.SetActive(true);
+
+        //end battle music
+        SoundVolumeController.SwitchToNormal();
     }
 
     public void editItems()

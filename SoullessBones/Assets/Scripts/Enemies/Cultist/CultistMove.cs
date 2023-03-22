@@ -34,6 +34,7 @@ public class CultistMove : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
 
     void Start()

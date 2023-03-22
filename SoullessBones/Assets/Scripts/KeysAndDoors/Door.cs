@@ -33,6 +33,8 @@ public class Door : MonoBehaviour
     {
         _anim.SetBool("Open", true);
         //Воспроизвести звук открытия двери
+        SoundVolumeController.PlaySoundEffect(0);
+
         SceneStats.stats.Add(doorID);
         StartCoroutine(Delete());
     }

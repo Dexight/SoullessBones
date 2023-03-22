@@ -26,6 +26,8 @@ public class Slash : MonoBehaviour
     private void Start()
     {
         //¬оспроизвести звук атаки
+        SoundVolumeController.PlaySoundEffect(1);
+
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position + new Vector3(0, Upper, 0), attackRange, enemy);
         isDamageDone = enemies.Length > 0;
         for (int i = 0; i < enemies.Length; i++)    //перебор всех врагов
