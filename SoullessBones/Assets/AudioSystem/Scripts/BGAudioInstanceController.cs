@@ -11,16 +11,15 @@ public class BGAudioInstanceController : MonoBehaviour
 
     private void Awake()
     {
-        GameObject obj = GameObject.FindWithTag(Tag);
+        /*GameObject obj = GameObject.FindWithTag(Tag);
         if(obj != null)
         {
             Destroy(gameObject);
         }
         else
         {
-            gameObject.tag = Tag;
             DontDestroyOnLoad(gameObject);
-        }
+        }*/
     }
     private void Update()
     {
