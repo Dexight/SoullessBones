@@ -103,6 +103,7 @@ public class SoundVolumeController : MonoBehaviour
     private void SwitchToBattleLocal(int a)
     {
         state = states.battle;
+        StopCoroutine(SwitchSource(c_currentClip));
         c_currentClip = c_battleClips[a];
         StartCoroutine(SwitchSource(c_currentClip));
     }
@@ -153,16 +154,6 @@ public class SoundVolumeController : MonoBehaviour
             StartCoroutine(SwitchSource(c_currentClip));
         }
 
-        if (battle && !inBattle)
-        {
-            inBattle = true;
-            SwitchToBattle();
-        }
-        else if (!battle && inBattle)
-        {
-            inBattle = false;
-            SwitchToNormal();
-        }
     }
     //плавный переход между клипами
     IEnumerator SwitchSource(AudioClip clip)
@@ -175,11 +166,11 @@ public class SoundVolumeController : MonoBehaviour
         audioSourcesBG[a_indexLocal].clip = c_currentClip;
         audioSourcesBG[a_indexLocal].Play();
 
-        int points = 10;
-        for (int i = 0; i < points-1; i++)
+        float points = 10;
+        for (int i = 0; i < points; i++)
         {
-            SetMusicVolume(a_indexLocalPrevious, (1f - (float)i / points) * musicVolume);
-            SetMusicVolume(a_indexLocal, (float)i / points * musicVolume);
+            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume);
+            SetMusicVolume(a_indexLocal, i / points * musicVolume);
             yield return new WaitForSeconds(swapTime / points);
         }
         SetMusicVolume(a_indexLocalPrevious, 0);
