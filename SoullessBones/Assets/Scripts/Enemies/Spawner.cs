@@ -34,28 +34,29 @@ public class Spawner : MonoBehaviour
         {
             if (!timeManager.TimeIsStopped)
             {
-                if (currentEnemies < maxEnemies && spawnPoints.Count != 0)
-                {
-                    int spawnIndex = Random.Range(0, spawnPoints.Count);
-                    Transform spawnPoint = spawnPoints[spawnIndex];
-                    GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-                    currentEnemies++;
-                    enemy.GetComponent<Enemy>().spawner = this;
-                }
-                else
-                {
-                    if (isRoom)
+                if(currentEnemies < maxEnemies)
+                    if ( spawnPoints.Count != 0)
                     {
-                        itemPrefab.SetActive(true);
-                        Destroy(gameObject);
-                        break;
+                        int spawnIndex = Random.Range(0, spawnPoints.Count);
+                        Transform spawnPoint = spawnPoints[spawnIndex];
+                        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                        currentEnemies++;
+                        enemy.GetComponent<Enemy>().spawner = this;
                     }
                     else
                     {
-                        Destroy(gameObject);
-                        break;
+                        if (isRoom)
+                        {
+                            itemPrefab.SetActive(true);
+                            Destroy(gameObject);
+                            break;
+                        }
+                        else
+                        {
+                            Destroy(gameObject);
+                            break;
+                        }
                     }
-                }
 
                 yield return new WaitForSeconds(spawnDelay);
             }

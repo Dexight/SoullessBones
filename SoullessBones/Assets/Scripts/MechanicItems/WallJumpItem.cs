@@ -10,9 +10,13 @@ public class WallJumpItem : MonoBehaviour
     {
         if(SceneStats.stats.Contains("Spawners"))
         {
-            Destroy(door1);
-            Destroy(door2);
+            Destroy(door1.gameObject);
+            Destroy(door2.gameObject);
             Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 
