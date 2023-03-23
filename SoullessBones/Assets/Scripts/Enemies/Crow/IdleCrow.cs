@@ -77,7 +77,6 @@ public class IdleCrow : MonoBehaviour
     {
         if(curhp < maxhp)
         {
-            Debug.Log("damage");
             return true;
         }
         return false;

@@ -17,9 +17,9 @@ public static class SceneStats
     public static int keycount = 0;
     public static Dictionary<Key.KeyType, int> keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Red, 0 }};
 
-    public static bool isFull = false;
-    public static bool isIncrementing = true;
-    public static bool isEmpty = true;
+    //public static bool isFull = false;
+    //public static bool isIncrementing = true;
+    //public static bool isEmpty = true;
 
     public static string curScene = "Hub Scene";
     public static string EnterPassword = "start";
@@ -40,9 +40,9 @@ public static class SceneStats
       keycount = 0;
       keyList = new Dictionary<Key.KeyType, int> { { Key.KeyType.Gold, 0 }, { Key.KeyType.Red, 0 }};
 
-      isFull = false;
-      isIncrementing = true;
-      isEmpty = true;
+      //isFull = false;
+      //isIncrementing = true;
+      //isEmpty = true;
 
       curScene = "Hub Scene";
       EnterPassword = "start";
@@ -66,9 +66,9 @@ public class SceneStatsWrapper
     public int keycounter;
     public Dictionary<Key.KeyType, int> keyList;
 
-    public bool isFull;
-    public bool isIncrementing;
-    public bool isEmpty;
+    //public bool isFull;
+    //public bool isIncrementing;
+    //public bool isEmpty;
 
     public string curScene;
     public string EnterPassword;
@@ -88,9 +88,9 @@ public class SceneStatsWrapper
         keycounter = SceneStats.keycounter;
         keyList = SceneStats.keyList;
 
-        isFull = SceneStats.isFull;
-        isIncrementing = SceneStats.isIncrementing;
-        isEmpty = SceneStats.isEmpty;
+        //isFull = SceneStats.isFull;
+        //isIncrementing = SceneStats.isIncrementing;
+        //isEmpty = SceneStats.isEmpty;
 
         curScene = SceneStats.curScene;
         EnterPassword = SceneStats.EnterPassword;
@@ -111,9 +111,9 @@ public class SceneStatsWrapper
         SceneStats.keycounter = keycounter;
         SceneStats.keyList = keyList;
 
-        SceneStats.isFull = isFull;
-        SceneStats.isIncrementing = isIncrementing;
-        SceneStats.isEmpty = isEmpty;
+        //SceneStats.isFull = isFull;
+        //SceneStats.isIncrementing = isIncrementing;
+        //SceneStats.isEmpty = isEmpty;
 
         SceneStats.curScene = curScene;
         SceneStats.EnterPassword = EnterPassword;

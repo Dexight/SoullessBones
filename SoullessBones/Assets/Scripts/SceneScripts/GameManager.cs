@@ -99,9 +99,9 @@ public class GameManager : MonoBehaviour
 
         var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         SceneStats.tears = distAttack.getCount();
-        SceneStats.isFull = distAttack.getIsFull();
-        SceneStats.isEmpty = distAttack.getIsEmpty();
-        SceneStats.isIncrementing = distAttack.getIsIncrementing();
+        //SceneStats.isFull = distAttack.getIsFull();
+        //SceneStats.isEmpty = distAttack.getIsEmpty();
+        //SceneStats.isIncrementing = distAttack.getIsIncrementing();
         //Debug.Log("FastSave");
     }
 
