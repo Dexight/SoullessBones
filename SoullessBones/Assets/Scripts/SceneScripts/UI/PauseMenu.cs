@@ -39,12 +39,19 @@ public class PauseMenu : MonoBehaviour
         attackSystem.gameIsPaused = false;
         CheatBoxOff();
         SettingsPanel.SetActive(false);
+
+        //audio
+        GameObject.FindWithTag("Player").GetComponent<MovementController>()._CanMove = true;
+        SoundVolumeController.PauseMusic(false);
     }
     void Pause()
     {
         //audio
-        GameObject.FindWithTag("Player").GetComponent<MovementController>().alreadyWalking = false;
+        var a = GameObject.FindWithTag("Player").GetComponent<MovementController>();
+        a._CanMove = false;
+        a.alreadyWalking = false;
         SoundVolumeController.PlayWalkSound(false);
+        SoundVolumeController.PauseMusic(true);
 
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -62,7 +69,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     //TODO: Реализовать переход из  меню паузы в меню опций
-    public void ShowSettings() => SettingsPanel.SetActive(true);
+    public void ShowSettings() 
+    {
+        SettingsPanel.SetActive(true);
+        SoundVolumeController.InitSliders();
+    }
 
     public void QuitGame()
     {
