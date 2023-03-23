@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public bool enableAstral;
     public bool enableDistanceAttacks;
     public bool fullBottle;
-    public bool alwaysFullTrigger = false;
     #endregion
     public string enterPassword;//сохран€ет, когда игрок переходит на другую сцену
     public string currentScene;
@@ -51,12 +50,6 @@ public class GameManager : MonoBehaviour
         damage = 5;
         damageDist = 15;
         bottleFill = 4;
-
-        if(alwaysFullTrigger)
-        {
-            alwaysFullTrigger = false;
-            changeFullBottle();
-        }
 
         LoadSave();
     }
@@ -99,9 +92,9 @@ public class GameManager : MonoBehaviour
 
         var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
         SceneStats.tears = distAttack.getCount();
-        //SceneStats.isFull = distAttack.getIsFull();
-        //SceneStats.isEmpty = distAttack.getIsEmpty();
-        //SceneStats.isIncrementing = distAttack.getIsIncrementing();
+        SceneStats.isFull = distAttack.getIsFull();
+        SceneStats.isEmpty = distAttack.getIsEmpty();
+        SceneStats.isIncrementing = distAttack.getIsIncrementing();
         //Debug.Log("FastSave");
     }
 
@@ -136,11 +129,12 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<KeyHolder>().keyList = SceneStats.keyList;
 
 
-        //var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
-        //SceneStats.tears = distAttack.getCount();
-        //SceneStats.isFull = distAttack.getIsFull();
-        //SceneStats.isEmpty = distAttack.getIsEmpty();
-        //SceneStats.isIncrementing = distAttack.getIsIncrementing();
+        var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        distAttack.count = SceneStats.tears;
+        distAttack.isFull = SceneStats.isFull;
+        distAttack.isEmpty = SceneStats.isEmpty;
+        distAttack.isIncrementing = SceneStats.isIncrementing;
+        distAttack.updateBottle();
     }
 
     //-----------------------------------------------------------------------------х

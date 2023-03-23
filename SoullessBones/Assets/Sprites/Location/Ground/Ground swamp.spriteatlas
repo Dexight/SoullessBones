@@ -46,6 +46,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: d298967d4b8add4418959d1a365f2d3e, type: 3}
     - {fileID: 2800000, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+    - {fileID: 2800000, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -89,6 +90,11 @@ SpriteAtlas:
   - {fileID: 1690370754, guid: 137995cd81a62ba48bda243129475e48, type: 3}
   - {fileID: 715173859, guid: 137995cd81a62ba48bda243129475e48, type: 3}
   - {fileID: 1722727291, guid: 137995cd81a62ba48bda243129475e48, type: 3}
+  - {fileID: -1065086881, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
+  - {fileID: -1356748152, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
+  - {fileID: 551950418, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
+  - {fileID: -2011566061, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
+  - {fileID: 1889095898, guid: ce9943aed55f8c346b92349f321a98af, type: 3}
   m_PackedSpriteNamesToIndex:
   - Terrain v2 (16x16) swamp_8
   - Terrain v2 (16x16) swamp_9
@@ -128,6 +134,11 @@ SpriteAtlas:
   - spikes swamp_6
   - spikes swamp_5
   - spikes swamp_4
+  - platforms_4
+  - platforms_0
+  - platforms_1
+  - platforms_2
+  - platforms_3
   m_RenderDataMap: {}
   m_Tag: Ground swamp
   m_IsVariant: 0
