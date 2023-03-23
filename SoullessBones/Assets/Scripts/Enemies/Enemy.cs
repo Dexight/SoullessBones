@@ -26,8 +26,8 @@ public class Enemy : MonoBehaviour
     {
         GameObject explosionRef = (GameObject)Instantiate(explosion);
         explosionRef.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        
-        if(isBoss)
+
+        if (isBoss)
         {
             bossManager.isBossAlive = false;
 
@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour
             explosionRef = (GameObject)Instantiate(explosion);
             explosionRef.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
+
+        Destroy(explosionRef, 1.0f);
 
         if (spawner)
         {
