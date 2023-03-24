@@ -14,7 +14,7 @@ public class DistanceAttack : MonoBehaviour
     [SerializeField] private TextMeshProUGUI counter;
 
     //water in bottle
-    private int count; //0 to 100
+    public int count; //0 to 100
     public bool isFull;
     public bool isIncrementing;//наполняется|убавляется
     public bool isEmpty;
@@ -23,7 +23,8 @@ public class DistanceAttack : MonoBehaviour
     private void Start()
     {
         alwaysFull = false;
-        OnStart();
+        if(!SceneStats.stats.Contains("dist"))
+            OnStart();
         updateBottle();
     }
     //------------------------------------------

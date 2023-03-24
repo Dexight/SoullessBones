@@ -1659,7 +1659,6 @@ MonoBehaviour:
   enableAstral: 0
   enableDistanceAttacks: 0
   fullBottle: 0
-  alwaysFullTrigger: 0
   enterPassword: 
   currentScene: 
   lastSave: 
@@ -2632,7 +2631,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032216285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.0575666, y: -4.1497197, z: -9.759998}
+  m_LocalPosition: {x: -4.064421, y: -4.1497197, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15668,7 +15667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454502916895683454, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.59
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: 2928688416321170029, guid: e52b2f0422edb6246bdc6452acba8758, type: 3}
       propertyPath: nextSceneName

@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class DialogueScript : MonoBehaviour
     {
-        [Header("Cue")]
-        [SerializeField] private GameObject Cue;
+        //[Header("Cue")]
+        //[SerializeField] private GameObject Cue;
 
         [Header("Ink JSON")]
         [SerializeField] private TextAsset InkJSON;
@@ -21,7 +21,7 @@ public class DialogueScript : MonoBehaviour
         private void Awake()
         {
             PlayerInRange = false;
-            Cue.SetActive(false);
+            //Cue.SetActive(false);
             player = GameObject.FindWithTag("Player");
         }
 
@@ -31,23 +31,23 @@ public class DialogueScript : MonoBehaviour
             { 
                 if (DialogueManager.GetInstance().dialogueIsPlaying) 
                 {
-                Cue.SetActive(false);
+                //Cue.SetActive(false);
                 return; 
                 }
 
-            if (Input.GetKeyDown(Key) && Cue.activeSelf)
+            if (Input.GetKeyDown(Key) /*&& Cue.activeSelf*/)
             {
                 DialogueManager.GetInstance().EnterDialogueMode(InkJSON);
             }
 
-            Cue.SetActive(true);
+            //Cue.SetActive(true);
 
-            Cue.transform.position = player.transform.position + new Vector3(0, 0.6f, 0);
+            //Cue.transform.position = player.transform.position + new Vector3(0, 0.6f, 0);
 
         }
             else 
             { 
-                Cue.SetActive(false);
+                //Cue.SetActive(false);
                 DialogueManager.GetInstance().ExitDialogueMode();
             }
         }
