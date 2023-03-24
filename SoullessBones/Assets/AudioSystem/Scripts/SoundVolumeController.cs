@@ -22,12 +22,12 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private float musicVolume;
     [SerializeField] private float effectVolume;
     [SerializeField] private float swapTime = 2;
+    [SerializeField] private float pauseSwapTime = 1;
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
     [SerializeField] private AudioClip[] c_effects;
     [SerializeField] private AudioClip c_walk;
     [SerializeField] bool randomize = false;
-    bool abobasic = false;
 
     private Slider musicSlider;
     private Slider effectSlider;
@@ -35,6 +35,7 @@ public class SoundVolumeController : MonoBehaviour
     private int c_index = 0;
     private int a_indexGlobal = 0;
     private int a_indexLocal = 0;
+    private float dopMusicVolume = 1f;
     private bool inSwap = false;
     private enum states {normal, battle};
     private states state = states.normal;
@@ -126,7 +127,10 @@ public class SoundVolumeController : MonoBehaviour
         else
             audioSourcesEffectsLong.Stop();
     }
-
+    private void PauseMusicLocal(bool a)
+    {
+        StartCoroutine(FadeSource(a));
+    }
     //перемешать массив bg клипов
     public void Shuffle<T>(T[] array)
     {
@@ -147,9 +151,9 @@ public class SoundVolumeController : MonoBehaviour
             c_currentClip = c_clips[c_index % c_clips.Length];
             StartCoroutine(SwitchSource(c_currentClip));
         }
-        if (abobasic)
+        else if (!inSwap && state == states.battle && c_currentClip.length < audioSourcesBG[a_indexLocal].time + swapTime)
         {
-            Debug.Log("ass");
+            StartCoroutine(SwitchSource(c_currentClip));
         }
 
     }
@@ -167,35 +171,31 @@ public class SoundVolumeController : MonoBehaviour
         float points = 10;
         for (int i = 0; i < points; i++)
         {
-            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume);
-            SetMusicVolume(a_indexLocal, i / points * musicVolume);
+            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume * dopMusicVolume);
+            SetMusicVolume(a_indexLocal, i / points * musicVolume * dopMusicVolume);
             yield return new WaitForSeconds(swapTime / points);
         }
         SetMusicVolume(a_indexLocalPrevious, 0);
-        SetMusicVolume(a_indexLocal, musicVolume);
+        SetMusicVolume(a_indexLocal, musicVolume * dopMusicVolume);
         inSwap = false;
     }
     //сделать затухание в паузу
 
-    IEnumerator FadeSource(AudioClip clip)
+    public IEnumerator FadeSource(bool a)
     {
         inSwap = true;
-        int a_indexLocalPrevious = a_indexLocal;
-        a_indexGlobal++;
-        a_indexLocal = a_indexGlobal % audioSourcesBG.Length;
-
-        audioSourcesBG[a_indexLocal].clip = c_currentClip;
-        audioSourcesBG[a_indexLocal].Play();
 
         float points = 10;
+        if (!a) audioSourcesBG[a_indexLocal].UnPause();
         for (int i = 0; i < points; i++)
         {
-            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume);
-            SetMusicVolume(a_indexLocal, i / points * musicVolume);
-            yield return new WaitForSeconds(swapTime / points);
+            dopMusicVolume = a ? (1f - i / points) : (i / points);
+            SetMusicVolume(a_indexLocal, musicVolume * dopMusicVolume);
+            yield return new WaitForSecondsRealtime(pauseSwapTime / points);
         }
-        SetMusicVolume(a_indexLocalPrevious, 0);
-        SetMusicVolume(a_indexLocal, musicVolume);
+        SetMusicVolume(a_indexLocal, a ? 0 : musicVolume);
+        if (a) audioSourcesBG[a_indexLocal].Pause();
+        
         inSwap = false;
     }
 
@@ -228,6 +228,6 @@ public class SoundVolumeController : MonoBehaviour
     }
     public static void PauseMusic(bool a)
     {
-        instance.abobasic = a;
+        instance.PauseMusicLocal(a);
     }
 }

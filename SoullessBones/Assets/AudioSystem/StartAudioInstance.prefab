@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 1132448214132349731, guid: 4229b8909b6075a459fc13c38c657cec, type: 3}
-  tag: BGMusic
+  Tag: BGMusic
