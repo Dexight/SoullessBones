@@ -1,6 +1,7 @@
 using Newtonsoft.Json.Bson;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 /// <summary>
 /// скрипт для кнопок-читов 
 /// </summary>
@@ -8,6 +9,11 @@ public class Cheats : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
     [SerializeField] WallJumping wallJumping;
+    [SerializeField] TMP_InputField StrokeDamageField;
+    [SerializeField] TMP_InputField DistDamageField;
+    [SerializeField] TMP_InputField BottleFillingField;
+
+
     private void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -53,13 +59,38 @@ public class Cheats : MonoBehaviour
         gameManager.changeFullBottle();
     }
 
-    public void DistanceDamage(int damage)
+    public void DistanceDamage()
     {
-        gameManager.changeDamageDist(damage);
+        int i = 1;
+        if (int.TryParse(DistDamageField.text, out i))
+        {
+            var damage = int.Parse(DistDamageField.text);
+            //gameManager.changeDamage(damage);
+            gameManager.changeDamageDist(damage);
+        }
+        Debug.Log($"gameManager.damageDist = {gameManager.damageDist}");
     }
 
-    public void BottleFilling(int power)
+    public void StrokeDamage()
     {
-        gameManager.changeBottleFill(power);
+        int i = 1;
+        if(int.TryParse(StrokeDamageField.text, out i))
+        {
+            var damage = int.Parse(StrokeDamageField.text);
+            gameManager.changeDamage(damage);
+        }
+        Debug.Log($"gameManager.damage = {gameManager.damage}");
+
+    }
+
+    public void BottleFilling()
+    {
+        int i = 1;
+        if(int.TryParse(BottleFillingField.text, out i))
+        {
+            var power = int.Parse(BottleFillingField.text);
+            gameManager.changeBottleFill(power);
+        }
+        Debug.Log(gameManager.bottleFill);
     }
 }

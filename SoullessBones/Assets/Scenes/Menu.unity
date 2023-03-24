@@ -2877,15 +2877,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 262536415778075558, guid: edcc33cad26ef6446bd6df8c452a4efc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 262536416157170166, guid: edcc33cad26ef6446bd6df8c452a4efc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 262536416499803848, guid: edcc33cad26ef6446bd6df8c452a4efc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2021383924001519665, guid: edcc33cad26ef6446bd6df8c452a4efc, type: 3}
       propertyPath: m_TagString
@@ -2897,7 +2897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2021383924671607057, guid: edcc33cad26ef6446bd6df8c452a4efc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2021383924755266653, guid: edcc33cad26ef6446bd6df8c452a4efc, type: 3}
       propertyPath: m_Pivot.x

@@ -187,7 +187,8 @@ MonoBehaviour:
   effectSliderTag: BackgroundEffectSlider
   musicVolume: 0
   effectVolume: 0
-  swapTime: 3
+  swapTime: 2
+  pauseSwapTime: 0.5
   c_clips:
   - {fileID: 8300000, guid: fb9e68e86be48b14e81439af6c9040bd, type: 3}
   - {fileID: 8300000, guid: 100fc03d128fc7449a22e894d813328e, type: 3}
@@ -201,7 +202,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 80a73daafa419944793d96b1ff9ed726, type: 3}
   c_walk: {fileID: 8300000, guid: bd581ee1100885e43a3ee5c66b52f523, type: 3}
   randomize: 1
-  battle: 0
 --- !u!1 &1132448214197939945
 GameObject:
   m_ObjectHideFlags: 0

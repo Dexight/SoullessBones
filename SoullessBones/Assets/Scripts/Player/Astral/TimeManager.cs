@@ -37,5 +37,8 @@ public class TimeManager : MonoBehaviour
         TimeIsStopped = true;
         Player.GetComponent<MovementController>()._CanMove = false;
         Player.GetComponent<AttackSystem>().inAstral = true;
+
+        Player.GetComponent<MovementController>().alreadyWalking = false;
+        SoundVolumeController.PlayWalkSound(false);
     }
 }

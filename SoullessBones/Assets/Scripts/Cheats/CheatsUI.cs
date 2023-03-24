@@ -8,6 +8,10 @@ public class CheatsUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI WallJump;
     [SerializeField] private TextMeshProUGUI Astral;
     [SerializeField] private TextMeshProUGUI MassiveDamage;
+    [SerializeField] private TextMeshProUGUI Tears;
+    [SerializeField] private TextMeshProUGUI FullBottle;
+
+
 
     void Update()
     {
@@ -16,5 +20,8 @@ public class CheatsUI : MonoBehaviour
         WallJump.color = GameManager.instance.enableWallJumping ? Color.green : Color.red;
         Astral.color = GameManager.instance.enableAstral ? Color.green : Color.red;
         MassiveDamage.color = GameManager.instance.damage != 5 ? Color.green : Color.red;
+        Tears.color = GameManager.instance.enableDistanceAttacks? Color.green : Color.red;
+        FullBottle.color = GameManager.instance.fullBottle ? Color.green : Color.red;
+    
     }
 }

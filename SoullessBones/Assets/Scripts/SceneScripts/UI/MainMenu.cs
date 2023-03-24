@@ -50,5 +50,6 @@ public class MainMenu : MonoBehaviour
     public void ShowSettings()
     {
         SettingsPanel.SetActive(true);
+        SoundVolumeController.InitSliders();
     }
 }
