@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
         {
             Destroy(gameObject);
         }
-            
+
         timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
     }
 

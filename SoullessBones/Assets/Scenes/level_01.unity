@@ -563,7 +563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345678041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.894505, y: -13.848919, z: -10.154468}
+  m_LocalPosition: {x: -44.894505, y: -13.848919, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -870,7 +870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623035651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.077598, y: 3.42988, z: -9.76}
+  m_LocalPosition: {x: 9.244258, y: 3.42994, z: -9.760002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3466,6 +3466,7 @@ MonoBehaviour:
   enableAstral: 0
   enableDistanceAttacks: 0
   fullBottle: 0
+  alwaysFullTrigger: 0
   enterPassword: 
   currentScene: 
   lastSave: 
@@ -25734,8 +25735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
   canUseAstral: 1
-  timeLessSpeed: 0.3
-  cooldownSpeed: 0.3
+  timeLessSpeed: 0.6
+  cooldownSpeed: 0.2
 --- !u!114 &2140269022
 MonoBehaviour:
   m_ObjectHideFlags: 0

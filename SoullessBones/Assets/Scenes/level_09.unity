@@ -166,6 +166,7 @@ MonoBehaviour:
   enableAstral: 0
   enableDistanceAttacks: 0
   fullBottle: 0
+  alwaysFullTrigger: 0
   enterPassword: 
   currentScene: 
   lastSave: 
@@ -224,6 +225,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7096867335262388976, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: health
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388976, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: isBoss
       value: 1
       objectReference: {fileID: 0}
@@ -246,6 +251,14 @@ PrefabInstance:
     - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: aggroSize.x
       value: 6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: layer.m_Bits
+      value: 2112
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: checkDistance
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: aggroBoxPosition.x
@@ -382,7 +395,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167573766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.953926, y: 14.324449, z: 0.4100385}
+  m_LocalPosition: {x: 45.953926, y: 14.324449, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -607,7 +620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475098718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.1, y: -46.5, z: -10.154468}
+  m_LocalPosition: {x: 22.1, y: -46.5, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -880,8 +893,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
   canUseAstral: 1
-  timeLessSpeed: 0.3
-  cooldownSpeed: 0.3
+  timeLessSpeed: 0.6
+  cooldownSpeed: 0.2
 --- !u!114 &611777267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,7 +1734,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857477778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.915176, y: -30.026749, z: -9.76}
+  m_LocalPosition: {x: 64.08183, y: -30.02554, z: -9.759998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

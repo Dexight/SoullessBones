@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Tears : MonoBehaviour
 {
-    private Rigidbody2D playerRB;
     public int damage;
     [SerializeField] private bool isRight;
     [SerializeField] private bool isUp;
@@ -17,7 +16,6 @@ public class Tears : MonoBehaviour
     public float forceOfOutput;
     private void Awake()
     {
-        playerRB = MovementController.instance.GetComponent<Rigidbody2D>();
         damage = GameManager.instance.damageDist;
     }
 

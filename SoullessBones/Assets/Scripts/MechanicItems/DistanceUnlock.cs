@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoubleJumpItem : MonoBehaviour
+public class DistanceUnlock : MonoBehaviour
 {
     private void Awake()
     {
-        if (SceneStats.stats.Contains("dj"))
+        if (SceneStats.stats.Contains("dist"))
             Destroy(gameObject);
     }
 
@@ -14,8 +14,8 @@ public class DoubleJumpItem : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<MovementController>())
         {
-            GameManager.instance.EnableDoubleJumping();
-            SceneStats.stats.Add("dj");
+            GameManager.instance.EnableDistanceAttack();
+            SceneStats.stats.Add("dist");
             Destroy(gameObject);
         }
     }
