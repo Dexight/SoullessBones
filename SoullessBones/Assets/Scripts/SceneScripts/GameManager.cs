@@ -152,7 +152,7 @@ public class GameManager : MonoBehaviour
     public void changeDamage(int d)
     {
         if (!(damage > 0))
-            damage = 1;
+            damage = 5;
         else
             damage = d;
     }
