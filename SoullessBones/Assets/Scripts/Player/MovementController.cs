@@ -18,7 +18,7 @@ public class MovementController : MonoBehaviour
     [Range(0, 10f)] public float _Speed;
     [HideInInspector] public float _moveInput;
     [HideInInspector] public bool facingRight = true;
-    bool alreadyWalking = false;
+    internal bool alreadyWalking = false;
     #endregion
 
     #region World Check Variables
@@ -110,7 +110,16 @@ public class MovementController : MonoBehaviour
             }
         }
         else
+        {
             _moveInput = Input.GetAxisRaw("Horizontal");
+            //Воспроизведение звука ходьбы
+            if (alreadyWalking)
+            {
+                alreadyWalking = false;
+                SoundVolumeController.PlayWalkSound(false);
+            }
+        }
+
         rb.velocity = new Vector2(_moveInput * _Speed, rb.velocity.y);
     }
     /// <summary>
