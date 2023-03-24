@@ -2690,6 +2690,8 @@ MonoBehaviour:
   WallJump: {fileID: 2533083563766738833}
   Astral: {fileID: 2533083563881956877}
   MassiveDamage: {fileID: 2533083565451438671}
+  Tears: {fileID: 398078932}
+  FullBottle: {fileID: 536025673}
 --- !u!1 &2533083563844159963
 GameObject:
   m_ObjectHideFlags: 0
