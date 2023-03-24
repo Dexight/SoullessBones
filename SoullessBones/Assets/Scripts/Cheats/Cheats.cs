@@ -11,6 +11,7 @@ public class Cheats : MonoBehaviour
     [SerializeField] WallJumping wallJumping;
     [SerializeField] TMP_InputField StrokeDamageField;
     [SerializeField] TMP_InputField DistDamageField;
+    [SerializeField] TMP_InputField BottleFillingField;
 
 
     private void Awake()
@@ -82,8 +83,14 @@ public class Cheats : MonoBehaviour
 
     }
 
-    public void BottleFilling(int power)
+    public void BottleFilling()
     {
-        gameManager.changeBottleFill(power);
+        int i = 1;
+        if(int.TryParse(BottleFillingField.text, out i))
+        {
+            var power = int.Parse(BottleFillingField.text);
+            gameManager.changeBottleFill(power);
+        }
+        Debug.Log(gameManager.bottleFill);
     }
 }
