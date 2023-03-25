@@ -6,6 +6,7 @@ public class BossDependence : MonoBehaviour
 {
     [SerializeField] GameObject spawnedItem;
     public BossDoor bossDoor;
+    public BossDoor bossDoor2;
     [SerializeField] private BossKilled bossKilled;
 
     public void DoAll()
@@ -15,7 +16,8 @@ public class BossDependence : MonoBehaviour
 
     private void spawnItems()
     {
-        spawnedItem.SetActive(true);
+        if(spawnedItem)
+            spawnedItem.SetActive(true);
 
         //end battle music
         SoundVolumeController.SwitchToNormal();
@@ -26,6 +28,8 @@ public class BossDependence : MonoBehaviour
         if (bossDoor)
         {
             bossDoor.OpenDoor();
+            if (bossDoor2)
+                bossDoor2.OpenDoor();
             bossKilled.ForPlatform();
         }
         else bossKilled.ForPlatform();
