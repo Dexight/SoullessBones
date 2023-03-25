@@ -6,7 +6,7 @@ public class FrogAI : MonoBehaviour
 {
     public float moveSpeed = 1f;
     public float jumpForce = 8f;
-    public int damage = 3;
+    public int damage = 1;
     public float jumpInterval = 2f;
     public float sightRange = 5f;
     public LayerMask playerLayer;
@@ -17,13 +17,31 @@ public class FrogAI : MonoBehaviour
     private bool jumping = false;
     private float jumpTimer = 0f;
 
+
+    private Animator anim;
+    [SerializeField] private float rotation;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        //animations
+        anim.SetFloat("velocity", rb.velocity.y);
+        Vector3 rotate = transform.eulerAngles;
+        if (rb.velocity.y > 0)
+        {
+            rotate.z = rotation;
+            transform.rotation = Quaternion.Euler(rotate);
+        }
+        else
+        {
+            rotate.z = 0;
+            transform.rotation = Quaternion.Euler(rotate);
+        }
+        //===========
         Collider2D[] players = Physics2D.OverlapCircleAll(transform.position, sightRange, playerLayer);
         if (players.Length > 0)
         {

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5524835522278250794}
   - component: {fileID: 1487940353964688555}
   - component: {fileID: 3722612826634409679}
+  - component: {fileID: 1584313030}
   m_Layer: 7
   m_Name: Frog
   m_TagString: Enemy
@@ -78,9 +79,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 215629873, guid: 2e469234fcec5af4882fa4a4679eed67, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: -873471200, guid: 15a990e59061ed7499144c43de666d1d, type: 3}
+  m_Color: {r: 0.45333698, g: 0.6792453, b: 0.4447134, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.9, y: 2.22}
@@ -102,18 +103,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0038452148, y: -0.08670616}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2.9, y: 2.22}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 0.5146637, y: 0.30278397}
   m_EdgeRadius: 0
 --- !u!50 &3270150848687487712
 Rigidbody2D:
@@ -135,7 +136,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5524835522278250794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,13 +150,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.5
-  jumpForce: 9
-  damage: 3
+  jumpForce: 6
+  damage: 1
   jumpInterval: 1
   sightRange: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  rotation: 20
 --- !u!114 &1487940353964688555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,3 +188,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeBeforeTimestop: 0
+--- !u!95 &1584313030
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7290640025830592150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b991d88a968e1243a41b425b21b1de8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
