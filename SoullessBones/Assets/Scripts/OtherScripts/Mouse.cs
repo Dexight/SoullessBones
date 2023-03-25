@@ -9,8 +9,12 @@ public class Mouse : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        if(SceneManager.GetActiveScene().name == "Titrs")
+        if (SceneManager.GetActiveScene().name == "Titrs")
+        {
             Cursor.lockState = CursorLockMode.None;
+            Destroy(this);
+            return;
+        }
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
     }
     void Update()
