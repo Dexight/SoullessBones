@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Mouse : MonoBehaviour
 {
@@ -8,13 +9,18 @@ public class Mouse : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        if(SceneManager.GetActiveScene().name == "Titrs")
+            Cursor.lockState = CursorLockMode.None;
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
     }
     void Update()
     {
-        if (pauseMenu.GameIsPaused)
-            Cursor.lockState = CursorLockMode.None;
-        else
-            Cursor.lockState = CursorLockMode.Locked;
+        if(pauseMenu)
+        {
+            if (pauseMenu.GameIsPaused)
+                Cursor.lockState = CursorLockMode.None;
+            else
+                Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }
