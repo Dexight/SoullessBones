@@ -14,8 +14,10 @@ public class Tears : MonoBehaviour
     private bool stop = false;
 
     public float forceOfOutput;
+    private TimeManager timeManager;
     private void Awake()
     {
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         damage = GameManager.instance.damageDist;
     }
 
@@ -29,30 +31,32 @@ public class Tears : MonoBehaviour
     {
         Collider2D touch = null;
         //перемещение
-        var realspeed = speed * Time.fixedDeltaTime;
-        if (!stop)
+        if (!timeManager.TimeIsStopped)
         {
-            if (!isUp)
+            var realspeed = speed * Time.fixedDeltaTime;
+            if (!stop)
             {
-                if (isRight)
+                if (!isUp)
                 {
-                    transform.position = transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
-                    touch = Physics2D.OverlapCircle(transform.position + new Vector3(offset, 0f, 0f), collisionSize);
+                    if (isRight)
+                    {
+                        transform.position = transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
+                        touch = Physics2D.OverlapCircle(transform.position + new Vector3(offset, 0f, 0f), collisionSize);
+                    }
+                    else
+                    {
+                        transform.position = new Vector2(transform.position.x - realspeed, transform.position.y);
+                        touch = Physics2D.OverlapCircle(transform.position - new Vector3(offset, 0f, 0f), collisionSize);
+                    }
                 }
                 else
                 {
-                    transform.position = new Vector2(transform.position.x - realspeed, transform.position.y);
-                    touch = Physics2D.OverlapCircle(transform.position - new Vector3(offset, 0f, 0f), collisionSize);
+                    transform.position = new Vector2(transform.position.x, transform.position.y + realspeed);
+                    touch = Physics2D.OverlapCircle(transform.position + new Vector3(0f, offset, 0f), collisionSize);
                 }
+                curDistance += realspeed;
             }
-            else
-            {
-                transform.position = new Vector2(transform.position.x, transform.position.y + realspeed);
-                touch = Physics2D.OverlapCircle(transform.position + new Vector3(0f, offset, 0f), collisionSize);
-            }
-            curDistance += realspeed;
         }
-
         //столкновение
         if (touch && !stop)
         {
@@ -72,8 +76,11 @@ public class Tears : MonoBehaviour
         }
         else
         {
-            stop = true;
-            GetComponent<Animator>().SetTrigger("crash");
+            if (touch && !touch.CompareTag("GhostPlayer"))
+            {
+                stop = true;
+                GetComponent<Animator>().SetTrigger("crash");
+            }
         }
     }
 
