@@ -47,9 +47,9 @@ GameObject:
   - component: {fileID: 4350766549211450696}
   - component: {fileID: -7323278912062503604}
   - component: {fileID: 7822594651720467605}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: Spider
-  m_TagString: Enemy
+  m_TagString: EnemyStepped
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ Transform:
   m_GameObject: {fileID: 6060889332921069262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5751825311140899646}
@@ -132,11 +132,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 6060889332921069262}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5948d73e6e109ab46bba5e55a949fd04, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016871393, y: -0.11013837}
+  m_Offset: {x: -0.01530838, y: -0.1254549}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -147,7 +147,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46775448, y: 0.27972326}
+  m_Size: {x: 0.46782684, y: 0.24603844}
   m_EdgeRadius: 0
 --- !u!50 &8143365986101022645
 Rigidbody2D:
@@ -184,16 +184,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   isAttack: 0
   player: {fileID: 0}
-  Speed: 0
-  checkDistance: 0
-  wallCheck: {fileID: 0}
-  groundCheck: {fileID: 0}
+  Speed: 2
+  checkDistance: 0.1
+  wallCheck: {fileID: 4028110412614263455}
+  groundCheck: {fileID: 5751825311140899646}
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2624
 --- !u!114 &4350766549211450696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,8 +206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa522dac57e7784bbed6a485f62d2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
-  isHeavy: 0
+  health: 10
+  isBoss: 0
+  isSpawner: 0
+  spawner: {fileID: 0}
+  bossManager: {fileID: 0}
 --- !u!114 &-7323278912062503604
 MonoBehaviour:
   m_ObjectHideFlags: 0

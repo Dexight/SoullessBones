@@ -58,15 +58,15 @@ public class SpiderAI : MonoBehaviour
     }
     #region Other Functions
     private bool isGrounded() => Physics2D.Raycast(groundCheck.position, Vector2.down, checkDistance, layer);
-
-    private bool isWallTouch() => Physics2D.Raycast(wallCheck.position, Vector2.right, checkDistance, layer);
+    
+    private bool isWallTouch() => Physics2D.Raycast(wallCheck.position, Vector2.right * Direction, checkDistance, layer);
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         if (isWallTouch())
             Gizmos.color = Color.blue;
-        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + checkDistance, wallCheck.position.y));
+        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + checkDistance * Direction, wallCheck.position.y));
 
         Gizmos.color = Color.yellow;
         if (isGrounded())

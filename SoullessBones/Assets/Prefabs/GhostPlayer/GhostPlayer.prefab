@@ -247,7 +247,7 @@ MonoBehaviour:
   checkSize: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 2624
+    m_Bits: 10816
   isTouchingWall: 0
   JumpForce: 0
   jumpCount: 0

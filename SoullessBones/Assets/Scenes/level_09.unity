@@ -324,8 +324,52 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: maxCountOfEnemies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemies.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 6060889332921069262, guid: 9d2d7ef524b7bb24c9d371bfee509d28, type: 3}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 6060889332921069262, guid: 9d2d7ef524b7bb24c9d371bfee509d28, type: 3}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 6060889332921069262, guid: 9d2d7ef524b7bb24c9d371bfee509d28, type: 3}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: timeOfEnterAndExitPortal
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3751359890687479508, guid: 44d9666b71280a548a64ba766d191117, type: 3}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7290640025830592150, guid: ee795acec72055e45a6a69885bd36896, type: 3}
+    - target: {fileID: 7096867335262388979, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: enemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6060889332921069262, guid: 9d2d7ef524b7bb24c9d371bfee509d28, type: 3}
+    - target: {fileID: 7096867335262388984, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7096867335262388984, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
+      propertyPath: m_TagString
+      value: EnemyStepped
       objectReference: {fileID: 0}
     - target: {fileID: 7096867335262388986, guid: b956222b526e9a741ba90e4ab4de457c, type: 3}
       propertyPath: m_Enabled
@@ -1594,7 +1638,7 @@ MonoBehaviour:
   checkSize: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 6720
+    m_Bits: 14912
   isTouchingWall: 0
   isWallSliding: 0
   JumpForce: 0
@@ -2301,7 +2345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857477778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.08901, y: -30.02553, z: -9.76}
+  m_LocalPosition: {x: 64.088844, y: -30.02553, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

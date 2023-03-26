@@ -14332,7 +14332,7 @@ MonoBehaviour:
   checkSize: {x: 0, y: 0}
   Ground:
     serializedVersion: 2
-    m_Bits: 6720
+    m_Bits: 14912
   isTouchingWall: 0
   isWallSliding: 0
   JumpForce: 0
@@ -16476,7 +16476,6 @@ MonoBehaviour:
   enableAstral: 0
   enableDistanceAttacks: 0
   fullBottle: 0
-  alwaysFullTrigger: 0
   enterPassword: 
   currentScene: 
   lastSave: 
@@ -16613,7 +16612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898981104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 88.234924, y: -31.275349, z: -9.760002}
+  m_LocalPosition: {x: 88.2421, y: -31.275349, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

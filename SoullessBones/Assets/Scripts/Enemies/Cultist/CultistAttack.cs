@@ -1,3 +1,4 @@
+using Ink.Parsed;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class CultistAttack : MonoBehaviour
     private bool blockSpawn = false;
 
     [SerializeField] private GameObject portalPrefab;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private float randomPortalPositionX;
     [SerializeField] private List<GameObject> enemies;
     public Transform leftDotPosition;
@@ -25,6 +26,7 @@ public class CultistAttack : MonoBehaviour
 
     private int countOfEnemies = 0;
     private int curCount = 0;
+    public int maxCountOfEnemies = 3;
     [SerializeField] private float coolDown;
     Vector2 whereSpawn;
 
@@ -63,7 +65,7 @@ public class CultistAttack : MonoBehaviour
 
         countOfEnemies = enemies.Count;
 
-        if ((countOfEnemies < 2 || countOfEnemies < curCount) && isAttack && !blockSpawn)
+        if ((countOfEnemies < maxCountOfEnemies || countOfEnemies < curCount) && isAttack && !blockSpawn)
         {
             if (countOfEnemies < curCount)
             {
@@ -132,8 +134,10 @@ public class CultistAttack : MonoBehaviour
 
     private IEnumerator SpawnEnemyCoroutin(Vector2 vector)
     {
-        vector = new Vector2(vector.x, vector.y - 1f);
-        GameObject enemy = Instantiate(enemyPrefab, vector, transform.rotation);
+        vector = new Vector2(vector.x, vector.y);
+        int index = Random.Range(0, enemyPrefabs.Count);
+        GameObject oneEnemyPrefab = enemyPrefabs[index];
+        GameObject enemy = Instantiate(oneEnemyPrefab, vector, transform.rotation);
         enemies.Add(enemy);
         SpriteRenderer enemySprite = enemy.GetComponent<SpriteRenderer>();
         enemySprite.color = new Color(enemySprite.color.r, enemySprite.color.g, enemySprite.color.b, 1f);
