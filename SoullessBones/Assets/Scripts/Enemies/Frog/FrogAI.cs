@@ -29,7 +29,7 @@ public class FrogAI : MonoBehaviour
     void Update()
     {
         //animations
-        anim.SetFloat("velocity", rb.velocity.y);
+        anim.SetFloat("velocity", rb.velocity.y - 0.1f);
         Vector3 rotate = transform.eulerAngles;
         if (rb.velocity.y > 0)
         {
@@ -56,6 +56,7 @@ public class FrogAI : MonoBehaviour
         else
         {
             player = null;
+            rb.velocity = new Vector3(0, rb.velocity.y);
             jumping = false;
         }
     }
