@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 2
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8574638965788921946, guid: 93bb32c876cb7114395416f5367e720d, type: 3}
+  gunTransform: {fileID: 401992524}
 --- !u!114 &8540342628474427348
 MonoBehaviour:
   m_ObjectHideFlags: 0
