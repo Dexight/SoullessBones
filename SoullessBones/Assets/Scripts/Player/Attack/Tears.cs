@@ -36,7 +36,7 @@ public class Tears : MonoBehaviour
             {
                 if (isRight)
                 {
-                    transform.position = transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
+                    transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
                     touch = Physics2D.OverlapCircle(transform.position + new Vector3(offset, 0f, 0f), collisionSize);
                 }
                 else

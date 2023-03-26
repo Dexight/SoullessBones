@@ -4,39 +4,46 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
+    public float speed = 6f;
     public float lifeTime = 2f;
     public int damage = 10;
 
-    private float timeSinceSpawned = 0f;
+    //Animator anim;
 
-    void Update()
+    private void Awake()
     {
-        transform.position += transform.right * speed * Time.deltaTime;
-
-        if (timeSinceSpawned >= lifeTime)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            timeSinceSpawned += Time.deltaTime;
-        }
+        //anim = GetComponent<Animator>();    
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void FixedUpdate()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            HealthSystem player = collision.gameObject.GetComponent<HealthSystem>();
+        Collider2D touch = Physics2D.OverlapCircle(transform.position, 0.15f);
+        transform.position += transform.right * speed * Time.fixedDeltaTime;
 
-            player.TakeDamage(damage);
-
-            Destroy(gameObject);
-        }
-        else 
+        if (touch)
         {
-            Destroy(gameObject);
+            if (touch.CompareTag("Player"))
+            {
+                HealthSystem player = touch.GetComponent<HealthSystem>();
+
+                player.TakeDamage(damage);
+
+                //anim.SetTrigger("Boom");
+                Destroy(gameObject);
+            }
+            else
+            {
+                if (touch.CompareTag("Ground"))
+                {
+                    //anim.SetTrigger("Boom");
+                    Destroy(gameObject);
+                }
+            }
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 0.15f);
     }
 }
