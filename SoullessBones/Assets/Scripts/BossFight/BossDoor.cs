@@ -5,8 +5,10 @@ using UnityEngine;
 public class BossDoor : MonoBehaviour
 {
     [SerializeField] Animator anim;
-    [SerializeField] CultistMove bossScript;
+    [SerializeField] CultistMove bossCultistScript;
     [SerializeField] Spawner Spawner;
+    [SerializeField] OnStart spiderBoss;
+
     public void OpenDoor()
     {
         anim.SetTrigger("Open");
@@ -15,12 +17,12 @@ public class BossDoor : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GetComponent<Collider2D>().enabled = false;
-        if (bossScript)
+        if (bossCultistScript)
         {
             //start battle music
-            if (!bossScript.enabled) SoundVolumeController.SwitchToBattle();
-            bossScript.enabled = true;
-            bossScript.GetComponent<Animator>().enabled= true;
+            if (!bossCultistScript.enabled) SoundVolumeController.SwitchToBattle();
+            bossCultistScript.enabled = true;
+            bossCultistScript.GetComponent<Animator>().enabled= true;
         }
 
         if (Spawner)
@@ -30,6 +32,13 @@ public class BossDoor : MonoBehaviour
             {
                 i.GetChild(0).gameObject.SetActive(true);
             }
+        }
+
+        if (spiderBoss)
+        {
+            //start battle music
+            if (!spiderBoss.enabled) SoundVolumeController.SwitchToBattle();
+            spiderBoss.enabled = true;
         }
 
         anim.enabled = true;

@@ -95,7 +95,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         yield return true;
-        GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
+        GameObject vcam = GameObject.FindGameObjectWithTag("PlayerCamera");
+        if(vcam)
+            vcam.GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
     }
 
     private IEnumerator DeathLoading()

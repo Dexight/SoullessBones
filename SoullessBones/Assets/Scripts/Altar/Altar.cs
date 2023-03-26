@@ -8,13 +8,14 @@ public class Altar : MonoBehaviour
     [SerializeField] private GameObject head;
     [SerializeField] private GameObject body;
     [SerializeField] private GameObject eatenAltar;
-    
+
+    [SerializeField] private GameObject tutor;
     void Awake()
     {
         anim = GetComponent<Animator>();
         if (SceneStats.stats.Contains("Altar"))
             eaten();
-        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -24,6 +25,15 @@ public class Altar : MonoBehaviour
             SceneStats.stats.Add("Altar");
             GameManager.instance.Interface.GetComponentInChildren<FlyUI>().Give();
         }
+        else
+        {
+            if(!SceneStats.stats.Contains("Altar"))
+                tutor.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        tutor.SetActive(false);
     }
 
     public void eaten()
