@@ -239,7 +239,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   DirectionX: 0
   _CanMove: 0
-  _Speed: 4
+  _Speed: 6
   _moveInput: 0
   facingRight: 1
   isGrounded: 0

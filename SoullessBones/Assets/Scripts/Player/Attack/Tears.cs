@@ -56,11 +56,11 @@ public class Tears : MonoBehaviour
         //столкновение
         if (touch && !stop)
         {
-            if (touch.CompareTag("Enemy") || touch.CompareTag("Ground") || touch.CompareTag("Spikes") || touch.CompareTag("Door") || curDistance >= maxDistance)
+            if (touch.CompareTag("Enemy") || touch.CompareTag("Ground") || touch.CompareTag("Spikes") || touch.CompareTag("Door") || touch.CompareTag("EnemyStepped") || curDistance >= maxDistance)
             {
                 stop = true;
                 GetComponent<Animator>().SetTrigger("crash");
-                if (touch.CompareTag("Enemy"))
+                if (touch.CompareTag("Enemy") || touch.CompareTag("EnemyStepped"))
                 {
                     //Урон
                     touch.GetComponent<Enemy>().TakeDamage(damage);

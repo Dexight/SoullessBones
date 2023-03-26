@@ -9,11 +9,19 @@ public class ShooterAI : MonoBehaviour
 
     private float timeSinceLastShot = 0f;
 
+    private Animator anim;
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if (timeSinceLastShot >= shootDelay)
         {
-            Instantiate(bulletPrefab, transform.position, transform.rotation);
+            //Bullet spawn
+            //Instantiate(bulletPrefab, transform.position, transform.rotation);
+            anim.SetTrigger("Shoot");
             timeSinceLastShot = 0f;
         }
         else

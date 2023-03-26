@@ -41,9 +41,15 @@ public class CrowAI : MonoBehaviour
         var groundCollider = GameObject.FindGameObjectWithTag("Ground").GetComponent<CompositeCollider2D>();
         Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), groundCollider); //игнорирование столкновения с землёй
         var doors = GameObject.FindGameObjectsWithTag("Door");
-        foreach(var door in doors)
+        foreach (var door in doors)
         {
             var collider = door.GetComponent<BoxCollider2D>();
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collider); //игнорирование столкновения с дверьми
+        }
+        var enemyStepped = GameObject.FindGameObjectsWithTag("EnemyStepped");
+        foreach (var en in enemyStepped)
+        {
+            var collider = en.GetComponent<Collider2D>();
             Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), collider); //игнорирование столкновения с дверьми
         }
         _rigidbody.gravityScale = 0; // обнуляем гравитацию после взлёта
