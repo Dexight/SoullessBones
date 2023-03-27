@@ -22,10 +22,8 @@ public class ShooterAI : MonoBehaviour
     {
         if (!timeManager.TimeIsStopped)
         {
-            Debug.Log("Ok1" + (timeSinceLastShot >= shootDelay));
             if (timeSinceLastShot >= shootDelay)
             {
-                Debug.Log("Ok2");
                 Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
                 anim.SetTrigger("Shoot");
                 timeSinceLastShot = 0f;

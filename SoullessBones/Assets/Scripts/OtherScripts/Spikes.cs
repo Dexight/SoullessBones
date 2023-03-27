@@ -21,6 +21,7 @@ public class Spikes : MonoBehaviour
         {
             timeManager.ContinueTime();
             StartCoroutine(sceneLoader.FadeIn(false));
+            GameManager.instance.Player.GetComponent<HealthSystem>().loading = false;
             blackBackground = false;
         }
     }

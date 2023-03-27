@@ -17,13 +17,14 @@ public class FrogAI : MonoBehaviour
     private bool jumping = false;
     private float jumpTimer = 0f;
 
+    private TimeManager timeManager;
 
     private Animator anim;
-    [SerializeField] private float rotation;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        timeManager = GameManager.instance.timeManager.GetComponent<TimeManager>();
     }
 
     void Update()
@@ -31,22 +32,13 @@ public class FrogAI : MonoBehaviour
         //animations
         anim.SetFloat("velocity", rb.velocity.y - 0.1f);
         Vector3 rotate = transform.eulerAngles;
-        if (rb.velocity.y > 0)
-        {
-            rotate.z = rotation;
-            transform.rotation = Quaternion.Euler(rotate);
-        }
-        else
-        {
-            rotate.z = 0;
-            transform.rotation = Quaternion.Euler(rotate);
-        }
         //===========
         Collider2D[] players = Physics2D.OverlapCircleAll(transform.position, sightRange, playerLayer);
         if (players.Length > 0)
         {
             player = FindClosestPlayer(players);
-            jumpTimer += Time.deltaTime;
+            if (!timeManager.TimeIsStopped)
+                jumpTimer += Time.deltaTime;
             if (jumpTimer >= jumpInterval)
             {
                 jumpTimer = 0f;
@@ -63,7 +55,7 @@ public class FrogAI : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (jumping)
+        if (jumping && !timeManager.TimeIsStopped)
         {
             float playerDirection = player.position.x - transform.position.x;
             int direction = playerDirection > 0 ? 1 : -1;

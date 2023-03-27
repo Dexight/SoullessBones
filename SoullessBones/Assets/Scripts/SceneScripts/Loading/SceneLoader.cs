@@ -32,7 +32,6 @@ public class SceneLoader : MonoBehaviour
     {
         astral.canUseAstral = false;
         MovementController.instance.canJumpDown = false;
-        //Debug.Log("FadeTo");
         StartCoroutine(FadeOut(sceneName, load, isSave, isDead));
     }
 
@@ -119,8 +118,8 @@ public class SceneLoader : MonoBehaviour
             GameManager.instance.enterPassword = "start";
             GameManager.instance.currentScene = "Hub Scene" ;
         }
-
         yield return true;
+        GameManager.instance.Player.GetComponent<HealthSystem>().loading = false;
         GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
     }
 }

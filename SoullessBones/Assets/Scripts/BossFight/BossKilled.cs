@@ -20,7 +20,8 @@ public class BossKilled : MonoBehaviour
         if (SceneStats.stats.Contains("Cultist"))
         {
             Destroy(bossDoor.gameObject);
-            Destroy(bossDoor2.gameObject);
+            if(bossDoor2)
+                Destroy(bossDoor2.gameObject);
             Destroy(BossObject);
             transform.position = transform.position + new Vector3(0, -2, 0);
         }

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class DistanceUnlock : MonoBehaviour
 {
+    public GameObject tutorial;
+
     private void Awake()
     {
         if (SceneStats.stats.Contains("dist"))
+        {
             Destroy(gameObject);
+            Destroy(tutorial);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +22,7 @@ public class DistanceUnlock : MonoBehaviour
             GameManager.instance.EnableDistanceAttack();
             SceneStats.stats.Add("dist");
             SoundVolumeController.PlaySoundEffect2(0);
+            tutorial.SetActive(true);
             Destroy(gameObject);
         }
     }
