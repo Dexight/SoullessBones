@@ -28,6 +28,7 @@ public class WallJumpItem : MonoBehaviour
             door2.OpenDoor();
             SceneStats.stats.Add("Spawners");
             GameManager.instance.EnableWallJumping();
+            SoundVolumeController.PlaySoundEffect2(0);
             Destroy(gameObject);
         }
     }

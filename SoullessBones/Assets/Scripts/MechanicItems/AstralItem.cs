@@ -20,6 +20,7 @@ public class AstralItem : MonoBehaviour
             SceneStats.stats.Add("Cultist");//SAVE IT
             GameManager.instance.EnableAstral();
             bossDependence.editItems();
+            SoundVolumeController.PlaySoundEffect2(0);
             Destroy(gameObject);
         }
     }

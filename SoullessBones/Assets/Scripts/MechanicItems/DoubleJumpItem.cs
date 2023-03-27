@@ -16,6 +16,7 @@ public class DoubleJumpItem : MonoBehaviour
         {
             GameManager.instance.EnableDoubleJumping();
             SceneStats.stats.Add("dj");
+            SoundVolumeController.PlaySoundEffect2(0);
             Destroy(gameObject);
         }
     }

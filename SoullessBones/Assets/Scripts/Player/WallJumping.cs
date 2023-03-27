@@ -20,6 +20,7 @@ public class WallJumping : MonoBehaviour
 
     [HideInInspector]public bool isTouchingWall;
     public bool isWallSliding;
+    bool alreadySliding;
     #endregion
 
     #region Wall Jumping Variables
@@ -67,10 +68,22 @@ public class WallJumping : MonoBehaviour
         {
             GetComponent<AttackSystem>().onWall = true;
             rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
+            //sliding audio
+            if (!alreadySliding)
+            {
+                alreadySliding = true;
+                SoundVolumeController.PlayLongEffect(true, 1);
+            }
         }
         else
         {
             GetComponent<AttackSystem>().onWall = false;
+            //sliding audio
+            if (alreadySliding)
+            {
+                alreadySliding = false;
+                SoundVolumeController.PlayLongEffect(false, 1);
+            }
         }
 
         if (isWallSliding && Input.GetKey(KeyCode.S))
@@ -89,6 +102,7 @@ public class WallJumping : MonoBehaviour
         if (!timeManager.TimeIsStopped)
             rb.AddForce(realClimbJumpForce, ForceMode2D.Impulse);
         movementController.jumpCount = 1;
+        SoundVolumeController.PlaySoundEffect(4);
     }
     private IEnumerator WallJumpCoroutine()
     {

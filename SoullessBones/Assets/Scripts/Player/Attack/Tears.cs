@@ -14,46 +14,50 @@ public class Tears : MonoBehaviour
     private bool stop = false;
 
     public float forceOfOutput;
+    private TimeManager timeManager;
     private void Awake()
     {
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
         damage = GameManager.instance.damageDist;
     }
 
     private void Start()
     {
-        //Воспроизвести звук tears
+        //Г‚Г®Г±ГЇГ°Г®ГЁГ§ГўГҐГ±ГІГЁ Г§ГўГіГЄ tears
         SoundVolumeController.PlaySoundEffect(2);
     }
 
     void FixedUpdate()
     {
         Collider2D touch = null;
-        //перемещение
-        var realspeed = speed * Time.fixedDeltaTime;
-        if (!stop)
+        //ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГҐ
+        if (!timeManager.TimeIsStopped)
         {
-            if (!isUp)
+            var realspeed = speed * Time.fixedDeltaTime;
+            if (!stop)
             {
-                if (isRight)
+                if (!isUp)
                 {
-                    transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
-                    touch = Physics2D.OverlapCircle(transform.position + new Vector3(offset, 0f, 0f), collisionSize);
+                    if (isRight)
+                    {
+                        transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
+                        touch = Physics2D.OverlapCircle(transform.position + new Vector3(offset, 0f, 0f), collisionSize);
+                    }
+                    else
+                    {
+                        transform.position = new Vector2(transform.position.x - realspeed, transform.position.y);
+                        touch = Physics2D.OverlapCircle(transform.position - new Vector3(offset, 0f, 0f), collisionSize);
+                    }
                 }
                 else
                 {
-                    transform.position = new Vector2(transform.position.x - realspeed, transform.position.y);
-                    touch = Physics2D.OverlapCircle(transform.position - new Vector3(offset, 0f, 0f), collisionSize);
+                    transform.position = new Vector2(transform.position.x, transform.position.y + realspeed);
+                    touch = Physics2D.OverlapCircle(transform.position + new Vector3(0f, offset, 0f), collisionSize);
                 }
+                curDistance += realspeed;
             }
-            else
-            {
-                transform.position = new Vector2(transform.position.x, transform.position.y + realspeed);
-                touch = Physics2D.OverlapCircle(transform.position + new Vector3(0f, offset, 0f), collisionSize);
-            }
-            curDistance += realspeed;
         }
-
-        //столкновение
+        //Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГҐ
         if (touch && !stop)
         {
             if (touch.CompareTag("Enemy") || touch.CompareTag("Ground") || touch.CompareTag("Spikes") || touch.CompareTag("Door") || touch.CompareTag("EnemyStepped") || curDistance >= maxDistance)
@@ -62,9 +66,9 @@ public class Tears : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("crash");
                 if (touch.CompareTag("Enemy") || touch.CompareTag("EnemyStepped"))
                 {
-                    //Урон
+                    //Г“Г°Г®Г­
                     touch.GetComponent<Enemy>().TakeDamage(damage);
-                    //Отдача
+                    //ГЋГІГ¤Г Г·Г 
                     transform.SetParent(touch.transform);
                     recoil(touch);
                 }
@@ -72,12 +76,15 @@ public class Tears : MonoBehaviour
         }
         else
         {
-            stop = true;
-            GetComponent<Animator>().SetTrigger("crash");
+            if (touch && !touch.CompareTag("GhostPlayer"))
+            {
+                stop = true;
+                GetComponent<Animator>().SetTrigger("crash");
+            }
         }
     }
 
-    //отдача от столкновения
+    //Г®ГІГ¤Г Г·Г  Г®ГІ Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГї
     private void recoil(Collider2D collision)
     {
         if (!collision.GetComponent<Enemy>().isBoss)      

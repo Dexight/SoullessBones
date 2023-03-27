@@ -39,6 +39,6 @@ public class TimeManager : MonoBehaviour
         Player.GetComponent<AttackSystem>().inAstral = true;
 
         Player.GetComponent<MovementController>().alreadyWalking = false;
-        SoundVolumeController.PlayWalkSound(false);
+        SoundVolumeController.PlayLongEffect(false, 0);
     }
 }

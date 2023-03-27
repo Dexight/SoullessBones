@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Credits : MonoBehaviour
 {
     [SerializeField] float speed;
@@ -29,6 +29,11 @@ public class Credits : MonoBehaviour
     {
         transform.position += new Vector3(0, speed, 0);
         if (transform.position.y > maxWorldPositionY)
-            Destroy(this);
+        {
+            System.Threading.Thread.Sleep(2000);
+            PressSkip();
+        }
     }
+
+    public void PressSkip() => SceneManager.LoadScene(0);
 }
