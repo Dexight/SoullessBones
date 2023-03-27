@@ -109,9 +109,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1059
-        width: 948
-        height: 477
+        y: 1141
+        width: 698
+        height: 395
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,15 +304,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background details_0: 1237979016
+      background details_4: 982289708
       background details_8: 543180352
       background details_2: 1073345524
       background details_6: 911189199
       background details_3: 2085244856
       background details_7: -2038977441
       background details_1: -2082513757
-      background details_4: 982289708
       background details_5: 1804331150
+      background details_0: 1237979016
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
