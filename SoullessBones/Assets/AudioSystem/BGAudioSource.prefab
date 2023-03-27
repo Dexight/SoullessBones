@@ -197,6 +197,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4d53a066424def240bb1513fa2afe31c, type: 3}
   c_battleClips:
   - {fileID: 8300000, guid: b879fd207aec3b740a1be033dffeb608, type: 3}
+  c_menuClip: {fileID: 8300000, guid: b8bfadcc0b0ff964288002ca95d14cf3, type: 3}
   c_effects:
   - {fileID: 8300000, guid: 1b5d56e70477198478f07d2d1212f52d, type: 3}
   - {fileID: 8300000, guid: 437713a5943bfb64d8664c7907dadb7b, type: 3}

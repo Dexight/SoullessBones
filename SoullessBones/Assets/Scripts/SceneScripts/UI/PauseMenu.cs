@@ -61,6 +61,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        SoundVolumeController.LoadToScene("Menu");
         Time.timeScale = 1f;
         GameManager.instance.inMenu = true;
         GameManager.instance.Save();

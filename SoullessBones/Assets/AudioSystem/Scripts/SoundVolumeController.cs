@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class SoundVolumeController : MonoBehaviour
 {
@@ -26,6 +26,7 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private float pauseSwapTime = 1;
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
+    [SerializeField] private AudioClip c_menuClip;
     [SerializeField] private AudioClip[] c_effects;
     [SerializeField] private AudioClip[] c_effects2;
     [SerializeField] private AudioClip[] c_longEffects;
@@ -39,8 +40,8 @@ public class SoundVolumeController : MonoBehaviour
     private int a_indexLocal = 0;
     private float dopMusicVolume = 1f;
     private bool inSwap = false;
-    private enum states {normal, battle};
-    private states state = states.normal;
+    private enum states {normal, battle, menu};
+    private states state = states.menu;
 
     public static SoundVolumeController instance;
 
@@ -63,7 +64,8 @@ public class SoundVolumeController : MonoBehaviour
         if (randomize) Shuffle(c_clips);
 
         a_indexLocal = a_indexGlobal % audioSourcesBG.Length;
-        c_currentClip = c_clips[c_index];
+        //c_currentClip = c_clips[c_index];
+        c_currentClip = c_menuClip;
         audioSourcesBG[a_indexLocal].clip = c_currentClip;
 
         audioSourcesBG[a_indexLocal].Play();
@@ -117,6 +119,13 @@ public class SoundVolumeController : MonoBehaviour
         c_currentClip = c_clips[c_index % c_clips.Length];
         StartCoroutine(SwitchSource(c_currentClip));
     }
+    private void SwitchToMenuLocal()
+    {
+        state = states.menu;
+        StopCoroutine(SwitchSource(c_currentClip));
+        c_currentClip = c_menuClip;
+        StartCoroutine(SwitchSource(c_currentClip));
+    }
     private void PlaySoundEffectLocal(int a)
     {
         audioSourcesEffects.clip = c_effects[a];
@@ -139,6 +148,24 @@ public class SoundVolumeController : MonoBehaviour
     {
         StartCoroutine(FadeSource(a));
     }
+    private void LoadToSceneLocal(string s)
+    {
+        //string s = SceneManager.GetActiveScene().name;
+        if (audioSourcesEffectsLong.mute == true) audioSourcesEffectsLong.mute = false;
+        if (s == "Menu" && state != states.menu)
+        {
+            SwitchToMenuLocal();
+        }
+        else if (s == "Titrs" && state != states.menu)
+        {
+            SwitchToMenuLocal();
+            audioSourcesEffectsLong.mute = true;
+        }
+        else if(state != states.normal)
+        {
+            SwitchToNormalLocal();
+        }
+    }
     //перемешать массив bg клипов
     public void Shuffle<T>(T[] array)
     {
@@ -160,6 +187,10 @@ public class SoundVolumeController : MonoBehaviour
             StartCoroutine(SwitchSource(c_currentClip));
         }
         else if (!inSwap && state == states.battle && c_currentClip.length < audioSourcesBG[a_indexLocal].time + swapTime)
+        {
+            StartCoroutine(SwitchSource(c_currentClip));
+        }
+        else if(state == states.menu && c_currentClip.length < audioSourcesBG[a_indexLocal].time + swapTime)
         {
             StartCoroutine(SwitchSource(c_currentClip));
         }
@@ -248,5 +279,9 @@ public class SoundVolumeController : MonoBehaviour
     public static void PauseMusic(bool a)
     {
         instance.PauseMusicLocal(a);
+    }
+    public static void LoadToScene(string s)
+    {
+        instance.LoadToSceneLocal(s);
     }
 }
