@@ -50,7 +50,7 @@ public class PauseMenu : MonoBehaviour
         var a = GameObject.FindWithTag("Player").GetComponent<MovementController>();
         a._CanMove = false;
         a.alreadyWalking = false;
-        SoundVolumeController.PlayWalkSound(false);
+        SoundVolumeController.PlayLongEffect(false, 0);
         SoundVolumeController.PauseMusic(true);
 
         PauseMenuUI.SetActive(true);
