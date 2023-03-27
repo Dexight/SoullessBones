@@ -64,6 +64,8 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator FadeOut(string sceneName, bool load, bool isSave, bool isDead)
     {
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = false;
+        GameManager.instance.Player.GetComponent<HealthSystem>().loading = true;
+
         alpha = 0;
 
         while (alpha < 1)
@@ -97,7 +99,9 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         yield return true;
         GameObject vcam = GameObject.FindGameObjectWithTag("PlayerCamera");
-        if(vcam)
+        GameManager.instance.Player.GetComponent<HealthSystem>().loading = false;
+
+        if (vcam)
             vcam.GetComponent<CinemachineVirtualCamera>().Follow = Player.transform;
     }
 

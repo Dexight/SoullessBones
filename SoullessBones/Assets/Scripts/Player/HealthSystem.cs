@@ -17,6 +17,7 @@ public class HealthSystem : MonoBehaviour
 
     [Header("Cheats")]
     public bool godMod = false;
+    public bool loading = false;
     #endregion
 
     void Update()
@@ -42,7 +43,7 @@ public class HealthSystem : MonoBehaviour
     {
         if (godMod)
             damage = 0;
-        if (CanTakeDamage)
+        if (CanTakeDamage && !loading)
         {
             CanTakeDamage = false;
             health -= damage;

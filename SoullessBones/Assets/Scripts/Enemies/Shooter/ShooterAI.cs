@@ -11,22 +11,29 @@ public class ShooterAI : MonoBehaviour
     private float timeSinceLastShot = 0f;
 
     private Animator anim;
-    private void Awake()
+    private TimeManager timeManager;
+    private void Start()
     {
         anim = GetComponent<Animator>();
+        timeManager = GameManager.instance.timeManager.GetComponent<TimeManager>();
     }
 
     void Update()
     {
-        if (timeSinceLastShot >= shootDelay)
+        if (!timeManager.TimeIsStopped)
         {
-            Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
-            anim.SetTrigger("Shoot");
-            timeSinceLastShot = 0f;
-        }
-        else
-        {
-            timeSinceLastShot += Time.deltaTime;
+            Debug.Log("Ok1" + (timeSinceLastShot >= shootDelay));
+            if (timeSinceLastShot >= shootDelay)
+            {
+                Debug.Log("Ok2");
+                Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
+                anim.SetTrigger("Shoot");
+                timeSinceLastShot = 0f;
+            }
+            else
+            {
+                timeSinceLastShot += Time.deltaTime;
+            }
         }
     }
 }

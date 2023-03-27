@@ -7,18 +7,20 @@ public class Bullet : MonoBehaviour
     public float speed = 6f;
     public float lifeTime = 2f;
     public int damage = 10;
-
+    private TimeManager timeManager;
     //Animator anim;
 
     private void Awake()
     {
         //anim = GetComponent<Animator>();    
+        timeManager = GameManager.instance.timeManager.GetComponent<TimeManager>();
     }
 
     void FixedUpdate()
     {
         Collider2D touch = Physics2D.OverlapCircle(transform.position, 0.15f);
-        transform.position += transform.right * speed * Time.fixedDeltaTime;
+        if(!timeManager.TimeIsStopped)
+            transform.position += transform.right * speed * Time.fixedDeltaTime;
 
         if (touch)
         {
