@@ -15,6 +15,7 @@ public class SpiderAI : MonoBehaviour
 
     [SerializeField] Transform player;
     [SerializeField] float Speed;
+    [SerializeField] int damage = 0;
     [SerializeField] float checkDistance;
     [SerializeField] Transform wallCheck;
     [SerializeField] Transform groundCheck;
@@ -43,9 +44,9 @@ public class SpiderAI : MonoBehaviour
         float curSpeed = Speed;
         if (isAttack)
             curSpeed = 0;
-        rb.velocity = new Vector2(curSpeed * Direction, 0);
+        rb.velocity = new Vector2(curSpeed * Direction, rb.velocity.y);
 
-        if (isWallTouch() || !isGrounded())
+        if (isWallTouch() || !isGrounded() && rb.velocity.y >= 0)
             Flip();
     }
     private void Flip()
@@ -58,20 +59,27 @@ public class SpiderAI : MonoBehaviour
     }
     #region Other Functions
     private bool isGrounded() => Physics2D.Raycast(groundCheck.position, Vector2.down, checkDistance, layer);
-
-    private bool isWallTouch() => Physics2D.Raycast(wallCheck.position, Vector2.right, checkDistance, layer);
+    
+    private bool isWallTouch() => Physics2D.Raycast(wallCheck.position, Vector2.right * Direction, checkDistance, layer);
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         if (isWallTouch())
             Gizmos.color = Color.blue;
-        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + checkDistance, wallCheck.position.y));
+        Gizmos.DrawLine(wallCheck.position, new Vector2(wallCheck.position.x + checkDistance * Direction, wallCheck.position.y));
 
         Gizmos.color = Color.yellow;
         if (isGrounded())
             Gizmos.color = Color.blue;
         Gizmos.DrawLine(groundCheck.position, new Vector2(groundCheck.position.x, groundCheck.position.y - checkDistance));
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            player.GetComponent<HealthSystem>().TakeDamage(damage);
+        }
     }
     #endregion
 }

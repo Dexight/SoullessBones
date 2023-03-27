@@ -23,14 +23,14 @@ public class Tears : MonoBehaviour
 
     private void Start()
     {
-        //Воспроизвести звук tears
+        //Г‚Г®Г±ГЇГ°Г®ГЁГ§ГўГҐГ±ГІГЁ Г§ГўГіГЄ tears
         SoundVolumeController.PlaySoundEffect(2);
     }
 
     void FixedUpdate()
     {
         Collider2D touch = null;
-        //перемещение
+        //ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГҐ
         if (!timeManager.TimeIsStopped)
         {
             var realspeed = speed * Time.fixedDeltaTime;
@@ -40,7 +40,7 @@ public class Tears : MonoBehaviour
                 {
                     if (isRight)
                     {
-                        transform.position = transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
+                        transform.position = new Vector2(transform.position.x + realspeed, transform.position.y); ;
                         touch = Physics2D.OverlapCircle(transform.position + new Vector3(offset, 0f, 0f), collisionSize);
                     }
                     else
@@ -57,18 +57,18 @@ public class Tears : MonoBehaviour
                 curDistance += realspeed;
             }
         }
-        //столкновение
+        //Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГҐ
         if (touch && !stop)
         {
-            if (touch.CompareTag("Enemy") || touch.CompareTag("Ground") || touch.CompareTag("Spikes") || touch.CompareTag("Door") || curDistance >= maxDistance)
+            if (touch.CompareTag("Enemy") || touch.CompareTag("Ground") || touch.CompareTag("Spikes") || touch.CompareTag("Door") || touch.CompareTag("EnemyStepped") || curDistance >= maxDistance)
             {
                 stop = true;
                 GetComponent<Animator>().SetTrigger("crash");
-                if (touch.CompareTag("Enemy"))
+                if (touch.CompareTag("Enemy") || touch.CompareTag("EnemyStepped"))
                 {
-                    //Урон
+                    //Г“Г°Г®Г­
                     touch.GetComponent<Enemy>().TakeDamage(damage);
-                    //Отдача
+                    //ГЋГІГ¤Г Г·Г 
                     transform.SetParent(touch.transform);
                     recoil(touch);
                 }
@@ -84,7 +84,7 @@ public class Tears : MonoBehaviour
         }
     }
 
-    //отдача от столкновения
+    //Г®ГІГ¤Г Г·Г  Г®ГІ Г±ГІГ®Г«ГЄГ­Г®ГўГҐГ­ГЁГї
     private void recoil(Collider2D collision)
     {
         if (!collision.GetComponent<Enemy>().isBoss)      
