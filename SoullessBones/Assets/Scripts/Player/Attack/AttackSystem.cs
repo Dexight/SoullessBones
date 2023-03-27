@@ -59,7 +59,7 @@ public class AttackSystem : MonoBehaviour
                     isSlashRight = true;
                 }
                 Slash = isSlashRight ? SlashUpRight : SlashUpLeft;
-                LastObject = Instantiate(Slash, pointOfSlashUp.position, pointOfSlash.rotation);
+                LastObject = Instantiate(Slash, pointOfSlashUp.position + new Vector3(0, -0.2f, 0), pointOfSlash.rotation);
             }
             else
             {

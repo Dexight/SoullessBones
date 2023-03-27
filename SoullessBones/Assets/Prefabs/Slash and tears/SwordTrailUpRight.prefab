@@ -99,11 +99,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   bottleFill: 4
-  Upper: 0.5
+  Upper: 0.7
   forceOfOutput: 100
   forceOfPlayerOutput: 0
   coefficientOfOutput: 0
   enemy:
     serializedVersion: 2
     m_Bits: 8320
-  attackRange: 0.7
+  attackRange: 0.5
