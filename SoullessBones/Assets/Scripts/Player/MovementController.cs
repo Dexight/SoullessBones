@@ -101,12 +101,12 @@ public class MovementController : MonoBehaviour
             if(_moveInput != 0 && !alreadyWalking && isGrounded)
             {
                 alreadyWalking = true;
-                SoundVolumeController.PlayWalkSound(true);
+                SoundVolumeController.PlayLongEffect(true, 0);
             }
             else if(alreadyWalking && (_moveInput == 0 || !isGrounded))
             {
                 alreadyWalking = false;
-                SoundVolumeController.PlayWalkSound(false);
+                SoundVolumeController.PlayLongEffect(false, 0);
             }
         }
         else
@@ -116,7 +116,7 @@ public class MovementController : MonoBehaviour
             if (alreadyWalking)
             {
                 alreadyWalking = false;
-                SoundVolumeController.PlayWalkSound(false);
+                SoundVolumeController.PlayLongEffect(false, 0);
             }
         }
 
@@ -159,6 +159,7 @@ public class MovementController : MonoBehaviour
     {
         rb.velocity = Vector2.up * JumpForce;
         StartCoroutine(isJumping());
+        SoundVolumeController.PlaySoundEffect(4);
     }
     private IEnumerator isJumping()
     {
@@ -188,7 +189,9 @@ public class MovementController : MonoBehaviour
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, true);
         yield return new WaitForSeconds(0.3f);
         while (isWallSliding)
+        {
             yield return new WaitForSeconds(0.1f);
+        }
         Physics2D.IgnoreLayerCollision(playerLayer, platformLayer, false);
         jumpDownEnable = false;
     }
@@ -197,7 +200,12 @@ public class MovementController : MonoBehaviour
     #region Other Functions
     private void CheckWorld()
     {
+        var wasGrounded = isGrounded;
         isGrounded = Physics2D.OverlapBox(GroundCheck.position, checkSize, 0, Ground);
+        if(isGrounded && !wasGrounded)
+        {
+            //SoundVolumeController.PlaySoundEffect(5);
+        }
         if (isGrounded)
         {
             jumpCount = 1;

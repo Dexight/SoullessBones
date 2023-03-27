@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
     //TODO: Реализовать загрузку игры с последнего чекпоинта
     public void Continuegame()
     {
+        SoundVolumeController.LoadToScene(SceneStats.curScene);
         SceneStatsJsonSerializer.LoadSceneStatsFromJson();
         Debug.Log("CurScene: " + SceneStats.curScene);
         SceneManager.LoadScene(SceneStats.curScene);
@@ -35,6 +36,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        SoundVolumeController.LoadToScene("Hub");
         SceneStats.ResetData();
         SceneStatsJsonSerializer.SaveSceneStatsToJson();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

@@ -1,13 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class SoundVolumeController : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private AudioSource[] audioSourcesBG;
     [SerializeField] private AudioSource audioSourcesEffects;
+    [SerializeField] private AudioSource audioSourcesEffects2;
     [SerializeField] private AudioSource audioSourcesEffectsLong;
 
     [Header("Keys")]
@@ -25,8 +26,10 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private float pauseSwapTime = 1;
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
+    [SerializeField] private AudioClip c_menuClip;
     [SerializeField] private AudioClip[] c_effects;
-    [SerializeField] private AudioClip c_walk;
+    [SerializeField] private AudioClip[] c_effects2;
+    [SerializeField] private AudioClip[] c_longEffects;
     [SerializeField] bool randomize = false;
 
     private Slider musicSlider;
@@ -37,8 +40,8 @@ public class SoundVolumeController : MonoBehaviour
     private int a_indexLocal = 0;
     private float dopMusicVolume = 1f;
     private bool inSwap = false;
-    private enum states {normal, battle};
-    private states state = states.normal;
+    private enum states {normal, battle, menu};
+    private states state = states.menu;
 
     public static SoundVolumeController instance;
 
@@ -61,12 +64,13 @@ public class SoundVolumeController : MonoBehaviour
         if (randomize) Shuffle(c_clips);
 
         a_indexLocal = a_indexGlobal % audioSourcesBG.Length;
-        c_currentClip = c_clips[c_index];
+        //c_currentClip = c_clips[c_index];
+        c_currentClip = c_menuClip;
         audioSourcesBG[a_indexLocal].clip = c_currentClip;
 
         audioSourcesBG[a_indexLocal].Play();
-        SetMusicVolume(0, musicVolume);
-        SetMusicVolume(1, musicVolume);
+        musicValueChanged(musicVolume);
+        effectValueChanged(effectVolume);
     }
     private void InitSlidersLocal()
     {
@@ -93,6 +97,7 @@ public class SoundVolumeController : MonoBehaviour
         effectVolume = a;
         PlayerPrefs.SetFloat(saveEffectVolumeKey, effectVolume);
         audioSourcesEffects.volume = a;
+        audioSourcesEffects2.volume = a;
         audioSourcesEffectsLong.volume = a;
     }
     private void SetMusicVolume(int a, float volume)
@@ -114,14 +119,26 @@ public class SoundVolumeController : MonoBehaviour
         c_currentClip = c_clips[c_index % c_clips.Length];
         StartCoroutine(SwitchSource(c_currentClip));
     }
+    private void SwitchToMenuLocal()
+    {
+        state = states.menu;
+        StopCoroutine(SwitchSource(c_currentClip));
+        c_currentClip = c_menuClip;
+        StartCoroutine(SwitchSource(c_currentClip));
+    }
     private void PlaySoundEffectLocal(int a)
     {
         audioSourcesEffects.clip = c_effects[a];
         audioSourcesEffects.Play();
     }
-    private void PlayWalkSoundLocal(bool a)
+    private void PlaySoundEffectLocal2(int a)
     {
-        audioSourcesEffectsLong.clip = c_walk;
+        audioSourcesEffects2.clip = c_effects2[a];
+        audioSourcesEffects2.Play();
+    }
+    private void PlayLongEffectLocal(bool a, int n)
+    {
+        audioSourcesEffectsLong.clip = c_longEffects[n];
         if (a)
             audioSourcesEffectsLong.Play();
         else
@@ -130,6 +147,24 @@ public class SoundVolumeController : MonoBehaviour
     private void PauseMusicLocal(bool a)
     {
         StartCoroutine(FadeSource(a));
+    }
+    private void LoadToSceneLocal(string s)
+    {
+        //string s = SceneManager.GetActiveScene().name;
+        if (audioSourcesEffectsLong.mute == true) audioSourcesEffectsLong.mute = false;
+        if (s == "Menu" && state != states.menu)
+        {
+            SwitchToMenuLocal();
+        }
+        else if (s == "Titrs" && state != states.menu)
+        {
+            SwitchToMenuLocal();
+            audioSourcesEffectsLong.mute = true;
+        }
+        else if(state != states.normal)
+        {
+            SwitchToNormalLocal();
+        }
     }
     //перемешать массив bg клипов
     public void Shuffle<T>(T[] array)
@@ -152,6 +187,10 @@ public class SoundVolumeController : MonoBehaviour
             StartCoroutine(SwitchSource(c_currentClip));
         }
         else if (!inSwap && state == states.battle && c_currentClip.length < audioSourcesBG[a_indexLocal].time + swapTime)
+        {
+            StartCoroutine(SwitchSource(c_currentClip));
+        }
+        else if(state == states.menu && c_currentClip.length < audioSourcesBG[a_indexLocal].time + swapTime)
         {
             StartCoroutine(SwitchSource(c_currentClip));
         }
@@ -179,8 +218,8 @@ public class SoundVolumeController : MonoBehaviour
         SetMusicVolume(a_indexLocal, musicVolume * dopMusicVolume);
         inSwap = false;
     }
-    //сделать затухание в паузу
 
+    //сделать затухание в паузу
     public IEnumerator FadeSource(bool a)
     {
         inSwap = true;
@@ -212,15 +251,26 @@ public class SoundVolumeController : MonoBehaviour
     /// 0 - open door,
     /// 1 - slash,
     /// 2 - tear,
-    /// 3 - death
+    /// 3 - death,
+    /// 4 - jump,
+    /// 5 - land,
+    /// 6 - item
     /// </summary>
     public static void PlaySoundEffect(int a)
     {
         instance.PlaySoundEffectLocal(a);
     }
-    public static void PlayWalkSound(bool a)
+    public static void PlaySoundEffect2(int a)
     {
-        instance.PlayWalkSoundLocal(a);
+        instance.PlaySoundEffectLocal2(a);
+    }
+    /// <summary>
+    /// 0 - run,
+    /// 1 - slide,
+    /// </summary>
+    public static void PlayLongEffect(bool a, int n)
+    {
+        instance.PlayLongEffectLocal(a, n);
     }
     public static void InitSliders()
     {
@@ -229,5 +279,9 @@ public class SoundVolumeController : MonoBehaviour
     public static void PauseMusic(bool a)
     {
         instance.PauseMusicLocal(a);
+    }
+    public static void LoadToScene(string s)
+    {
+        instance.LoadToSceneLocal(s);
     }
 }

@@ -16,6 +16,7 @@ public class DistanceUnlock : MonoBehaviour
         {
             GameManager.instance.EnableDistanceAttack();
             SceneStats.stats.Add("dist");
+            SoundVolumeController.PlaySoundEffect2(0);
             Destroy(gameObject);
         }
     }

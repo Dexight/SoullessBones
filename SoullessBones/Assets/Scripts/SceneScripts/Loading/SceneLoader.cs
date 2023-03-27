@@ -93,6 +93,7 @@ public class SceneLoader : MonoBehaviour
     }
     private IEnumerator Loading(string sceneName)
     {
+        SoundVolumeController.LoadToScene(sceneName);
         SceneManager.LoadScene(sceneName);
         yield return true;
         GameObject vcam = GameObject.FindGameObjectWithTag("PlayerCamera");
