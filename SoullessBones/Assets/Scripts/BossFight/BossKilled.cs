@@ -11,22 +11,22 @@ public class BossKilled : MonoBehaviour
     [SerializeField] private BossDoor bossDoor2;
 
     [SerializeField] private BossDependence bossDependence;
-    [SerializeField] private GameObject BossObject;
+    [SerializeField] private GameObject CultistObject;
     [SerializeField] private GameObject SpiderObject;
 
     private void Awake()
     {
         bossDependence = GetComponent<BossDependence>();
-        if (SceneStats.stats.Contains("Cultist"))
+        if (SceneStats.stats.Contains("Cultist") && CultistObject)
         {
             Destroy(bossDoor.gameObject);
             if(bossDoor2)
                 Destroy(bossDoor2.gameObject);
-            Destroy(BossObject);
+            Destroy(CultistObject);
             transform.position = transform.position + new Vector3(0, -2, 0);
         }
 
-        if (SceneStats.stats.Contains("Spider"))
+        if (SceneStats.stats.Contains("Spider") && SpiderObject)
         {
             Destroy(bossDoor.gameObject);
             Destroy(bossDoor2.gameObject);
