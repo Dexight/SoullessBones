@@ -194,9 +194,8 @@ MonoBehaviour:
   swapTime: 2
   pauseSwapTime: 0.5
   c_clips:
-  - {fileID: 8300000, guid: fb9e68e86be48b14e81439af6c9040bd, type: 3}
-  - {fileID: 8300000, guid: 100fc03d128fc7449a22e894d813328e, type: 3}
-  - {fileID: 8300000, guid: 4d53a066424def240bb1513fa2afe31c, type: 3}
+  - {fileID: 8300000, guid: 11968857ed051554983148f4418e334e, type: 3}
+  - {fileID: 8300000, guid: e8d88b046b7c2da43afbb0afb09c858b, type: 3}
   c_battleClips:
   - {fileID: 8300000, guid: b879fd207aec3b740a1be033dffeb608, type: 3}
   c_menuClip: {fileID: 8300000, guid: b8bfadcc0b0ff964288002ca95d14cf3, type: 3}
