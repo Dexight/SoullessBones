@@ -38,8 +38,10 @@ public class CrowAI : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<BoxCollider2D>();
 
-        var groundCollider = GameObject.FindGameObjectWithTag("Ground").GetComponent<CompositeCollider2D>();
-        Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), groundCollider); //игнорирование столкновения с землёй
+        Collider2D groundCollider = GameObject.FindGameObjectWithTag("Ground").GetComponent<CompositeCollider2D>();
+        //BUILD WTF
+        if(groundCollider)
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), groundCollider); //игнорирование столкновения с землёй
         var doors = GameObject.FindGameObjectsWithTag("Door");
         foreach (var door in doors)
         {

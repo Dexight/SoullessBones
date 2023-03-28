@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     #region Cheats Variables
     [Header("CheatStats")]
     private AttackSystem attackSystem;
-    private DistanceAttack BottleUI;
+    public DistanceAttack BottleUI;
     public int damage;
     public int damageDist;
     public int bottleFill;
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public bool enableAstral;
     public bool enableDistanceAttacks;
     public bool fullBottle;
+    public bool alwaysFull = false;
     #endregion
     public string enterPassword;//сохран€ет, когда игрок переходит на другую сцену
     public string currentScene;
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         rb = Player.GetComponent<Rigidbody2D>();
         damage = 5;
-        damageDist = 15;
+        damageDist = 30;
         bottleFill = 4;
 
         LoadSave();
@@ -129,7 +130,7 @@ public class GameManager : MonoBehaviour
         Player.GetComponent<KeyHolder>().keyList = SceneStats.keyList;
 
 
-        var distAttack = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        var distAttack = Interface.GetComponentInChildren<DistanceAttack>();
         distAttack.count = SceneStats.tears;
         distAttack.isFull = SceneStats.isFull;
         distAttack.isEmpty = SceneStats.isEmpty;
@@ -210,10 +211,13 @@ public class GameManager : MonoBehaviour
     {
         if(enableDistanceAttacks)
         {
+            if (alwaysFull) { changeFullBottle(); }
             attackSystem.OnDistanceLock();
         }
         else
-        { attackSystem.OnDistanceUnlock();}
+        {
+            attackSystem.OnDistanceUnlock();
+        }
         enableDistanceAttacks = !enableDistanceAttacks;
     }
 
@@ -230,12 +234,20 @@ public class GameManager : MonoBehaviour
     {
         if(enableDistanceAttacks)//if unlocked distance attacks
         {
+            alwaysFull = !alwaysFull;
             fullBottle = !fullBottle;
-            if (!fullBottle) { BottleUI.minusTears(100); }
+            if (!fullBottle) 
+            {
+                BottleUI.minusTears(100);
+            }
             BottleUI.alwaysFull = fullBottle;
             BottleUI.updateBottle();
         }
-        else { fullBottle = false; }
+        else 
+        {
+            alwaysFull = false;
+            fullBottle = false;
+        }
     }
 
     //distance damage changing

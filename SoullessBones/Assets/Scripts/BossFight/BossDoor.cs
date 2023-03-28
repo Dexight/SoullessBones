@@ -14,8 +14,14 @@ public class BossDoor : MonoBehaviour
         anim.SetTrigger("Open");
     }
 
+    private void Start()
+    {
+        Debug.Log("Doors spawn");    
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("DoorTriggerEnter");
         GetComponent<Collider2D>().enabled = false;
         if (bossCultistScript)
         {

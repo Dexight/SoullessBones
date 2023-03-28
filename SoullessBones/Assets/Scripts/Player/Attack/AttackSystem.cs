@@ -112,12 +112,13 @@ public class AttackSystem : MonoBehaviour
     {
         distanceUnlock = true;
         Bottle.SetActive(true);
-        BottleUI = SceneLoader.instance.GetComponentInChildren<DistanceAttack>();
+        BottleUI = GameManager.instance.BottleUI;
         BottleUI.OnStart();
     }
     public void OnDistanceLock()
     {
         distanceUnlock = false;
+        BottleUI.minusTears(100);
         Bottle.SetActive(false);
         BottleUI = null;
     }

@@ -72,7 +72,8 @@ public class FrogAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            player.GetComponent<HealthSystem>().TakeDamage(damage);
+            if(player)
+                player.GetComponent<HealthSystem>().TakeDamage(damage);
         }
     }
 
