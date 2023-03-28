@@ -45,6 +45,7 @@ public class IdleCrow : MonoBehaviour
         if (PlayerInSight() || PlayerIsTouch() || PlayerIsDamage()) //триггер при попадании игрока в поле зрения (нужно будет дополнить ещё триггер при получении урона или физического столкновения)
         {
             Attacking = true;
+            SoundVolumeController.PlayMobEffect(0);
         }
         curhp = GetComponent<Enemy>().health;
     }

@@ -65,6 +65,7 @@ public class FrogAI : MonoBehaviour
             }
             rb.velocity = new Vector2(direction * moveSpeed, jumpForce);
             jumping = false;
+            SoundVolumeController.PlayMobEffect(2);
         }
     }
 

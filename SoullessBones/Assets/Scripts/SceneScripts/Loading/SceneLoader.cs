@@ -30,6 +30,7 @@ public class SceneLoader : MonoBehaviour
     
     public void FadeTo(string sceneName, bool load, bool isSave, bool isDead)
     {
+        SoundVolumeController.LoadToScene(sceneName);
         astral.canUseAstral = false;
         MovementController.instance.canJumpDown = false;
         StartCoroutine(FadeOut(sceneName, load, isSave, isDead));
@@ -94,7 +95,6 @@ public class SceneLoader : MonoBehaviour
     }
     private IEnumerator Loading(string sceneName)
     {
-        SoundVolumeController.LoadToScene(sceneName);
         SceneManager.LoadScene(sceneName);
         yield return true;
         GameObject vcam = GameObject.FindGameObjectWithTag("PlayerCamera");
