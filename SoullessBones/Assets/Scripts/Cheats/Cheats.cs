@@ -18,6 +18,7 @@ public class Cheats : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         wallJumping = GameObject.FindGameObjectWithTag("Player").GetComponent<WallJumping>();
+        updateAttackStats();
     }
     
     public void GodModOnOff() 
@@ -92,5 +93,12 @@ public class Cheats : MonoBehaviour
             gameManager.changeBottleFill(power);
         }
         Debug.Log(gameManager.bottleFill);
+    }
+
+    private void updateAttackStats()
+    {
+        StrokeDamageField.text = GameManager.instance.damage.ToString();
+        DistDamageField.text = GameManager.instance.damageDist.ToString();
+        BottleFillingField.text = GameManager.instance.bottleFill.ToString();
     }
 }
