@@ -30,6 +30,7 @@ public class TimeManager : MonoBehaviour
         {
             objects[i].GetComponent<TimeDependent>().ContinueTime(); //Продолжает время каждого объекта
         }
+        
     }
     public void StopTime(bool isAstral)
     {

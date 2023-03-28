@@ -7,9 +7,10 @@ public class SoundVolumeController : MonoBehaviour
 {
     [Header("Components")]
     [SerializeField] private AudioSource[] audioSourcesBG;
-    [SerializeField] private AudioSource audioSourcesEffects;
-    [SerializeField] private AudioSource audioSourcesEffects2;
-    [SerializeField] private AudioSource audioSourcesEffectsLong;
+    [SerializeField] private AudioSource audioSourceEffects;
+    [SerializeField] private AudioSource audioSourceEffects2;
+    [SerializeField] private AudioSource audioSourceEffectsLong;
+    [SerializeField] private AudioSource audioSourceMob;
 
     [Header("Keys")]
     [SerializeField] private string saveMusicVolumeKey;
@@ -30,6 +31,7 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private AudioClip[] c_effects;
     [SerializeField] private AudioClip[] c_effects2;
     [SerializeField] private AudioClip[] c_longEffects;
+    [SerializeField] private AudioClip[] c_mobs;
     [SerializeField] bool randomize = false;
 
     private Slider musicSlider;
@@ -96,9 +98,10 @@ public class SoundVolumeController : MonoBehaviour
     {
         effectVolume = a;
         PlayerPrefs.SetFloat(saveEffectVolumeKey, effectVolume);
-        audioSourcesEffects.volume = a;
-        audioSourcesEffects2.volume = a;
-        audioSourcesEffectsLong.volume = a;
+        audioSourceEffects.volume = a;
+        audioSourceEffects2.volume = a;
+        audioSourceEffectsLong.volume = a;
+        audioSourceMob.volume = a;
     }
     private void SetMusicVolume(int a, float volume)
     {
@@ -128,21 +131,26 @@ public class SoundVolumeController : MonoBehaviour
     }
     private void PlaySoundEffectLocal(int a)
     {
-        audioSourcesEffects.clip = c_effects[a];
-        audioSourcesEffects.Play();
+        audioSourceEffects.clip = c_effects[a];
+        audioSourceEffects.Play();
     }
     private void PlaySoundEffectLocal2(int a)
     {
-        audioSourcesEffects2.clip = c_effects2[a];
-        audioSourcesEffects2.Play();
+        audioSourceEffects2.clip = c_effects2[a];
+        audioSourceEffects2.Play();
+    }
+    private void PlayMobEffectLocal(int a)
+    {
+        audioSourceMob.clip = c_mobs[a];
+        audioSourceMob.Play();
     }
     private void PlayLongEffectLocal(bool a, int n)
     {
-        audioSourcesEffectsLong.clip = c_longEffects[n];
+        audioSourceEffectsLong.clip = c_longEffects[n];
         if (a)
-            audioSourcesEffectsLong.Play();
+            audioSourceEffectsLong.Play();
         else
-            audioSourcesEffectsLong.Stop();
+            audioSourceEffectsLong.Stop();
     }
     private void PauseMusicLocal(bool a)
     {
@@ -151,7 +159,7 @@ public class SoundVolumeController : MonoBehaviour
     private void LoadToSceneLocal(string s)
     {
         //string s = SceneManager.GetActiveScene().name;
-        if (audioSourcesEffectsLong.mute == true) audioSourcesEffectsLong.mute = false;
+        if (audioSourceEffectsLong.mute == true) audioSourceEffectsLong.mute = false;
         if (s == "Menu" && state != states.menu)
         {
             SwitchToMenuLocal();
@@ -159,7 +167,7 @@ public class SoundVolumeController : MonoBehaviour
         else if (s == "Titrs" && state != states.menu)
         {
             SwitchToMenuLocal();
-            audioSourcesEffectsLong.mute = true;
+            audioSourceEffectsLong.mute = true;
         }
         else if(state != states.normal)
         {
@@ -225,11 +233,13 @@ public class SoundVolumeController : MonoBehaviour
         inSwap = true;
 
         float points = 10;
+        SetMusicVolume((a_indexLocal+1)%2, 0);
         if (!a) audioSourcesBG[a_indexLocal].UnPause();
         for (int i = 0; i < points; i++)
         {
             dopMusicVolume = a ? (1f - i / points) : (i / points);
             SetMusicVolume(a_indexLocal, musicVolume * dopMusicVolume);
+            
             yield return new WaitForSecondsRealtime(pauseSwapTime / points);
         }
         SetMusicVolume(a_indexLocal, a ? 0 : musicVolume);
@@ -254,12 +264,18 @@ public class SoundVolumeController : MonoBehaviour
     /// 3 - death,
     /// 4 - jump,
     /// 5 - land,
-    /// 6 - item
+    /// 6 - time stop,
+    /// 7 - time go
     /// </summary>
     public static void PlaySoundEffect(int a)
     {
         instance.PlaySoundEffectLocal(a);
     }
+    /// <summary>
+    /// 0 - open door,
+    /// 1 - stop time,
+    /// 2 - continue time
+    /// </summary>
     public static void PlaySoundEffect2(int a)
     {
         instance.PlaySoundEffectLocal2(a);
@@ -271,6 +287,15 @@ public class SoundVolumeController : MonoBehaviour
     public static void PlayLongEffect(bool a, int n)
     {
         instance.PlayLongEffectLocal(a, n);
+    }
+    /// <summary>
+    /// 0 - alert,
+    /// 1 - cannon,
+    /// 2 - frog
+    /// </summary>
+    public static void PlayMobEffect(int a)
+    {
+        instance.PlayMobEffectLocal(a);
     }
     public static void InitSliders()
     {

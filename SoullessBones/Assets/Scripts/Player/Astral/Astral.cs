@@ -51,6 +51,8 @@ public class Astral : MonoBehaviour
             {
                 if (!timeManager.TimeIsStopped)
                 {
+                    SoundVolumeController.PauseMusic(true);
+                    SoundVolumeController.PlaySoundEffect2(1);
                     timeManager.StopTime(true);
                     spawnGhost();
                     timer = 1;
@@ -58,6 +60,8 @@ public class Astral : MonoBehaviour
                 }
                 else
                 {
+                    SoundVolumeController.PauseMusic(false);
+                    SoundVolumeController.PlaySoundEffect2(2);
                     timeManager.ContinueTime(); //Cancel when Q is pressed again
                     cancelAstral();
                 }
@@ -66,6 +70,8 @@ public class Astral : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && timeManager.TimeIsStopped)  //Continue Time and teleport when E is pressed
         {
+            SoundVolumeController.PauseMusic(false);
+            SoundVolumeController.PlaySoundEffect2(2);
             timeManager.ContinueTime();
             teleport_to_ghost();
         }
@@ -88,6 +94,8 @@ public class Astral : MonoBehaviour
             timer -= timeLessSpeed * Time.deltaTime;
             if (timer <= 0)
             {
+                SoundVolumeController.PauseMusic(false);
+                SoundVolumeController.PlaySoundEffect2(2);
                 timeManager.ContinueTime();
                 if(prefab)
                     teleport_to_ghost();

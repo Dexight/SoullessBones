@@ -27,6 +27,7 @@ public class ShooterAI : MonoBehaviour
                 Instantiate(bulletPrefab, gunTransform.position, gunTransform.rotation);
                 anim.SetTrigger("Shoot");
                 timeSinceLastShot = 0f;
+                SoundVolumeController.PlayMobEffect(1);
             }
             else
             {
