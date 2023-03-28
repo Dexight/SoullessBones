@@ -45,5 +45,6 @@ public class FountainSystem : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         saveText.SetActive(false);
+        isPlayer = false;
     }
 }

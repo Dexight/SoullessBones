@@ -158,7 +158,6 @@ public class SoundVolumeController : MonoBehaviour
     }
     private void LoadToSceneLocal(string s)
     {
-        Debug.Log("ass");
         //string s = SceneManager.GetActiveScene().name;
         if (audioSourceEffectsLong.mute == true) audioSourceEffectsLong.mute = false;
         dopMusicVolume = 1;
