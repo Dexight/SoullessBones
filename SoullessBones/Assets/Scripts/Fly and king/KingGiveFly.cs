@@ -6,6 +6,7 @@ public class KingGiveFly : MonoBehaviour
 {
     [SerializeField] private GameObject TalkButton;
     [SerializeField] private GameObject TakeButton;
+    [SerializeField] private Component dialogue;
 
     private bool flyani = true;
 
@@ -17,6 +18,7 @@ public class KingGiveFly : MonoBehaviour
         {
             Destroy(TalkButton);
             Destroy(TakeButton);
+            Destroy(dialogue);
             Destroy(this);
         }
     }
@@ -30,6 +32,7 @@ public class KingGiveFly : MonoBehaviour
             {
                 //Dialogue start
                 Destroy(TalkButton);
+                Destroy(dialogue);
             }
         }
         else if (TakeButton && !DialogueManager.GetInstance().dialogueIsPlaying)
