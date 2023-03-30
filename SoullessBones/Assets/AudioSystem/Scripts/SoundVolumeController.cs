@@ -28,6 +28,7 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
     [SerializeField] private AudioClip c_menuClip;
+    [SerializeField] private AudioClip c_titrClip;
     [SerializeField] private AudioClip[] c_effects;
     [SerializeField] private AudioClip[] c_effects2;
     [SerializeField] private AudioClip[] c_longEffects;
@@ -42,7 +43,7 @@ public class SoundVolumeController : MonoBehaviour
     private int a_indexLocal = 0;
     private float dopMusicVolume = 1f;
     private bool inSwap = false;
-    private enum states {normal, battle, menu};
+    private enum states {normal, battle, menu, titrs};
     private states state = states.menu;
 
     public static SoundVolumeController instance;
@@ -129,6 +130,13 @@ public class SoundVolumeController : MonoBehaviour
         c_currentClip = c_menuClip;
         StartCoroutine(SwitchSource(c_currentClip));
     }
+    private void SwitchToTitrsLocal()
+    {
+        state = states.titrs;
+        StopCoroutine(SwitchSource(c_currentClip));
+        c_currentClip = c_titrClip;
+        StartCoroutine(SwitchSource(c_currentClip));
+    }
     private void PlaySoundEffectLocal(int a)
     {
         audioSourceEffects.clip = c_effects[a];
@@ -166,9 +174,9 @@ public class SoundVolumeController : MonoBehaviour
             SwitchToMenuLocal();
             audioSourceEffectsLong.mute = true;
         }
-        else if (s == "Titrs" && state != states.menu)
+        else if (s == "Titrs" && state != states.titrs)
         {
-            SwitchToMenuLocal();
+            SwitchToTitrsLocal();
             audioSourceEffectsLong.mute = true;
         }
         else if(state != states.normal)

@@ -198,7 +198,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e8d88b046b7c2da43afbb0afb09c858b, type: 3}
   c_battleClips:
   - {fileID: 8300000, guid: b879fd207aec3b740a1be033dffeb608, type: 3}
-  c_menuClip: {fileID: 8300000, guid: b8bfadcc0b0ff964288002ca95d14cf3, type: 3}
+  c_menuClip: {fileID: 8300000, guid: 03c65402e1c708f4bbfb420ef08b459f, type: 3}
+  c_titrClip: {fileID: 8300000, guid: 2cd7a2074c6bcab4e97f5f432a0f968a, type: 3}
   c_effects:
   - {fileID: 8300000, guid: 1b5d56e70477198478f07d2d1212f52d, type: 3}
   - {fileID: 8300000, guid: 437713a5943bfb64d8664c7907dadb7b, type: 3}
@@ -214,7 +215,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bd581ee1100885e43a3ee5c66b52f523, type: 3}
   - {fileID: 8300000, guid: 5cff985541bcd8d4b8742203d709e606, type: 3}
   c_mobs:
-  - {fileID: 8300000, guid: e522612ac0fe32941a345ff3dcbd948d, type: 3}
+  - {fileID: 8300000, guid: bf64d12b6fd867d46a4ec7ae83e416fd, type: 3}
   - {fileID: 8300000, guid: 62de2c7a4919bd3439d0ec3f63423790, type: 3}
   - {fileID: 8300000, guid: 201e6e45be80e8347aec1c136e622f96, type: 3}
   - {fileID: 8300000, guid: d2b8a9955a4bc244c9a48d69d9a15266, type: 3}

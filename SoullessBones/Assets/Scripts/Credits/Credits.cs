@@ -32,5 +32,9 @@ public class Credits : MonoBehaviour
         }
     }
 
-    public void PressSkip() => SceneManager.LoadScene(0);
+    public void PressSkip()
+    {
+        SoundVolumeController.LoadToScene("Menu");
+        SceneManager.LoadScene(0);
+    }
 }
