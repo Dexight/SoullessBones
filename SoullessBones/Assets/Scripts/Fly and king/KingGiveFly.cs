@@ -6,7 +6,7 @@ public class KingGiveFly : MonoBehaviour
 {
     [SerializeField] private GameObject TalkButton;
     [SerializeField] private GameObject TakeButton;
-    [SerializeField] private Component dialogue;
+    [SerializeField] private DialogueScript dialogue;
 
     private bool flyani = true;
 
@@ -32,6 +32,7 @@ public class KingGiveFly : MonoBehaviour
             {
                 //Dialogue start
                 Destroy(TalkButton);
+                dialogue.Update();
                 Destroy(dialogue);
             }
         }
@@ -42,7 +43,9 @@ public class KingGiveFly : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("fly");
                 flyani = false;
             }
+
             TakeButton.SetActive(true);
+            
             if (Input.GetKey(KeyCode.F))
             {
                 GetComponent<Animator>().SetTrigger("take");
