@@ -304,7 +304,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background details_4: 982289708
+      background details_0: 1237979016
       background details_8: 543180352
       background details_2: 1073345524
       background details_6: 911189199
@@ -312,7 +312,7 @@ TextureImporter:
       background details_7: -2038977441
       background details_1: -2082513757
       background details_5: 1804331150
-      background details_0: 1237979016
+      background details_4: 982289708
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

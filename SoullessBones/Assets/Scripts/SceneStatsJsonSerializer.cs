@@ -26,6 +26,7 @@ public static class SceneStats
     public static string lastSave = "start";
 
     public static List<string> stats = new List<string> { };
+    public static List<int> destroyedEnemies = new List<int> { };
 
     public static void ResetData()
     {
@@ -49,6 +50,7 @@ public static class SceneStats
       lastSave = "start";
 
       stats = new List<string> { };
+      destroyedEnemies = new List<int> { };
     }
 }
 
@@ -75,6 +77,7 @@ public class SceneStatsWrapper
     public string lastSave;
 
     public List<string> stats;
+    public List<int> destroyedEnemies;
 
     public SceneStatsWrapper()
     {
@@ -97,6 +100,7 @@ public class SceneStatsWrapper
         lastSave = SceneStats.lastSave;
 
         stats = SceneStats.stats;
+        destroyedEnemies = SceneStats.destroyedEnemies;
     }
 
     public void UpdateSceneStats()
@@ -120,6 +124,7 @@ public class SceneStatsWrapper
         SceneStats.lastSave = lastSave;
 
         SceneStats.stats = stats;
+        SceneStats.destroyedEnemies = destroyedEnemies;
         Debug.Log("Load count of tear = " + tears);
     }
 }
