@@ -28,6 +28,7 @@ public class FountainSystem : MonoBehaviour
         {
             Save();
             GameManager.instance.enterPassword = "save";
+            SceneStats.destroyedEnemies.Clear();
             GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>().StopTime(false);
             SceneLoader.instance.FadeTo(SceneStats.curScene, true, true, false);
         }

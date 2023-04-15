@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: facingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3751359890687479514, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
+      propertyPath: enemyId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
 --- !u!1001 &62255528
@@ -849,6 +853,10 @@ PrefabInstance:
       propertyPath: aggroSize.y
       value: 18.22
       objectReference: {fileID: 0}
+    - target: {fileID: 3164945709380048619, guid: dfb63fc8601e4db4ab0cd7d02a5a90af, type: 3}
+      propertyPath: enemyId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3164945710880805893, guid: dfb63fc8601e4db4ab0cd7d02a5a90af, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1309,6 +1317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackSpider (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4675943165916510219, guid: 7ea6ac21764ab2046a41e61a4bd712e8, type: 3}
+      propertyPath: enemyId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5253845618112652185, guid: 7ea6ac21764ab2046a41e61a4bd712e8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1472,7 +1484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623035651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.856154, y: 3.4300199, z: -9.76}
+  m_LocalPosition: {x: 7.2297864, y: 3.42987, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1629,6 +1641,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crow left
       objectReference: {fileID: 0}
+    - target: {fileID: 3751359890687479514, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
+      propertyPath: enemyId
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
 --- !u!4 &711640985 stripped
@@ -1740,6 +1756,10 @@ PrefabInstance:
     - target: {fileID: 2925602621619051405, guid: 7ea6ac21764ab2046a41e61a4bd712e8, type: 3}
       propertyPath: m_Name
       value: BlackSpider
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675943165916510219, guid: 7ea6ac21764ab2046a41e61a4bd712e8, type: 3}
+      propertyPath: enemyId
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5253845618112652185, guid: 7ea6ac21764ab2046a41e61a4bd712e8, type: 3}
       propertyPath: m_RootOrder
@@ -27381,6 +27401,10 @@ PrefabInstance:
     - target: {fileID: 3751359890687479508, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
       propertyPath: m_Name
       value: Crow left
+      objectReference: {fileID: 0}
+    - target: {fileID: 3751359890687479514, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}
+      propertyPath: enemyId
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 593391badffe2894d9af2ce164cbe90a, type: 3}

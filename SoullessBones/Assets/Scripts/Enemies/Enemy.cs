@@ -7,11 +7,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] bool isSpawner = false; 
     private UnityEngine.Object explosion;
     public Spawner spawner;
+    [SerializeField] private int enemyId = -1;
 
     [SerializeField] private BossKilled bossManager;
     private void Start () 
     {
         explosion = Resources.Load("Explosion");
+        if (enemyId != -1 && SceneStats.destroyedEnemies.Contains(enemyId))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()
@@ -51,6 +56,7 @@ public class Enemy : MonoBehaviour
                 spawner.EnemyDestroyed();
             }
         }
+        SceneStats.destroyedEnemies.Add(enemyId);
         Destroy(gameObject);
     }
 
