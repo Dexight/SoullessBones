@@ -38,6 +38,7 @@ public class MovementController : MonoBehaviour
     public bool isJumped = false;
     public int jumpCount;
     private float MaxFallSpeed = 10f;
+    private UnityEngine.Object dust;
 
     [Header("Jump Down")]
     public bool canJumpDown = true;
@@ -60,7 +61,8 @@ public class MovementController : MonoBehaviour
     }
 
     private void Start()
-    {   
+    {
+        dust = Resources.Load("Dust");
         wallJumping = GetComponent<WallJumping>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -160,6 +162,9 @@ public class MovementController : MonoBehaviour
         rb.velocity = Vector2.up * JumpForce;
         StartCoroutine(isJumping());
         SoundVolumeController.PlaySoundEffect(4);
+        GameObject dustRef = (GameObject)Instantiate(dust);
+        dustRef.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        Destroy(dustRef, 1.0f);
     }
     private IEnumerator isJumping()
     {

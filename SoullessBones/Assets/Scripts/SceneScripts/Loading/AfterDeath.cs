@@ -16,10 +16,10 @@ public class AfterDeath : MonoBehaviour
     {
 
         //DeathExplosion
-        //explosion = Resources.Load("Explosion");
-        //GameObject explosionRef = (GameObject)Instantiate(explosion);
-        //explosionRef.transform.position = new Vector3(MovementController.instance.transform.position.x, MovementController.instance.transform.position.y, MovementController.instance.transform.position.z);
-
+        explosion = Resources.Load("PlayerExplosion");
+        GameObject explosionRef = (GameObject)Instantiate(explosion);
+        explosionRef.transform.position = new Vector3(MovementController.instance.transform.position.x, MovementController.instance.transform.position.y, MovementController.instance.transform.position.z);
+        Destroy(explosionRef, 1.0f);
 
         SceneLoader sceneLoader = GameObject.FindGameObjectWithTag("Interface").GetComponent<SceneLoader>();
         //Воспроизвести звук смерти
