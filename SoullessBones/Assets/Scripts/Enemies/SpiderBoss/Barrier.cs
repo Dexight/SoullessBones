@@ -9,6 +9,8 @@ public class Barrier : MonoBehaviour
     public bool barrierUpped = false;
     [SerializeField] private SpriteRenderer sprite;
 
+    private BoxCollider2D hitbox;
+
     public void AddChild(GameObject g)
     {
         childs.Add(g);
@@ -22,6 +24,7 @@ public class Barrier : MonoBehaviour
     void Start()
     {
         sprite.enabled = false;
+        hitbox = attacks.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -41,12 +44,14 @@ public class Barrier : MonoBehaviour
 
     public void BarrierON()
     {
+        hitbox.enabled = false;
         sprite.enabled = true;
     }
 
     public void BarrierOFF()
     {
         barrierUpped = false;
+        hitbox.enabled = true;
         attacks.enableMovement();
         sprite.enabled = false;
     }

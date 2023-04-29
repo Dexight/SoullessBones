@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
 
     public bool isEgg = false;
     [SerializeField] private GameObject child;
+    [SerializeField] private GameObject Line;
     [SerializeField] private Barrier barrier;
 
     private void Awake()
@@ -42,13 +43,15 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                if (touch.CompareTag("Ground"))
+                if (touch.CompareTag("Ground") || touch.CompareTag("Door"))
                 {
-                    if(isEgg)
+                    if (isEgg)
                     {
                         GameObject childObject = Instantiate(child, transform.position + new Vector3(0, 0.15f), Quaternion.Euler(0, 0, 0));
                         childObject.GetComponentInChildren<Enemy>().barrier = GameObject.FindGameObjectWithTag("Barrier").GetComponent<Barrier>();
-                        barrier.AddChild(childObject.GetComponentInChildren<Enemy>().gameObject);
+                        barrier.AddChild(childObject);
+                        GameObject childLine = Instantiate(Line, new Vector3(0, 0), Quaternion.Euler(0, 0, 0));
+                        childLine.GetComponent<LineController>().start = childObject.transform;
                         barrier.barrierUpped = true;
                     }
                     Destroy(gameObject);

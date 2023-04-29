@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1580853877, guid: 9f4a5f95f3a3aa34b9ab0fc7af65b1ea, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.46650052, b: 0.46650052, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
@@ -102,5 +102,6 @@ MonoBehaviour:
   damage: 1
   deviation: {x: 0, y: 0, z: 0}
   isEgg: 1
-  child: {fileID: 4925968536988220584, guid: 193b1180b0cabe24695a1a68d8a1c4d4, type: 3}
+  child: {fileID: 7149053571069822647, guid: 8850b6f2836655a4791e0e73cdd929eb, type: 3}
+  Line: {fileID: 994144353663983148, guid: bbbcdc2b564ca9f4a84baf8f3da0fe24, type: 3}
   barrier: {fileID: 0}

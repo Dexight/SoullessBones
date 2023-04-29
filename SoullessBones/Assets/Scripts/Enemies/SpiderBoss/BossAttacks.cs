@@ -13,10 +13,8 @@ public class BossAttacks : MonoBehaviour
     [SerializeField] GameObject egg;
 
     //0 - 15%, 1 - 30%, 2 - 55%
-    //private int[] chances = new int[] { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
+    private int[] chances = new int[] { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
     
-    //test
-    private int[] chances = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     
     [SerializeField] private float cooldown;
     [SerializeField] private float curtime = 0;

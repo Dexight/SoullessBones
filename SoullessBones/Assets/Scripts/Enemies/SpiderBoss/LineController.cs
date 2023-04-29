@@ -6,7 +6,7 @@ using UnityEngine;
 public class LineController : MonoBehaviour
 {
     private LineRenderer lineRenderer;
-    [SerializeField] private Transform start;
+    public Transform start;
     [SerializeField] private Transform end;
 
     void Start()
@@ -22,7 +22,7 @@ public class LineController : MonoBehaviour
             lineRenderer.SetPosition(0, start.position);
         else
         {
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
             Destroy(gameObject);
             return;
         }
