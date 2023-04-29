@@ -171,9 +171,8 @@ public class SoundVolumeController : MonoBehaviour
         {
             audioSourcesBG[a_indexLocal].Pause();
             audioSourcesBG[(a_indexLocal + 1) % 2].Pause();
+            PlaySoundEffectLocal2(3);
         }
-        PlaySoundEffectLocal2(3);
-
     }
     private void LoadToSceneLocal(string s)
     {
