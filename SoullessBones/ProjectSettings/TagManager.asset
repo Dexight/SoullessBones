@@ -24,6 +24,7 @@ TagManager:
   - BackgroundEffectSlider
   - EnemyStepped
   - Barrier
+  - SecretAreaDarkness
   layers:
   - Default
   - TransparentFX
