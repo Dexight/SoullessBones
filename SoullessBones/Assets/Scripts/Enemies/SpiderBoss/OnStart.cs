@@ -12,7 +12,7 @@ public class OnStart : MonoBehaviour
             SpiderMovement movement = GetComponent<SpiderMovement>();
             movement.enabled = true;
             GetComponent<Animator>().enabled = true;
-            movement.SetCanMove(true);
+            movement.OnStartMove();
             Destroy(this);
         }
     }

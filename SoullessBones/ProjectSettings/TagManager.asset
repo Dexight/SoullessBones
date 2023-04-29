@@ -23,6 +23,7 @@ TagManager:
   - MovePlatform
   - BackgroundEffectSlider
   - EnemyStepped
+  - Barrier
   layers:
   - Default
   - TransparentFX

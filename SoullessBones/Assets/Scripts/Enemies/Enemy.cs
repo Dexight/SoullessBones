@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     private UnityEngine.Object explosion;
     public Spawner spawner;
     [SerializeField] private int enemyId = -1;
+    public Barrier barrier;
 
     [SerializeField] private BossKilled bossManager;
     private void Start () 
@@ -56,6 +57,13 @@ public class Enemy : MonoBehaviour
                 spawner.EnemyDestroyed();
             }
         }
+
+        if(barrier)
+        {
+            barrier.RemoveChild(gameObject);
+            Destroy(GetComponentInParent<Transform>().gameObject);
+        }
+
         SceneStats.destroyedEnemies.Add(enemyId);
         Destroy(gameObject);
     }
