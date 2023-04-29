@@ -25,6 +25,7 @@ TagManager:
   - EnemyStepped
   - Barrier
   - SecretAreaDarkness
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -59,6 +60,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: down
+    uniqueID: 2129432967
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

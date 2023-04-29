@@ -162,7 +162,18 @@ public class SoundVolumeController : MonoBehaviour
     }
     private void PauseMusicLocal(bool a)
     {
-        StartCoroutine(FadeSource(a));
+        if (!a) 
+        {
+            audioSourcesBG[a_indexLocal].UnPause();
+            audioSourcesBG[(a_indexLocal + 1) % 2].UnPause();
+        }
+        else
+        {
+            audioSourcesBG[a_indexLocal].Pause();
+            audioSourcesBG[(a_indexLocal + 1) % 2].Pause();
+        }
+        PlaySoundEffectLocal2(3);
+
     }
     private void LoadToSceneLocal(string s)
     {
