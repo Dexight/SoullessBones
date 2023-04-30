@@ -8,19 +8,28 @@ public class Bullet : MonoBehaviour
     public float lifeTime = 2f;
     public int damage = 10;
     private TimeManager timeManager;
-    //Animator anim;
+    [SerializeField] private Vector3 deviation = new Vector3(0, 0, 0);
+
+
+    public bool isEgg = false;
+    [SerializeField] private GameObject child;
+    [SerializeField] private GameObject Line;
+    [SerializeField] private Barrier barrier;
 
     private void Awake()
     {
-        //anim = GetComponent<Animator>();    
         timeManager = GameManager.instance.timeManager.GetComponent<TimeManager>();
+        if(isEgg)
+        {
+            barrier = GameObject.FindGameObjectWithTag("Barrier").GetComponent<Barrier>();
+        }
     }
 
     void FixedUpdate()
     {
         Collider2D touch = Physics2D.OverlapCircle(transform.position, 0.15f);
         if(!timeManager.TimeIsStopped)
-            transform.position += transform.right * speed * Time.fixedDeltaTime;
+            transform.position += transform.right * speed * Time.fixedDeltaTime + deviation;
 
         if (touch)
         {
@@ -30,14 +39,21 @@ public class Bullet : MonoBehaviour
 
                 player.TakeDamage(damage);
 
-                //anim.SetTrigger("Boom");
                 Destroy(gameObject);
             }
             else
             {
-                if (touch.CompareTag("Ground"))
+                if (touch.CompareTag("Ground") || touch.CompareTag("Door"))
                 {
-                    //anim.SetTrigger("Boom");
+                    if (isEgg)
+                    {
+                        GameObject childObject = Instantiate(child, transform.position + new Vector3(0, 0.15f), Quaternion.Euler(0, 0, 0));
+                        childObject.GetComponentInChildren<Enemy>().barrier = GameObject.FindGameObjectWithTag("Barrier").GetComponent<Barrier>();
+                        barrier.AddChild(childObject);
+                        GameObject childLine = Instantiate(Line, new Vector3(0, 0), Quaternion.Euler(0, 0, 0));
+                        childLine.GetComponent<LineController>().start = childObject.transform;
+                        barrier.barrierUpped = true;
+                    }
                     Destroy(gameObject);
                 }
             }

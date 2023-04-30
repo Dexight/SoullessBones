@@ -293,6 +293,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: background details_9
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 1383
+        width: 341
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ccb6fd353d50d34197307c392b578da
+      internalID: 1782907800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background details_10
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 579
+        width: 225
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc32c8b695ce14418de50288a1fb875
+      internalID: -956093204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: background details_11
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 267
+        width: 365
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 468c40447f1bcf44db3b4b3918107d84
+      internalID: -313170701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -304,15 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background details_0: 1237979016
+      background details_5: 1804331150
       background details_8: 543180352
       background details_2: 1073345524
       background details_6: 911189199
       background details_3: 2085244856
+      background details_11: -201813928
       background details_7: -2038977441
       background details_1: -2082513757
-      background details_5: 1804331150
+      background details_9: -1807261476
+      background details_10: 1782907800
       background details_4: 982289708
+      background details_0: 1237979016
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
