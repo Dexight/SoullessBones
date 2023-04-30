@@ -212,6 +212,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 33888c815a5e49f42a7a1960b918e7ed, type: 3}
   - {fileID: 8300000, guid: e3616fbbe2e368f44a721995afdacd11, type: 3}
   - {fileID: 8300000, guid: 13b65e20c4ea000449480e7969e6acc8, type: 3}
+  - {fileID: 8300000, guid: 37595a8e34636204bae1400558367ae3, type: 3}
+  - {fileID: 8300000, guid: 66c0b52d6372dfe4a9c02319a86f8132, type: 3}
   c_longEffects:
   - {fileID: 8300000, guid: bd581ee1100885e43a3ee5c66b52f523, type: 3}
   - {fileID: 8300000, guid: 5cff985541bcd8d4b8742203d709e606, type: 3}

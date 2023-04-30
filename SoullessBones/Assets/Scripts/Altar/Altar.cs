@@ -24,6 +24,7 @@ public class Altar : MonoBehaviour
             anim.enabled = true;
             SceneStats.stats.Add("Altar");
             GameManager.instance.Interface.GetComponentInChildren<FlyUI>().Give();
+            SoundVolumeController.PlaySoundEffect2(5);
         }
         else
         {
