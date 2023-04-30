@@ -14,6 +14,10 @@ public class PauseMenu : MonoBehaviour
     private void Awake()
     {
         attackSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<AttackSystem>();
+    }
+
+    private void Start()
+    {
         timeManager = GameManager.instance.timeManager.GetComponent<TimeManager>();
     }
 

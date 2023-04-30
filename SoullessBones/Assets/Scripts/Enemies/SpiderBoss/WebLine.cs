@@ -53,8 +53,6 @@ public class WebLine : MonoBehaviour
                     sprite.enabled = true;
                     timer += Time.deltaTime;
 
-                    //DamagePlayer
-
                     if (shootTime < timer)
                     {
                          Stop();
@@ -137,5 +135,16 @@ public class WebLine : MonoBehaviour
             goLeft = true;
         }
         goDown = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(sprite.enabled && !timeManager.TimeIsStopped && !pauseMenu.GameIsPaused)
+        {
+            if(collision.GetComponent<MovementController>())
+            {
+                GameManager.instance.Player.GetComponent<HealthSystem>().TakeDamage(1);
+            }
+        }
     }
 }
