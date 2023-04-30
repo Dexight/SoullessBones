@@ -32,6 +32,7 @@ public class Key : MonoBehaviour
         {
             collision.GetComponent<KeyHolder>().AddKey(keyType);
             DeleteKey();
+            SoundVolumeController.PlaySoundEffect2(4);
         }
     }
 }
