@@ -24,7 +24,6 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private float musicVolume;
     [SerializeField] private float effectVolume;
     [SerializeField] private float swapTime = 2;
-    [SerializeField] private float pauseSwapTime = 1;
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
     [SerializeField] private AudioClip c_menuClip;
@@ -41,7 +40,6 @@ public class SoundVolumeController : MonoBehaviour
     private int c_index = 0;
     private int a_indexGlobal = 0;
     private int a_indexLocal = 0;
-    private float dopMusicVolume = 1f;
     private bool inSwap = false;
     private enum states {normal, battle, menu, titrs};
     private states state = states.menu;
@@ -178,7 +176,6 @@ public class SoundVolumeController : MonoBehaviour
     {
         //string s = SceneManager.GetActiveScene().name;
         if (audioSourceEffectsLong.mute == true) audioSourceEffectsLong.mute = false;
-        dopMusicVolume = 1;
         if (s == "Menu" && state != states.menu)
         {
             SwitchToMenuLocal();
