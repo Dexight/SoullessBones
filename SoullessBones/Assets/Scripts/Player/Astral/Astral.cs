@@ -16,7 +16,7 @@ public class Astral : MonoBehaviour
     [SerializeField] private GameObject ghostPrefab;
     public bool canUseAstral = true;
     private float timer = 0; //0 to 1
-    [SerializeField] float timeLessSpeed;
+    float timeLessSpeed = 0.3f;
     private bool lossTime = false;
     private bool isCooldown = false;
     private float cooldownTimer = 0;

@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public bool GameIsPaused = false;
+    TimeManager timeManager;
     public GameObject PauseMenuUI;
     private AttackSystem attackSystem;
     public GameObject SettingsPanel;
     private void Awake()
     {
-       attackSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<AttackSystem>();
+        attackSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<AttackSystem>();
+        timeManager = GameManager.instance.timeManager.GetComponent<TimeManager>();
     }
 
     public GameObject CheatBoxCanvas;
@@ -41,7 +43,8 @@ public class PauseMenu : MonoBehaviour
         SettingsPanel.SetActive(false);
 
         //audio
-        GameObject.FindWithTag("Player").GetComponent<MovementController>()._CanMove = true;
+        if(!timeManager.TimeIsStopped)
+            GameObject.FindWithTag("Player").GetComponent<MovementController>()._CanMove = true;
         SoundVolumeController.PauseMusic(false);
     }
     void Pause()
