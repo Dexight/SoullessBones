@@ -50,6 +50,7 @@ public class BossKilled : MonoBehaviour
             bossDependence.DoAll();
             if(SpiderObject)
             {
+                SceneStats.stats.Add("Spider");
                 bossDependence.editItems();
             }
         }

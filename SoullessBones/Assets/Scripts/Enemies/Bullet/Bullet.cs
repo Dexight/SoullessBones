@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
     {
         Collider2D touch = Physics2D.OverlapCircle(transform.position, 0.15f);
         if(!timeManager.TimeIsStopped)
-            transform.position += transform.right * speed * Time.fixedDeltaTime + deviation;
+            transform.position += transform.right * speed * Time.deltaTime + deviation;
 
         if (touch)
         {
@@ -48,11 +48,14 @@ public class Bullet : MonoBehaviour
                     if (isEgg)
                     {
                         GameObject childObject = Instantiate(child, transform.position + new Vector3(0, 0.15f), Quaternion.Euler(0, 0, 0));
-                        childObject.GetComponentInChildren<Enemy>().barrier = GameObject.FindGameObjectWithTag("Barrier").GetComponent<Barrier>();
-                        barrier.AddChild(childObject);
-                        GameObject childLine = Instantiate(Line, new Vector3(0, 0), Quaternion.Euler(0, 0, 0));
-                        childLine.GetComponent<LineController>().start = childObject.transform;
-                        barrier.barrierUpped = true;
+                        if (barrier)
+                        {
+                            childObject.GetComponentInChildren<Enemy>().barrier = GameObject.FindGameObjectWithTag("Barrier").GetComponent<Barrier>();
+                            barrier.AddChild(childObject);
+                            GameObject childLine = Instantiate(Line, new Vector3(0, 0), Quaternion.Euler(0, 0, 0));
+                            childLine.GetComponent<LineController>().start = childObject.transform;
+                            barrier.barrierUpped = true;
+                        }
                     }
                     Destroy(gameObject);
                 }

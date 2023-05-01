@@ -23,7 +23,7 @@ public class WebLine : MonoBehaviour
     bool goLeft;
     bool goUp;
     bool goDown;
-
+    public float speedCoef;
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -40,7 +40,7 @@ public class WebLine : MonoBehaviour
             anim.enabled = true;
             if (goUp)
             {
-                moving.transform.position = new Vector3(moving.transform.position.x, moving.transform.position.y + moving.speed * moving.eps, moving.transform.position.z);//go down
+                moving.transform.position = new Vector3(moving.transform.position.x, moving.transform.position.y + moving.speed * Time.deltaTime, moving.transform.position.z);//go down
                 if (moving.transform.position.y > topBorder.position.y)
                 {
                     goUp = false;
@@ -64,7 +64,7 @@ public class WebLine : MonoBehaviour
                     {
                         if (goRight)
                         {
-                            moving.transform.position = new Vector3(moving.transform.position.x + moving.speed * moving.eps, moving.transform.position.y, moving.transform.position.z);//go right
+                            moving.transform.position = new Vector3(moving.transform.position.x + moving.speed * Time.deltaTime, moving.transform.position.y, moving.transform.position.z);//go right
                             if (moving.transform.position.x >= leftBorder.position.x)
                             {
                                 goRight = false;
@@ -72,7 +72,7 @@ public class WebLine : MonoBehaviour
                         }
                         else if (goLeft)
                         {
-                            moving.transform.position = new Vector3(moving.transform.position.x - moving.speed * moving.eps, moving.transform.position.y, moving.transform.position.z);//go left
+                            moving.transform.position = new Vector3(moving.transform.position.x - moving.speed * Time.deltaTime, moving.transform.position.y, moving.transform.position.z);//go left
                             if (moving.transform.position.x <= rightBorder.position.x)
                             {
                                 goLeft = false;
@@ -81,7 +81,7 @@ public class WebLine : MonoBehaviour
 
                         if (goDown)
                         {
-                            moving.transform.position = new Vector3(moving.transform.position.x, moving.transform.position.y - moving.speed * moving.eps, moving.transform.position.z);//go down
+                            moving.transform.position = new Vector3(moving.transform.position.x, moving.transform.position.y - moving.speed * Time.deltaTime, moving.transform.position.z);//go down
                             if (moving.transform.position.y <= bottomBorder.position.y)
                             {
                                 goDown = false;
@@ -110,7 +110,7 @@ public class WebLine : MonoBehaviour
         goUp = true;
         isShooted = true;
         attacks.CanAttack = false;
-        moving.speed = 2;
+        moving.speed = moving.fixedSpeed * speedCoef;
     }
 
     void Stop()
@@ -120,7 +120,7 @@ public class WebLine : MonoBehaviour
         sprite.enabled = false;
 
         moving.enabled = false;
-        moving.speed = 1.8f;
+        moving.speed = moving.fixedSpeed;
         BackToPosition();   
     }
 

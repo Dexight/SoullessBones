@@ -25,7 +25,7 @@ public class Toxic : MonoBehaviour
     bool goLeft = false;
     bool isSpray = false;
     bool doSmoke = false;
-
+    public float speedCoef;
     void Start()
     {
         sprite = spray.GetComponent<SpriteRenderer>();
@@ -43,7 +43,7 @@ public class Toxic : MonoBehaviour
             {
                 if (goLeft)
                 {
-                    transform.position = new Vector3(transform.position.x - moving.speed * moving.eps, transform.position.y, transform.position.z);//go left
+                    transform.position = new Vector3(transform.position.x - moving.speed * Time.deltaTime, transform.position.y, transform.position.z);//go left
                     if (transform.position.x < centerOfArena.position.x)
                     {
                         goCenter = false;
@@ -52,7 +52,7 @@ public class Toxic : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(transform.position.x + moving.speed * moving.eps, transform.position.y, transform.position.z);//go right
+                    transform.position = new Vector3(transform.position.x + moving.speed * Time.deltaTime, transform.position.y, transform.position.z);//go right
                     if (transform.position.x > centerOfArena.position.x)
                     {
                         goCenter = false;
@@ -92,7 +92,7 @@ public class Toxic : MonoBehaviour
     {
         goCenter = true;
         goLeft = transform.position.x > centerOfArena.position.x;
-        moving.speed = 2;
+        moving.speed = moving.fixedSpeed * speedCoef;
         moving.enabled = false;
     }
 
@@ -111,7 +111,7 @@ public class Toxic : MonoBehaviour
         sprite.enabled = false;
         moving.enabled = true;
         attacks.CanAttack = true;
-        moving.speed = 1.8f;
+        moving.speed = moving.fixedSpeed;
         doSmoke = false;
     }
 }
