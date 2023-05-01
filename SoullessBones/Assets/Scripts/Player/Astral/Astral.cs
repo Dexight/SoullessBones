@@ -16,7 +16,7 @@ public class Astral : MonoBehaviour
     [SerializeField] private GameObject ghostPrefab;
     public bool canUseAstral = true;
     private float timer = 0; //0 to 1
-    [SerializeField] float timeLessSpeed;
+    float timeLessSpeed = 0.3f;
     private bool lossTime = false;
     private bool isCooldown = false;
     private float cooldownTimer = 0;
@@ -68,13 +68,13 @@ public class Astral : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && timeManager.TimeIsStopped)  //Continue Time and teleport when E is pressed
-        {
-            SoundVolumeController.PauseMusic(false);
-            SoundVolumeController.PlaySoundEffect2(2);
-            timeManager.ContinueTime();
-            teleport_to_ghost();
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && timeManager.TimeIsStopped)  //Continue Time and teleport when E is pressed
+        //{
+        //    SoundVolumeController.PauseMusic(false);
+        //    SoundVolumeController.PlaySoundEffect2(2);
+        //    timeManager.ContinueTime();
+        //    teleport_to_ghost();
+        //}
 
         Timer();
         cooldown();

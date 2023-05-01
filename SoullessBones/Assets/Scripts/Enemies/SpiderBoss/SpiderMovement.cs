@@ -7,11 +7,11 @@ public class SpiderMovement : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private TimeManager timeManager;
-    [SerializeField] private int speed = 1;
+    [SerializeField] private WebLine web;
+    public float fixedSpeed = 0;
+    [HideInInspector] public float speed;
     [SerializeField] private BossAttacks attacks;
     bool canMove = false;
-
-    float eps = 0.01f;
 
     [SerializeField] private Transform leftBorder;
     [SerializeField] private Transform rightBorder;
@@ -28,30 +28,31 @@ public class SpiderMovement : MonoBehaviour
 
     private void Awake()
     {
-        if(SceneStats.stats.Contains("spider"))
+        if(SceneStats.stats.Contains("Spider"))
         {
             Destroy(gameObject);
             //etc.
         }
         player = GameObject.FindGameObjectWithTag("Player");
         timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+        speed = fixedSpeed;
     }
     
     void Update()
     {
         //Слежка за игроком
         if (canMove && !pauseMenu.GameIsPaused && !timeManager.TimeIsStopped)
-            if ((transform.position.x - player.transform.position.x) * (transform.position.x - player.transform.position.x) > (speed * eps) * (speed * eps))//сравнение модулей относительно эпсилон
+            if ((transform.position.x - player.transform.position.x) * (transform.position.x - player.transform.position.x) > (speed * Time.deltaTime) * (speed * Time.deltaTime))//сравнение модулей относительно эпсилон
             {
                 if (transform.position.x > player.transform.position.x)
                 {
-                    if (!(transform.position.x < leftBorder.position.x))
-                        transform.position = new Vector3(transform.position.x - speed * eps, transform.position.y, transform.position.z);//go left
+                    if (!(transform.position.x < leftBorder.position.x) || web.isShooted)
+                        transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);//go left
                 }
                 else
                 {
-                    if (!(transform.position.x > rightBorder.position.x))
-                        transform.position = new Vector3(transform.position.x + speed * eps, transform.position.y, transform.position.z);//go right
+                    if (!(transform.position.x > rightBorder.position.x) || web.isShooted)
+                        transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);//go right
                 }
             }
     }

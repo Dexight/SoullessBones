@@ -24,7 +24,6 @@ public class SoundVolumeController : MonoBehaviour
     [SerializeField] private float musicVolume;
     [SerializeField] private float effectVolume;
     [SerializeField] private float swapTime = 2;
-    [SerializeField] private float pauseSwapTime = 1;
     [SerializeField] private AudioClip[] c_clips;
     [SerializeField] private AudioClip[] c_battleClips;
     [SerializeField] private AudioClip c_menuClip;
@@ -41,7 +40,6 @@ public class SoundVolumeController : MonoBehaviour
     private int c_index = 0;
     private int a_indexGlobal = 0;
     private int a_indexLocal = 0;
-    private float dopMusicVolume = 1f;
     private bool inSwap = false;
     private enum states {normal, battle, menu, titrs};
     private states state = states.menu;
@@ -92,8 +90,8 @@ public class SoundVolumeController : MonoBehaviour
     {
         musicVolume = a;
         PlayerPrefs.SetFloat(saveMusicVolumeKey, musicVolume);
-        SetMusicVolume(0, musicVolume);
-        SetMusicVolume(1, musicVolume);
+        SetMusicVolume(a_indexGlobal % audioSourcesBG.Length, musicVolume);
+        SetMusicVolume((a_indexGlobal + 1) % audioSourcesBG.Length, 0);
     }
     private void effectValueChanged(float a)
     {
@@ -178,7 +176,6 @@ public class SoundVolumeController : MonoBehaviour
     {
         //string s = SceneManager.GetActiveScene().name;
         if (audioSourceEffectsLong.mute == true) audioSourceEffectsLong.mute = false;
-        dopMusicVolume = 1;
         if (s == "Menu" && state != states.menu)
         {
             SwitchToMenuLocal();
@@ -238,16 +235,16 @@ public class SoundVolumeController : MonoBehaviour
         float points = 10;
         for (int i = 0; i < points; i++)
         {
-            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume * dopMusicVolume);
-            SetMusicVolume(a_indexLocal, i / points * musicVolume * dopMusicVolume);
+            SetMusicVolume(a_indexLocalPrevious, (1f - i / points) * musicVolume);
+            SetMusicVolume(a_indexLocal, i / points * musicVolume);
             yield return new WaitForSeconds(swapTime / points);
         }
         SetMusicVolume(a_indexLocalPrevious, 0);
-        SetMusicVolume(a_indexLocal, musicVolume * dopMusicVolume);
+        SetMusicVolume(a_indexLocal, musicVolume);
         inSwap = false;
     }
 
-    //сделать затухание в паузу
+    /*сделать затухание в паузу
     public IEnumerator FadeSource(bool a)
     {
         inSwap = true;
@@ -266,7 +263,7 @@ public class SoundVolumeController : MonoBehaviour
         if (a) audioSourcesBG[a_indexLocal].Pause();
         
         inSwap = false;
-    }
+    }*/
 
     public static void SwitchToBattle(int a = 0)
     {
@@ -292,9 +289,12 @@ public class SoundVolumeController : MonoBehaviour
         instance.PlaySoundEffectLocal(a);
     }
     /// <summary>
-    /// 0 - open door,
+    /// 0 - loot item,
     /// 1 - stop time,
     /// 2 - continue time
+    /// 3 - pause
+    /// 4 - get key
+    /// 5 - spike statue
     /// </summary>
     public static void PlaySoundEffect2(int a)
     {

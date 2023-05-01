@@ -11,11 +11,15 @@ public class BossAttacks : MonoBehaviour
     public bool CanAttack = false;
     [SerializeField] private Transform throwPos;
     [SerializeField] GameObject egg;
+    [SerializeField] DownOfArena downOfArena;
+    [SerializeField] WebLine webLine;
+    [SerializeField] Toxic toxic;
 
     //0 - 15%, 1 - 30%, 2 - 55%
+
     private int[] chances = new int[] { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
-    
-    
+
+
     [SerializeField] private float cooldown;
     [SerializeField] private float curtime = 0;
 
@@ -37,16 +41,15 @@ public class BossAttacks : MonoBehaviour
         switch (a)
         {
             case 0:
-                Attack0();  break;
+                ShieldAttack();  break;
             case 1:
-                MassiveAttack(); break;
-            case 2: //Don't know attack
-                CanAttack = true;
-                    break;
+                ToxicAttack(); break;
+            case 2: 
+                ShootWeb(); break;
         }
     }
     
-    void Attack0()
+    void ShieldAttack()
     {
         disableMovement();
         Invoke("ThrowAndSpawn", 1.5f);
@@ -54,14 +57,21 @@ public class BossAttacks : MonoBehaviour
 
     void ThrowAndSpawn()
     {
-        Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -90));
+        Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -85));
         Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -45));
         Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -135));
     }
 
-    void MassiveAttack()
+    void ToxicAttack()
     {
-        CanAttack = true;
+        if (toxic.canSmoke)
+            toxic.goToCenter();
+        else CanAttack = true;
+    }
+
+    void ShootWeb()
+    {
+        webLine.Shoot();
     }
 
     private void Update()
@@ -76,7 +86,7 @@ public class BossAttacks : MonoBehaviour
             System.Random random = new System.Random();
             int i = random.Next(1, 10);
             Debug.Log("AttackTry");
-            if (i <= 5) // attack chance = 50%
+            if (i <= 6) // attack chance = 60%
             {
                 OnRandomAttack();
             }
@@ -91,7 +101,6 @@ public class BossAttacks : MonoBehaviour
 
     public void enableMovement()
     {
-        Debug.Log("enableMove");
         move.SetCanMove(true);
         CanAttack = true;
     }
