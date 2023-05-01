@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-                if (touch.CompareTag("Ground") || touch.CompareTag("Door"))
+                if (touch.CompareTag("Ground") || touch.CompareTag("Door") || touch.CompareTag("StopArea"))
                 {
                     if (isEgg)
                     {

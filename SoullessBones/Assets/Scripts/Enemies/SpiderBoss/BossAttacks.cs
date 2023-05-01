@@ -15,10 +15,9 @@ public class BossAttacks : MonoBehaviour
     [SerializeField] WebLine webLine;
     [SerializeField] Toxic toxic;
 
-    //0 - 15%, 1 - 30%, 2 - 55%
-
-    private int[] chances = new int[] { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
-
+    //0 - 25%, 1 - 35%, 2 - 40%
+    private int[] chances = new int[] { 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
+    //private int[] chances = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }; //20 argue (5% each)
 
     [SerializeField] private float cooldown;
     [SerializeField] private float curtime = 0;
