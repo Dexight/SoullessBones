@@ -45,7 +45,7 @@ public class DownOfArena : MonoBehaviour
         isSmoke = true;
         //======
         //TODO Smoke ON
-        sprite.enabled = true;
+        //sprite.enabled = true;
         //======
         timer = 0;
         particles.Play();
