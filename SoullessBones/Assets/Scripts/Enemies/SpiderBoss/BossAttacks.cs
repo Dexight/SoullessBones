@@ -13,12 +13,14 @@ public class BossAttacks : MonoBehaviour
     [SerializeField] GameObject egg;
     [SerializeField] DownOfArena downOfArena;
     [SerializeField] WebLine webLine;
+    [SerializeField] Toxic toxic;
 
     //0 - 15%, 1 - 30%, 2 - 55%
-    
-    private int[] chances = new int[] { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
-    
-    
+
+    //private int[] chances = new int[] { 0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 }; //20 argue (5% each)
+    private int[] chances = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+
+
     [SerializeField] private float cooldown;
     [SerializeField] private float curtime = 0;
 
@@ -63,7 +65,9 @@ public class BossAttacks : MonoBehaviour
 
     void ToxicAttack()
     {
-        CanAttack = true;
+        if (toxic.canSmoke)
+            toxic.goToCenter();
+        else CanAttack = true;
     }
 
     void ShootWeb()

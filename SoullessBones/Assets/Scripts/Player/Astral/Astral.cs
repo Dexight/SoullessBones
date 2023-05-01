@@ -68,13 +68,13 @@ public class Astral : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && timeManager.TimeIsStopped)  //Continue Time and teleport when E is pressed
-        {
-            SoundVolumeController.PauseMusic(false);
-            SoundVolumeController.PlaySoundEffect2(2);
-            timeManager.ContinueTime();
-            teleport_to_ghost();
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && timeManager.TimeIsStopped)  //Continue Time and teleport when E is pressed
+        //{
+        //    SoundVolumeController.PauseMusic(false);
+        //    SoundVolumeController.PlaySoundEffect2(2);
+        //    timeManager.ContinueTime();
+        //    teleport_to_ghost();
+        //}
 
         Timer();
         cooldown();

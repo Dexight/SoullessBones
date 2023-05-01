@@ -8,7 +8,7 @@ public class SpiderMovement : MonoBehaviour
     [SerializeField] private PauseMenu pauseMenu;
     [SerializeField] private TimeManager timeManager;
     [SerializeField] private WebLine web;
-    [SerializeField] public float speed = 1f;
+    [SerializeField] public float speed;
     [SerializeField] private BossAttacks attacks;
     bool canMove = false;
 

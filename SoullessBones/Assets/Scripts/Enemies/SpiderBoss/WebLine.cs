@@ -110,7 +110,7 @@ public class WebLine : MonoBehaviour
         goUp = true;
         isShooted = true;
         attacks.CanAttack = false;
-        moving.speed = 1.4f;
+        moving.speed = 2;
     }
 
     void Stop()
@@ -120,8 +120,8 @@ public class WebLine : MonoBehaviour
         sprite.enabled = false;
 
         moving.enabled = false;
-        moving.speed = 1f;
-        BackToPosition();
+        moving.speed = 1.8f;
+        BackToPosition();   
     }
 
     void BackToPosition()
