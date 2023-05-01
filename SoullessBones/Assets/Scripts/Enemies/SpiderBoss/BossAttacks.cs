@@ -56,7 +56,7 @@ public class BossAttacks : MonoBehaviour
 
     void ThrowAndSpawn()
     {
-        Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -85));
+        Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -90));
         Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -45));
         Instantiate(egg, throwPos.transform.position, Quaternion.Euler(0, 0, -135));
     }
