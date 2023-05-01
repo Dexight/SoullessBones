@@ -14,6 +14,7 @@ public class DownOfArena : MonoBehaviour
 
     //заглушка
     private SpriteRenderer sprite;
+    [SerializeField] ParticleSystem particles;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class DownOfArena : MonoBehaviour
         sprite.enabled = true;
         //======
         timer = 0;
+        particles.Play();
     }
 
     private void endOfSmoke()
