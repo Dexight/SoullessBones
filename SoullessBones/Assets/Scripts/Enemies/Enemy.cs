@@ -11,12 +11,18 @@ public class Enemy : MonoBehaviour
     public Barrier barrier;
 
     [SerializeField] private BossKilled bossManager;
+    BossHealth bossHealth;
     private void Start () 
     {
         explosion = Resources.Load("Explosion");
         if (enemyId != -1 && SceneStats.destroyedEnemies.Contains(enemyId))
         {
             Destroy(gameObject);
+        }
+        if (isBoss)
+        {
+            bossHealth = gameObject.GetComponent<BossHealth>();
+            bossHealth.Initialize(health);
         }
     }
 
@@ -42,6 +48,7 @@ public class Enemy : MonoBehaviour
             explosionRef.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             explosionRef = (GameObject)Instantiate(explosion);
             explosionRef.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            bossHealth.EndFight();
         }
 
         Destroy(explosionRef, 1.0f);
@@ -71,5 +78,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        if(isBoss)bossHealth.Damaged(health);
     }
 }

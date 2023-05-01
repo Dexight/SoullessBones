@@ -8,6 +8,7 @@ public class BossDoor : MonoBehaviour
     [SerializeField] CultistMove bossCultistScript;
     [SerializeField] Spawner Spawner;
     [SerializeField] OnStart spiderBoss;
+    [SerializeField] BossHealth bossHealth;
 
     public void OpenDoor()
     {
@@ -26,7 +27,11 @@ public class BossDoor : MonoBehaviour
         if (bossCultistScript)
         {
             //start battle music
-            if (!bossCultistScript.enabled) SoundVolumeController.SwitchToBattle();
+            if (!bossCultistScript.enabled)
+            {
+                bossHealth.StartFight();
+                SoundVolumeController.SwitchToBattle();
+            }
             bossCultistScript.enabled = true;
             bossCultistScript.GetComponent<Animator>().enabled= true;
         }
@@ -43,7 +48,11 @@ public class BossDoor : MonoBehaviour
         if (spiderBoss)
         {
             //start battle music
-            if (!spiderBoss.enabled) SoundVolumeController.SwitchToBattle();
+            if (!spiderBoss.enabled) 
+            {
+                SoundVolumeController.SwitchToBattle();
+                bossHealth.StartFight();
+            } 
             spiderBoss.enabled = true;
         }
 
