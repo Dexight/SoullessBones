@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turtle : MonoBehaviour
+public class DialogButton : MonoBehaviour
 {
     [SerializeField] private GameObject button;
     void Start()
