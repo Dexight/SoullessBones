@@ -110,7 +110,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 1141
-        width: 698
+        width: 697
         height: 395
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -302,7 +302,7 @@ TextureImporter:
         width: 341
         height: 145
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,7 +323,7 @@ TextureImporter:
         width: 225
         height: 88
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -344,7 +344,7 @@ TextureImporter:
         width: 365
         height: 117
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -367,7 +367,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      background details_5: 1804331150
+      background details_0: 1237979016
       background details_8: 543180352
       background details_2: 1073345524
       background details_6: 911189199
@@ -378,7 +378,7 @@ TextureImporter:
       background details_9: -1807261476
       background details_10: 1782907800
       background details_4: 982289708
-      background details_0: 1237979016
+      background details_5: 1804331150
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
