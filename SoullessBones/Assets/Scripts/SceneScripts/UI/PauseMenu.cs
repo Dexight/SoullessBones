@@ -44,7 +44,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
         attackSystem.gameIsPaused = false;
         CheatBoxOff();
-        SettingsPanel.SetActive(false);
+        //SettingsPanel.SetActive(false);
 
         //audio
         if(!timeManager.TimeIsStopped)

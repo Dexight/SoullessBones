@@ -15,7 +15,7 @@ public class Settings : MonoBehaviour
     public Resolution[] Resolutions;
     void Start()
     {
-        toggle.isOn = false;
+        toggle.isOn = !Screen.fullScreen;
         ResolutionDropdown.ClearOptions();
         List<string> Options = new List<string>();
         Resolutions = Screen.resolutions;
@@ -32,6 +32,11 @@ public class Settings : MonoBehaviour
         LoadSettings(CurrentResolutionIndex);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SaveAndCloseSettings();
+    }
     public void SetWindowMode()=>Screen.fullScreen = !toggle.isOn;
 
 
