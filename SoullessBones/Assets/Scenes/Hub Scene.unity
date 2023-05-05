@@ -4562,7 +4562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
   canUseAstral: 1
-  timeLessSpeed: 0.6
   cooldownSpeed: 0.2
 --- !u!114 &917131337
 MonoBehaviour:

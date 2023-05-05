@@ -16,6 +16,7 @@ public class CultistMove : MonoBehaviour
     [SerializeField] Transform wallCheck;
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask layer;
+    [SerializeField] RectTransform healthBar;
 
     #region Aggro Zone Variables
     [Header("Aggro Zone")]
@@ -105,6 +106,8 @@ public class CultistMove : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+
+        healthBar.rotation = !facingRight ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
     }
     #endregion
 

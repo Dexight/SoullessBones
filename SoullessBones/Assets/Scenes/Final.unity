@@ -611,7 +611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185563812683023897, guid: 3fec6a76f90289744b91b1a7c885e081, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9185563812683023899, guid: 3fec6a76f90289744b91b1a7c885e081, type: 3}
       propertyPath: m_RootOrder
@@ -7227,7 +7227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 7508500775053349254, guid: 22b3ff3ab7cf79b41890597acffd16b3, type: 3}
   canUseAstral: 1
-  timeLessSpeed: 0.6
   cooldownSpeed: 0.2
 --- !u!114 &1948572021
 MonoBehaviour:
