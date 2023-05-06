@@ -39,17 +39,20 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-        attackSystem.gameIsPaused = false;
-        CheatBoxOff();
-        //SettingsPanel.SetActive(false);
+        if (!SettingsPanel.activeSelf)
+        {
+            PauseMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+            attackSystem.gameIsPaused = false;
+            CheatBoxOff();
+            //SettingsPanel.SetActive(false);
 
-        //audio
-        if(!timeManager.TimeIsStopped)
-            GameObject.FindWithTag("Player").GetComponent<MovementController>()._CanMove = true;
-        SoundVolumeController.PauseMusic(false);
+            //audio
+            if (!timeManager.TimeIsStopped)
+                GameObject.FindWithTag("Player").GetComponent<MovementController>()._CanMove = true;
+            SoundVolumeController.PauseMusic(false);
+        }     
     }
     void Pause()
     {
