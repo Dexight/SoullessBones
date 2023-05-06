@@ -720,6 +720,7 @@ GameObject:
   - component: {fileID: 248862228}
   - component: {fileID: 248862227}
   - component: {fileID: 248862230}
+  - component: {fileID: 248862233}
   - component: {fileID: 248862231}
   m_Layer: 0
   m_Name: cacoon_elf_0
@@ -855,6 +856,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.018844, y: 1.3333334}
   m_EdgeRadius: 0
+--- !u!114 &248862233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248862226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eff140b25d64601aabc6ba32245d099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InkJSON: {fileID: 4900000, guid: 3ad26951f75c1c847a45a653f5b3d6c1, type: 3}
 --- !u!1 &253632019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,7 +1738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 623035651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2297864, y: 3.42987, z: -9.76}
+  m_LocalPosition: {x: 7.993172, y: 3.3719099, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4129,6 +4143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DialogManager: {fileID: 6467086}
   dialogItem: {fileID: 2109766073}
+  elf: {fileID: 248862226}
 --- !u!1001 &1314851828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4453,7 +4468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408047001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.28, y: 3.430522, z: -9.76}
+  m_LocalPosition: {x: 11.119, y: 3.372522, z: -9.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27648,7 +27663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140269020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.28, y: 3.09, z: 0}
+  m_LocalPosition: {x: 11.119, y: 3.032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
