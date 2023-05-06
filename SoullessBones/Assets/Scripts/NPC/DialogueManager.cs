@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null) 
+        if (instance != null)
         {
             Debug.LogWarning("More than one dialogue in one scene");
         }
@@ -33,7 +33,7 @@ public class DialogueManager : MonoBehaviour
         return instance;
     }
 
-    private void Start() 
+    private void Start()
     {
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
@@ -41,9 +41,9 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if (!dialogueIsPlaying) 
+        if (!dialogueIsPlaying)
         {
-            return; 
+            return;
         }
         if (Input.GetKeyDown(Key))
         {
@@ -51,7 +51,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON) 
+    public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
@@ -65,7 +65,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
     }
 
-    private void ContinueStory() 
+    private void ContinueStory()
     {
         if (currentStory.canContinue)
         {

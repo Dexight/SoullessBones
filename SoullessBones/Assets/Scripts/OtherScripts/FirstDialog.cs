@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FirstDialog : MonoBehaviour
 {
-    [SerializeField] private GameObject DialogManager;
     [SerializeField] private GameObject dialogItem;
     [SerializeField] private GameObject elf;
     private void Start()
@@ -14,10 +13,12 @@ public class FirstDialog : MonoBehaviour
             Destroy(dialogItem.GetComponent<StartDialogueScript>());
             // Destroy(DialogManager);
             // Destroy(gameObject);
+            // Debug.LogWarning("1");
         }
         else
         {
             Destroy(elf.GetComponent<DialogueScript>());
+            // Debug.LogWarning("2");
         }
     }
 }
