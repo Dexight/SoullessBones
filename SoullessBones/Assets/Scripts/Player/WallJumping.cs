@@ -28,6 +28,7 @@ public class WallJumping : MonoBehaviour
     public int DirectionX;
     public Vector2 climbJumpForce;
     private Vector2 realClimbJumpForce;
+    public bool CanWallJump;
     #endregion
 
     void Awake()
@@ -36,7 +37,8 @@ public class WallJumping : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         wallSlideSpeed = 0.7f;
         movementController = GetComponent<MovementController>();
-        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();  
+        timeManager = GameObject.FindGameObjectWithTag("TimeManager").GetComponent<TimeManager>();
+        CanWallJump = true;
     }
 
     void Update()
@@ -49,7 +51,7 @@ public class WallJumping : MonoBehaviour
     {
         WallSlide();
 
-        if (isWallSliding && Input.GetKey(KeyCode.Space))
+        if (isWallSliding && Input.GetKey(KeyCode.Space) && CanWallJump)
         {
             movementController._CanMove = false;
             WallJump();

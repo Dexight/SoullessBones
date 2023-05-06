@@ -33,6 +33,7 @@ public class SceneLoader : MonoBehaviour
         SoundVolumeController.LoadToScene(sceneName);
         astral.canUseAstral = false;
         MovementController.instance.canJumpDown = false;
+        MovementController.instance.GetComponent<WallJumping>().CanWallJump = false;
         StartCoroutine(FadeOut(sceneName, load, isSave, isDead));
     }
 
@@ -58,6 +59,7 @@ public class SceneLoader : MonoBehaviour
         GameManager.instance.Player.GetComponent<MovementController>()._CanMove = true;
         astral.canUseAstral = true;
         MovementController.instance.canJumpDown = true;
+        MovementController.instance.GetComponent<WallJumping>().CanWallJump = true;
         MovementController.instance.GetComponent<HealthSystem>().SetDead(false);
     }
 
