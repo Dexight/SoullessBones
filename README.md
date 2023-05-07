@@ -84,23 +84,3 @@ Soulless Bones - 2D дарк фэнтези метроидвания о жизн
 VK: https://vk.com/dexight
 
 TG: @Dexight
-
-# Используемые материалы
-
-**Музыка:**
-
-GoSoundtrack - Nostalgia
-
-Marcel Pequel - Four
-
-motoi sakuraba - vordt of the boreal valley
-
-**Звуки взяты со следующих онлайн ресурсов:**
-
-https://zvukipro.com
-
-https://mp3crown.top
-
-https://zvukogram.com
-
-Фон-заглушка пещеры из игры: https://yandex.ru/images/search?url=https%3A%2F%2Favatars.mds.yandex.net%2Fget-images-cbir%2F7750969%2Fzb_Bn0vcRTOniNhQqcSSUA575%2Forig&cbir_id=7750969%2Fzb_Bn0vcRTOniNhQqcSSUA575&rpt=imageview&cbir_page=similar&pos=0&img_url=http%3A%2F%2Fget.wallhere.com%2Fphoto%2Fcave-video-games-dark-stalactites-2170611.jpg
