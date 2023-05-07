@@ -77,12 +77,26 @@ public class MovementController : MonoBehaviour
         isWallSliding = wallJumping.isWallSliding;
         isTouchingWall = wallJumping.isTouchingWall && wallJumping.enabled;
 
-        if(_CanMove)
-            HorizontalMove();
+        if (!DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            if (_CanMove)
+                HorizontalMove();
+            NormalJump();
+            JumpDown();
+            Flip();
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
+            _moveInput = Input.GetAxisRaw("Horizontal");
+            //Воспроизведение звука ходьбы
+            if (alreadyWalking)
+            {
+                alreadyWalking = false;
+                SoundVolumeController.PlayLongEffect(false, 0);
+            }
+        }
         fall_limit(MaxFallSpeed);
-        NormalJump();
-        JumpDown();
-        Flip();
         Animations();
         CheckWorld();
         if (isGrounded && isTouchingWall && !Input.GetKey(KeyCode.Space))   //Фикс бага с прыгающей rb.velocity.y при спаме ходьбы в стенку;

@@ -35,10 +35,6 @@ public class DialogueScript : MonoBehaviour
                 DialogueManager.GetInstance().EnterDialogueMode(InkJSON);
             }
         }
-        else
-        {
-            DialogueManager.GetInstance().ExitDialogueMode();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
