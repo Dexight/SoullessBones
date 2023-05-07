@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ghost
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 7a96409dda3186640b7119f12c8f01bc, type: 3}
+    - {fileID: 2800000, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+    - {fileID: 2800000, guid: d25882317f07588478c132e3913e12ea, type: 3}
+    - {fileID: 2800000, guid: 30bb4c7235d91804fbcda24071ee35cb, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: d25882317f07588478c132e3913e12ea, type: 3}
+  - {fileID: -1776013446, guid: 30bb4c7235d91804fbcda24071ee35cb, type: 3}
+  - {fileID: 1582195141, guid: 30bb4c7235d91804fbcda24071ee35cb, type: 3}
+  - {fileID: 1205202170, guid: 30bb4c7235d91804fbcda24071ee35cb, type: 3}
+  - {fileID: -358001281, guid: 30bb4c7235d91804fbcda24071ee35cb, type: 3}
+  - {fileID: 1563525301, guid: 30bb4c7235d91804fbcda24071ee35cb, type: 3}
+  - {fileID: -672911943, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: 161525198, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: 377728630, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: -772307119, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: -142991341, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: -1891190038, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: 2145920260, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: -946910846, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: 2133294312, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: -2038647014, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: 2099595910, guid: eed00b3d927b39744995dcf02962a627, type: 3}
+  - {fileID: 21300000, guid: 7a96409dda3186640b7119f12c8f01bc, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Ghost Jump (32x32)
+  - Ghost Wall Jump (32x32)_4
+  - Ghost Wall Jump (32x32)_2
+  - Ghost Wall Jump (32x32)_3
+  - Ghost Wall Jump (32x32)_0
+  - Ghost Wall Jump (32x32)_1
+  - Ghost Idle (32x32)_8
+  - Ghost Idle (32x32)_9
+  - Ghost Idle (32x32)_0
+  - Ghost Idle (32x32)_1
+  - Ghost Idle (32x32)_2
+  - Ghost Idle (32x32)_3
+  - Ghost Idle (32x32)_4
+  - Ghost Idle (32x32)_5
+  - Ghost Idle (32x32)_6
+  - Ghost Idle (32x32)_7
+  - Ghost Idle (32x32)_10
+  - Ghost Fall (32x32)
+  m_RenderDataMap: {}
+  m_Tag: Ghost
+  m_IsVariant: 0

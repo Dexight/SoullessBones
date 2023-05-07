@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpiderBoss
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+    - {fileID: 2800000, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+    - {fileID: 2800000, guid: 782d1e7bb8d89c846ac25d52f96f020a, type: 3}
+    - {fileID: 2800000, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+    - {fileID: 2800000, guid: 40769d20cd52a184b9d4046a2ad385b7, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 1494905586, guid: 40769d20cd52a184b9d4046a2ad385b7, type: 3}
+  - {fileID: 760267426, guid: 40769d20cd52a184b9d4046a2ad385b7, type: 3}
+  - {fileID: -611462342, guid: 40769d20cd52a184b9d4046a2ad385b7, type: 3}
+  - {fileID: -1116524313, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+  - {fileID: 1087562157, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+  - {fileID: 1885301396, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+  - {fileID: -1615418385, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+  - {fileID: 1347660085, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+  - {fileID: 507944821, guid: f70a79a4e9d3a0c4c85d6ae10edb4bdd, type: 3}
+  - {fileID: -214406421, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: -60549287, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: -1919198512, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: -1428346211, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: 1787527083, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: -1347599661, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: 1239911879, guid: 0349146674592e2499e6e6859c0a87f9, type: 3}
+  - {fileID: 509502807, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+  - {fileID: 1987202869, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+  - {fileID: -392611422, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+  - {fileID: 430749821, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+  - {fileID: -1167873881, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+  - {fileID: 1887143925, guid: e9bea8cab79ddd445a6f5017a48f7b30, type: 3}
+  - {fileID: 21300000, guid: 782d1e7bb8d89c846ac25d52f96f020a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - boss_child_2
+  - boss_child_0
+  - boss_child_1
+  - spider_idle_4
+  - spider_idle_5
+  - spider_idle_0
+  - spider_idle_1
+  - spider_idle_2
+  - spider_idle_3
+  - toxic_1
+  - toxic_0
+  - toxic_3
+  - toxic_2
+  - toxic_5
+  - toxic_4
+  - toxic_6
+  - WebLine_4
+  - WebLine_5
+  - WebLine_0
+  - WebLine_1
+  - WebLine_2
+  - WebLine_3
+  - Shield
+  m_RenderDataMap: {}
+  m_Tag: SpiderBoss
+  m_IsVariant: 0

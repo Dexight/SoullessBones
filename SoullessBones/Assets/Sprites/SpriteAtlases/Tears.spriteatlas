@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tears
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 21119e23f538c5740939d1a0a96a57fc, type: 3}
+    - {fileID: 2800000, guid: 89e38ba2ab0b6c8489a4c7669b68b2ed, type: 3}
+    - {fileID: 2800000, guid: 454c923f2cc0e284eace17e41f484260, type: 3}
+    - {fileID: 2800000, guid: c19be3be489c9d6439e0541d0d304098, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -16235106, guid: 89e38ba2ab0b6c8489a4c7669b68b2ed, type: 3}
+  - {fileID: -328619696, guid: 89e38ba2ab0b6c8489a4c7669b68b2ed, type: 3}
+  - {fileID: 1920182714, guid: 89e38ba2ab0b6c8489a4c7669b68b2ed, type: 3}
+  - {fileID: 125402575, guid: 89e38ba2ab0b6c8489a4c7669b68b2ed, type: 3}
+  - {fileID: 795466839, guid: 21119e23f538c5740939d1a0a96a57fc, type: 3}
+  - {fileID: 704721848, guid: 21119e23f538c5740939d1a0a96a57fc, type: 3}
+  - {fileID: -1886305802, guid: 21119e23f538c5740939d1a0a96a57fc, type: 3}
+  - {fileID: 2109935568, guid: 21119e23f538c5740939d1a0a96a57fc, type: 3}
+  - {fileID: -374276731, guid: c19be3be489c9d6439e0541d0d304098, type: 3}
+  - {fileID: 991342600, guid: c19be3be489c9d6439e0541d0d304098, type: 3}
+  - {fileID: 665141067, guid: c19be3be489c9d6439e0541d0d304098, type: 3}
+  - {fileID: -1443864655, guid: c19be3be489c9d6439e0541d0d304098, type: 3}
+  - {fileID: 2097084144, guid: 454c923f2cc0e284eace17e41f484260, type: 3}
+  - {fileID: -222898933, guid: 454c923f2cc0e284eace17e41f484260, type: 3}
+  - {fileID: -366770065, guid: 454c923f2cc0e284eace17e41f484260, type: 3}
+  - {fileID: 609401808, guid: 454c923f2cc0e284eace17e41f484260, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - tearsRL_crash_1
+  - tearsRL_crash_0
+  - tearsRL_crash_3
+  - tearsRL_crash_2
+  - tears_3
+  - tears_2
+  - tears_1
+  - tears_0
+  - tearsUP_crash_0
+  - tearsUP_crash_1
+  - tearsUP_crash_2
+  - tearsUP_crash_3
+  - tearsUp_0
+  - tearsUp_1
+  - tearsUp_2
+  - tearsUp_3
+  m_RenderDataMap: {}
+  m_Tag: Tears
+  m_IsVariant: 0
