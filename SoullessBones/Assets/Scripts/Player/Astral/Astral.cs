@@ -45,7 +45,7 @@ public class Astral : MonoBehaviour
             _animator.enabled = false;
         }
 
-        if ((Input.GetKeyDown(KeyCode.Q)) && canUseAstral) //Stop Time when Q is pressed
+        if ((Input.GetKeyDown(KeyCode.Q)) && canUseAstral && !DialogueManager.GetInstance().dialogueIsPlaying) //Stop Time when Q is pressed
         {
             if(!GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>().GameIsPaused)
             {

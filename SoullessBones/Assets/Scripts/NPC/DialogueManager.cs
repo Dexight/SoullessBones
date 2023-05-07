@@ -36,7 +36,8 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
+        if(dialoguePanel)
+            dialoguePanel.SetActive(false);
     }
 
     private void Update()

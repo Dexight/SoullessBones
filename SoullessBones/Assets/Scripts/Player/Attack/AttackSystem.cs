@@ -46,7 +46,7 @@ public class AttackSystem : MonoBehaviour
     void Update()
     {
         //Slash
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.K)) && CanAttack && !onWall && !gameIsPaused && !inAstral)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.K)) && CanAttack && !onWall && !gameIsPaused && !inAstral && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
             if (Input.GetKey(KeyCode.W))
             {
@@ -89,7 +89,7 @@ public class AttackSystem : MonoBehaviour
 
         if (distanceUnlock)
         {
-            if ((Input.GetMouseButton(1)||Input.GetKeyDown(KeyCode.L)) && CanThrow && !onWall && !gameIsPaused && !inAstral && !BottleUI.isIncrementing)
+            if ((Input.GetMouseButton(1)||Input.GetKeyDown(KeyCode.L)) && CanThrow && !onWall && !gameIsPaused && !inAstral && !BottleUI.isIncrementing && !DialogueManager.GetInstance().dialogueIsPlaying)
             {
                 if (!Input.GetKey(KeyCode.W))
                 {

@@ -84,11 +84,13 @@ public class MovementController : MonoBehaviour
             NormalJump();
             JumpDown();
             Flip();
+            Animations();
         }
         else
         {
-            rb.velocity = new Vector2(0, 0);
-            _moveInput = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(0, rb.velocity.y);
+            _moveInput = 0;
+            Animations();
             //Воспроизведение звука ходьбы
             if (alreadyWalking)
             {
@@ -97,7 +99,6 @@ public class MovementController : MonoBehaviour
             }
         }
         fall_limit(MaxFallSpeed);
-        Animations();
         CheckWorld();
         if (isGrounded && isTouchingWall && !Input.GetKey(KeyCode.Space))   //Фикс бага с прыгающей rb.velocity.y при спаме ходьбы в стенку;
             rb.velocity = new Vector2(0, 0);
